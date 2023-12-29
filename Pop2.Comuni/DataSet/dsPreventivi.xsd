@@ -1,0 +1,1244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPreventivi" targetNamespace="http://tempuri.org/dsPreventivi.xsd" xmlns:mstns="http://tempuri.org/dsPreventivi.xsd" xmlns="http://tempuri.org/dsPreventivi.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taPreventivi" GeneratorDataComponentClassName="taPreventivi" Name="dtPreventivi" UserDataComponentName="taPreventivi">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        p.id, p.id_operazioni, p.id_destinatario, p.data, p.note, p.prezzo, p.id_frequenza, p.id_categoria, p.sort, pc.descrizione AS categoria, pd.societa, pf.descrizione AS frequenza, po.descrizione AS operazione, 
+pf.sort AS sortfrequenza, p.id_dimensioni,p.impegnomq,p.impegnonumero,p.dimensioni,p.visibile,
+p.taratura
+
+FROM           preventivi p 
+LEFT OUTER JOIN
+                         preventivi_categorie pc ON p.id_categoria = pc.id 
+ LEFT OUTER JOIN
+                         preventivi_destinatari pd ON p.id_destinatario = pd.id 
+ LEFT OUTER JOIN
+                         preventivi_frequenze pf ON p.id_frequenza = pf.id 
+ LEFT OUTER JOIN
+                         preventivi_operazioni po ON p.id_operazioni = po.id 
+ORDER BY p.sort</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_operazioni" DataSetColumn="id_operazioni" />
+              <Mapping SourceColumn="id_destinatario" DataSetColumn="id_destinatario" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="prezzo" DataSetColumn="prezzo" />
+              <Mapping SourceColumn="id_frequenza" DataSetColumn="id_frequenza" />
+              <Mapping SourceColumn="id_categoria" DataSetColumn="id_categoria" />
+              <Mapping SourceColumn="categoria" DataSetColumn="categoria" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="frequenza" DataSetColumn="frequenza" />
+              <Mapping SourceColumn="operazione" DataSetColumn="operazione" />
+              <Mapping SourceColumn="sort" DataSetColumn="sort" />
+              <Mapping SourceColumn="sortfrequenza" DataSetColumn="sortfrequenza" />
+              <Mapping SourceColumn="id_dimensioni" DataSetColumn="id_dimensioni" />
+              <Mapping SourceColumn="impegnomq" DataSetColumn="impegnomq" />
+              <Mapping SourceColumn="impegnonumero" DataSetColumn="impegnonumero" />
+              <Mapping SourceColumn="dimensioni" DataSetColumn="dimensioni" />
+              <Mapping SourceColumn="visibile" DataSetColumn="visibile" />
+              <Mapping SourceColumn="taratura" DataSetColumn="taratura" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM preventivi
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO preventivi
+                         (id_operazioni, id_destinatario, data, note, prezzo, id_frequenza, id_categoria, sort, id_dimensioni, impegnomq, impegnonumero, dimensioni,visibile,taratura)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id_operazioni" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_operazioni" Precision="0" Scale="0" Size="0" SourceColumn="id_operazioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="id_destinatario" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.preventivi" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="note" DataSourceName="cesar.preventivi" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="prezzo" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="prezzo" Precision="10" Scale="2" Size="0" SourceColumn="prezzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param6" ColumnName="id_frequenza" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_frequenza" Precision="0" Scale="0" Size="0" SourceColumn="id_frequenza" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="id_categoria" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_categoria" Precision="0" Scale="0" Size="0" SourceColumn="id_categoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="sort" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="sort" Precision="0" Scale="0" Size="0" SourceColumn="sort" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="id_dimensioni" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dimensioni" Precision="0" Scale="0" Size="0" SourceColumn="id_dimensioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="impegnomq" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnomq" Precision="10" Scale="2" Size="0" SourceColumn="impegnomq" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="impegnonumero" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnonumero" Precision="10" Scale="2" Size="0" SourceColumn="impegnonumero" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="dimensioni" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="dimensioni" Precision="10" Scale="2" Size="0" SourceColumn="dimensioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="visibile" DataSourceName="cesar.preventivi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="visibile" Precision="0" Scale="0" Size="0" SourceColumn="visibile" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="taratura" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="taratura" Precision="10" Scale="2" Size="0" SourceColumn="taratura" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SQultimoID" Modifier="Public" Name="SQultimoID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="SQultimoID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(id) AS id
+FROM            preventivi p</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SQultimoOrdine" Modifier="Public" Name="SQultimoOrdine" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="SQultimoOrdine">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(sort) AS sort
+FROM            preventivi p
+WHERE        (id_destinatario = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id_destinatario" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SQultimoSORT" Modifier="Public" Name="SQultimoSORT" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="SQultimoSORT">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(sort) AS Expr1
+FROM            preventivi p
+WHERE        (id_destinatario = ?) AND (id_categoria = ?) AND (id_frequenza = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id_destinatario" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="id_categoria" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_categoria" Precision="0" Scale="0" Size="0" SourceColumn="id_categoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="id_frequenza" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_frequenza" Precision="0" Scale="0" Size="0" SourceColumn="id_frequenza" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       preventivi
+SET                id_operazioni = ?, id_destinatario = ?, data = ?, note = ?, prezzo = ?, id_frequenza = ?, id_categoria = ?, sort = ?, id_dimensioni = ?, impegnomq = ?, impegnonumero = ?, dimensioni = ?,visibile=?,taratura=?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id_operazioni" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_operazioni" Precision="0" Scale="0" Size="0" SourceColumn="id_operazioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="id_destinatario" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.preventivi" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="note" DataSourceName="cesar.preventivi" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="prezzo" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="prezzo" Precision="10" Scale="2" Size="0" SourceColumn="prezzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param6" ColumnName="id_frequenza" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_frequenza" Precision="0" Scale="0" Size="0" SourceColumn="id_frequenza" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="id_categoria" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_categoria" Precision="0" Scale="0" Size="0" SourceColumn="id_categoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="sort" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="sort" Precision="0" Scale="0" Size="0" SourceColumn="sort" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="id_dimensioni" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dimensioni" Precision="0" Scale="0" Size="0" SourceColumn="id_dimensioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="impegnomq" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnomq" Precision="10" Scale="2" Size="0" SourceColumn="impegnomq" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="impegnonumero" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnonumero" Precision="10" Scale="2" Size="0" SourceColumn="impegnonumero" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="dimensioni" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="dimensioni" Precision="10" Scale="2" Size="0" SourceColumn="dimensioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="visibile" DataSourceName="cesar.preventivi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="visibile" Precision="0" Scale="0" Size="0" SourceColumn="visibile" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="taratura" DataSourceName="cesar.preventivi" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="taratura" Precision="10" Scale="2" Size="0" SourceColumn="taratura" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param15" ColumnName="id" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryOrdine" Modifier="Public" Name="UpdateQueryOrdine" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="UpdateQueryOrdine">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       preventivi
+SET                sort = ?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="sort" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="sort" Precision="0" Scale="0" Size="0" SourceColumn="sort" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id" DataSourceName="cesar.preventivi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taPreventiviOperazioni" GeneratorDataComponentClassName="taPreventiviOperazioni" Name="dtPreventiviOperazioni" UserDataComponentName="taPreventiviOperazioni">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        po.*
+FROM            preventivi_operazioni po
+ORDER BY po.descrizione</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="impegnometroquadro" DataSetColumn="impegnometroquadro" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="attivo" DataSetColumn="attivo" />
+              <Mapping SourceColumn="idcategoria" DataSetColumn="idcategoria" />
+              <Mapping SourceColumn="impegnonumero" DataSetColumn="impegnonumero" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM preventivi_operazioni
+WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO preventivi_operazioni
+                         (descrizione, impegnometroquadro, data, attivo, idcategoria, impegnonumero)
+VALUES        (?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="descrizione" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="1024" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="impegnometroquadro" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnometroquadro" Precision="10" Scale="2" Size="0" SourceColumn="impegnometroquadro" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="attivo" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="idcategoria" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idcategoria" Precision="0" Scale="0" Size="0" SourceColumn="idcategoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="impegnonumero" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnonumero" Precision="10" Scale="2" Size="0" SourceColumn="impegnonumero" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       preventivi_operazioni
+SET                descrizione = ?, impegnometroquadro = ?, data = ?, attivo = ?, idcategoria = ?, impegnonumero = ?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="descrizione" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="1024" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="impegnometroquadro" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnometroquadro" Precision="10" Scale="2" Size="0" SourceColumn="impegnometroquadro" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="attivo" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="idcategoria" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idcategoria" Precision="0" Scale="0" Size="0" SourceColumn="idcategoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="impegnonumero" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="impegnonumero" Precision="10" Scale="2" Size="0" SourceColumn="impegnonumero" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="id" DataSourceName="cesar.preventivi_operazioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taPreventiviCategorie" GeneratorDataComponentClassName="taPreventiviCategorie" Name="dtPreventiviCategorie" UserDataComponentName="taPreventiviCategorie">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pc.*
+FROM            preventivi_categorie pc
+ORDER BY pc.sort,pc.descrizione</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="sort" DataSetColumn="sort" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taPreventiviFrequenze" GeneratorDataComponentClassName="taPreventiviFrequenze" Name="dtPreventiviFrequenze" UserDataComponentName="taPreventiviFrequenze">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pf.*
+FROM            preventivi_frequenze pf</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="numerointerventi" DataSetColumn="numerointerventi" />
+              <Mapping SourceColumn="sort" DataSetColumn="sort" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taPreventiviDestinatari" GeneratorDataComponentClassName="taPreventiviDestinatari" Name="dtPreventiviDestinatari" UserDataComponentName="taPreventiviDestinatari">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT pd.* FROM preventivi_destinatari pd
+ORDER BY pd.id DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="indirizzo" DataSetColumn="indirizzo" />
+              <Mapping SourceColumn="cap" DataSetColumn="cap" />
+              <Mapping SourceColumn="localita" DataSetColumn="localita" />
+              <Mapping SourceColumn="prv" DataSetColumn="prv" />
+              <Mapping SourceColumn="tit" DataSetColumn="tit" />
+              <Mapping SourceColumn="Resp" DataSetColumn="Resp" />
+              <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
+              <Mapping SourceColumn="sicurezzaluoghi" DataSetColumn="sicurezzaluoghi" />
+              <Mapping SourceColumn="prezzooranum" DataSetColumn="prezzooranum" />
+              <Mapping SourceColumn="prezzooratxt" DataSetColumn="prezzooratxt" />
+              <Mapping SourceColumn="canonenum" DataSetColumn="canonenum" />
+              <Mapping SourceColumn="canonetxt" DataSetColumn="canonetxt" />
+              <Mapping SourceColumn="sicurezzanum" DataSetColumn="sicurezzanum" />
+              <Mapping SourceColumn="sicurezzatxt" DataSetColumn="sicurezzatxt" />
+              <Mapping SourceColumn="provanum" DataSetColumn="provanum" />
+              <Mapping SourceColumn="provadat" DataSetColumn="provadat" />
+              <Mapping SourceColumn="scadenza" DataSetColumn="scadenza" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="ricontatti" DataSetColumn="ricontatti" />
+              <Mapping SourceColumn="r_tel" DataSetColumn="r_tel" />
+              <Mapping SourceColumn="r_mail" DataSetColumn="r_mail" />
+              <Mapping SourceColumn="creatoil" DataSetColumn="creatoil" />
+              <Mapping SourceColumn="decorrenza" DataSetColumn="decorrenza" />
+              <Mapping SourceColumn="p_iva" DataSetColumn="p_iva" />
+              <Mapping SourceColumn="c_f" DataSetColumn="c_f" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM preventivi_destinatari WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO preventivi_destinatari
+                         (societa, indirizzo, cap, localita, prv, tit, Resp, telefono, sicurezzaluoghi, prezzooranum, prezzooratxt, canonenum, canonetxt, sicurezzanum, sicurezzatxt, provanum, provadat, scadenza, note, ricontatti, r_tel, r_mail, creatoil, 
+                         decorrenza, p_iva, c_f)
+VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now(),?,?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="societa" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="societa" Precision="0" Scale="0" Size="1024" SourceColumn="societa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="indirizzo" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="indirizzo" Precision="0" Scale="0" Size="1024" SourceColumn="indirizzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="cap" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="cap" Precision="0" Scale="0" Size="1024" SourceColumn="cap" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="localita" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="localita" Precision="0" Scale="0" Size="1024" SourceColumn="localita" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="prv" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="prv" Precision="0" Scale="0" Size="1024" SourceColumn="prv" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="tit" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="tit" Precision="0" Scale="0" Size="1024" SourceColumn="tit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="Resp" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="Resp" Precision="0" Scale="0" Size="1024" SourceColumn="Resp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="telefono" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="telefono" Precision="0" Scale="0" Size="1024" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="sicurezzaluoghi" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="sicurezzaluoghi" Precision="0" Scale="0" Size="1024" SourceColumn="sicurezzaluoghi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="prezzooranum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="double" DbType="Decimal" Direction="Input" ParameterName="prezzooranum" Precision="15" Scale="0" Size="0" SourceColumn="prezzooranum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="prezzooratxt" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="prezzooratxt" Precision="0" Scale="0" Size="1024" SourceColumn="prezzooratxt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="canonenum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="double" DbType="Decimal" Direction="Input" ParameterName="canonenum" Precision="15" Scale="0" Size="0" SourceColumn="canonenum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="canonetxt" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="canonetxt" Precision="0" Scale="0" Size="1024" SourceColumn="canonetxt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="sicurezzanum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="double" DbType="Decimal" Direction="Input" ParameterName="sicurezzanum" Precision="15" Scale="0" Size="0" SourceColumn="sicurezzanum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param15" ColumnName="sicurezzatxt" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="sicurezzatxt" Precision="0" Scale="0" Size="1024" SourceColumn="sicurezzatxt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param16" ColumnName="provanum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="provanum" Precision="0" Scale="0" Size="0" SourceColumn="provanum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param17" ColumnName="provadat" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="provadat" Precision="0" Scale="0" Size="0" SourceColumn="provadat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param18" ColumnName="scadenza" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="scadenza" Precision="0" Scale="0" Size="0" SourceColumn="scadenza" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param19" ColumnName="note" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param20" ColumnName="ricontatti" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="ricontatti" Precision="0" Scale="0" Size="1024" SourceColumn="ricontatti" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param21" ColumnName="r_tel" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="r_tel" Precision="0" Scale="0" Size="1024" SourceColumn="r_tel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param22" ColumnName="r_mail" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="r_mail" Precision="0" Scale="0" Size="1024" SourceColumn="r_mail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param23" ColumnName="decorrenza" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="decorrenza" Precision="0" Scale="0" Size="0" SourceColumn="decorrenza" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param24" ColumnName="p_iva" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="p_iva" Precision="0" Scale="0" Size="1024" SourceColumn="p_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param25" ColumnName="c_f" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="c_f" Precision="0" Scale="0" Size="1024" SourceColumn="c_f" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="sqUltimoID" Modifier="Public" Name="sqUltimoID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="sqUltimoID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        max(pd.id)
+FROM            preventivi_destinatari pd</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       preventivi_destinatari
+SET               societa =?, indirizzo =?, cap =?, localita =?, prv =?, tit =?, Resp =?, telefono =?,
+ sicurezzaluoghi =?, prezzooranum =?, prezzooratxt =?, canonenum =?, canonetxt =?,
+ sicurezzanum =?, sicurezzatxt =?, provanum =?, provadat =?, scadenza =?, note =?, 
+                         ricontatti =?, r_tel =?, r_mail =?, creatoil =?, decorrenza =?, p_iva =?, c_f =?
+WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="societa" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="societa" Precision="0" Scale="0" Size="1024" SourceColumn="societa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="indirizzo" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="indirizzo" Precision="0" Scale="0" Size="1024" SourceColumn="indirizzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="cap" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="cap" Precision="0" Scale="0" Size="1024" SourceColumn="cap" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="localita" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="localita" Precision="0" Scale="0" Size="1024" SourceColumn="localita" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="prv" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="prv" Precision="0" Scale="0" Size="1024" SourceColumn="prv" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="tit" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="tit" Precision="0" Scale="0" Size="1024" SourceColumn="tit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="Resp" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="Resp" Precision="0" Scale="0" Size="1024" SourceColumn="Resp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="telefono" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="telefono" Precision="0" Scale="0" Size="1024" SourceColumn="telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="sicurezzaluoghi" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="sicurezzaluoghi" Precision="0" Scale="0" Size="1024" SourceColumn="sicurezzaluoghi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="prezzooranum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="double" DbType="Decimal" Direction="Input" ParameterName="prezzooranum" Precision="15" Scale="0" Size="0" SourceColumn="prezzooranum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="prezzooratxt" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="prezzooratxt" Precision="0" Scale="0" Size="1024" SourceColumn="prezzooratxt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="canonenum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="double" DbType="Decimal" Direction="Input" ParameterName="canonenum" Precision="15" Scale="0" Size="0" SourceColumn="canonenum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="canonetxt" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="canonetxt" Precision="0" Scale="0" Size="1024" SourceColumn="canonetxt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="sicurezzanum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="double" DbType="Decimal" Direction="Input" ParameterName="sicurezzanum" Precision="15" Scale="0" Size="0" SourceColumn="sicurezzanum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param15" ColumnName="sicurezzatxt" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="sicurezzatxt" Precision="0" Scale="0" Size="1024" SourceColumn="sicurezzatxt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param16" ColumnName="provanum" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="provanum" Precision="0" Scale="0" Size="0" SourceColumn="provanum" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param17" ColumnName="provadat" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="provadat" Precision="0" Scale="0" Size="0" SourceColumn="provadat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param18" ColumnName="scadenza" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="scadenza" Precision="0" Scale="0" Size="0" SourceColumn="scadenza" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param19" ColumnName="note" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param20" ColumnName="ricontatti" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="ricontatti" Precision="0" Scale="0" Size="1024" SourceColumn="ricontatti" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param21" ColumnName="r_tel" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="r_tel" Precision="0" Scale="0" Size="1024" SourceColumn="r_tel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param22" ColumnName="r_mail" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="r_mail" Precision="0" Scale="0" Size="1024" SourceColumn="r_mail" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param23" ColumnName="creatoil" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="creatoil" Precision="0" Scale="0" Size="0" SourceColumn="creatoil" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param24" ColumnName="decorrenza" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="decorrenza" Precision="0" Scale="0" Size="0" SourceColumn="decorrenza" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param25" ColumnName="p_iva" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="p_iva" Precision="0" Scale="0" Size="1024" SourceColumn="p_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param26" ColumnName="c_f" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="c_f" Precision="0" Scale="0" Size="1024" SourceColumn="c_f" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param27" ColumnName="id" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taPreventiviDimensioni" GeneratorDataComponentClassName="taPreventiviDimensioni" Name="dtPreventiviDimensioni" UserDataComponentName="taPreventiviDimensioni">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="cesar.preventivi_dimensioni" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, id_preventivo, descrizione, dimensioni FROM preventivi_dimensioni pm</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_preventivo" DataSetColumn="id_preventivo" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="dimensioni" DataSetColumn="dimensioni" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPreventivo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPreventivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByPreventivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, id_preventivo, descrizione, dimensioni FROM preventivi_dimensioni pm WHERE (id_preventivo = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_preventivo" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_preventivo" Precision="0" Scale="0" Size="0" SourceColumn="id_preventivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO preventivi_dimensioni
+                         (id_preventivo, descrizione, dimensioni)
+VALUES        (?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_preventivo" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_preventivo" Precision="0" Scale="0" Size="0" SourceColumn="id_preventivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="descrizione" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="1024" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="dimensioni" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="dimensioni" Precision="10" Scale="2" Size="0" SourceColumn="dimensioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="sqUltimoID" Modifier="Public" Name="sqUltimoID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="sqUltimoID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(pm.id)
+FROM            preventivi_dimensioni pm</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       preventivi_dimensioni
+SET                id_preventivo = ?, descrizione = ?, dimensioni = ?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_preventivo" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_preventivo" Precision="0" Scale="0" Size="0" SourceColumn="id_preventivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="descrizione" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="1024" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="dimensioni" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="dimensioni" Precision="10" Scale="2" Size="0" SourceColumn="dimensioni" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="id" DataSourceName="cesar.preventivi_dimensioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taGrafico" GeneratorDataComponentClassName="taGrafico" Name="dtGrafico" UserDataComponentName="taGrafico">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CONVERT(p.id,CHAR) as id,
+CONVERT(pc.id,CHAR) as idpreventivo,
+pc.societa,
+pd.dimensioni,
+pd.descrizione as dettagliocliente,
+po.impegnometroquadro,
+po.impegnonumero,
+po.descrizione as operazionidaeffettuare,
+CONVERT( pfr.numerointerventi, CHAR) numerointerventi,
+pfr.descrizione as frequenza,
+p.visibile ,
+CONVERT(
+
+(CASE
+
+WHEN  po.impegnometroquadro &lt;&gt; NULL OR po.impegnometroquadro &lt;&gt; 0 AND po.impegnonumero = NULL OR po.impegnonumero = 0
+
+THEN (((pd.dimensioni / (po.impegnometroquadro-
+(p.taratura*po.impegnometroquadro/100))
+)/60*100)*pfr.numerointerventi)
+/100*60
+
+WHEN  po.impegnometroquadro = NULL OR po.impegnometroquadro = 0 AND po.impegnonumero &lt;&gt; NULL OR po.impegnonumero &lt;&gt; 0 
+THEN (((pd.dimensioni* (po.impegnonumero- 
+(p.taratura*po.impegnonumero/100))
+)/60)/60*100)*pfr.numerointerventi/100*60
+
+
+ELSE 0
+
+END), DECIMAL(10,2)) ore
+
+
+
+
+FROM cesar.preventivi as p
+
+
+LEFT JOIN preventivi_frequenze as pfr ON p.id_frequenza = pfr.id
+
+
+LEFT JOIN preventivi_dimensioni as pd ON p.id_dimensioni = pd.id
+
+
+LEFT JOIN preventivi_operazioni as po ON p.id_operazioni = po.id
+
+
+LEFT JOIN preventivi_destinatari as pc ON p.id_destinatario = pc.id
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="dimensioni" DataSetColumn="dimensioni" />
+              <Mapping SourceColumn="dettagliocliente" DataSetColumn="dettagliocliente" />
+              <Mapping SourceColumn="impegnometroquadro" DataSetColumn="impegnometroquadro" />
+              <Mapping SourceColumn="impegnonumero" DataSetColumn="impegnonumero" />
+              <Mapping SourceColumn="operazionidaeffettuare" DataSetColumn="operazionidaeffettuare" />
+              <Mapping SourceColumn="frequenza" DataSetColumn="frequenza" />
+              <Mapping SourceColumn="ore" DataSetColumn="ore" />
+              <Mapping SourceColumn="numerointerventi" DataSetColumn="numerointerventi" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="idpreventivo" DataSetColumn="idpreventivo" />
+              <Mapping SourceColumn="visibile" DataSetColumn="visibile" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CONVERT(p.id,CHAR) as id,
+CONVERT(pc.id,CHAR) as idpreventivo,
+pc.societa,
+pd.dimensioni,
+pd.descrizione as dettagliocliente,
+po.impegnometroquadro,
+po.impegnonumero,
+po.descrizione as operazionidaeffettuare,
+CONVERT( pfr.numerointerventi, CHAR) numerointerventi,
+pfr.descrizione as frequenza,
+p.visibile ,
+CONVERT(
+
+(CASE
+
+WHEN  po.impegnometroquadro &lt;&gt; NULL OR po.impegnometroquadro &lt;&gt; 0 AND po.impegnonumero = NULL OR po.impegnonumero = 0
+
+THEN (((pd.dimensioni / (po.impegnometroquadro-
+(p.taratura*po.impegnometroquadro/100))
+)/60*100)*pfr.numerointerventi)
+/100*60
+
+WHEN  po.impegnometroquadro = NULL OR po.impegnometroquadro = 0 AND po.impegnonumero &lt;&gt; NULL OR po.impegnonumero &lt;&gt; 0 
+THEN (((pd.dimensioni* (po.impegnonumero- 
+(p.taratura*po.impegnonumero/100))
+)/60)/60*100)*pfr.numerointerventi/100*60
+
+
+ELSE 0
+
+END), DECIMAL(10,2)) ore
+
+
+
+
+FROM cesar.preventivi as p
+
+
+LEFT JOIN preventivi_frequenze as pfr ON p.id_frequenza = pfr.id
+
+
+LEFT JOIN preventivi_dimensioni as pd ON p.id_dimensioni = pd.id
+
+
+LEFT JOIN preventivi_operazioni as po ON p.id_operazioni = po.id
+
+
+LEFT JOIN preventivi_destinatari as pc ON p.id_destinatario = pc.id
+
+
+WHERE pc.id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.preventivi_destinatari" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taCapitolato" GeneratorDataComponentClassName="taCapitolato" Name="dtCapitolato" UserDataComponentName="taCapitolato">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pa.id_cliente, pa.id_destinatario_preventivo, pa.data, p.visibile, po.descrizione, p.note, pf.descrizione AS frequenza, pc.descrizione AS categoria, p.sort, p.id_frequenza, p.id_categoria, p.id_operazioni,
+d.locazione                        
+
+FROM            preventivi_abbinamento pa
+LEFT JOIN preventivi as p ON pa.id_destinatario_preventivo = p.id_destinatario
+LEFT JOIN preventivi_operazioni as po ON p.id_operazioni = po.id
+LEFT JOIN preventivi_frequenze as pf ON p.id_frequenza = pf.id
+LEFT JOIN preventivi_categorie as pc ON p.id_categoria = pc.id
+LEFT JOIN  destinatari as d ON pa.id_destinatario = d.id 
+ORDER BY pf.sort</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_cliente" DataSetColumn="id_cliente" />
+              <Mapping SourceColumn="id_destinatario_preventivo" DataSetColumn="id_destinatario_preventivo" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="frequenza" DataSetColumn="frequenza" />
+              <Mapping SourceColumn="visibile" DataSetColumn="visibile" />
+              <Mapping SourceColumn="categoria" DataSetColumn="categoria" />
+              <Mapping SourceColumn="sort" DataSetColumn="sort" />
+              <Mapping SourceColumn="id_frequenza" DataSetColumn="id_frequenza" />
+              <Mapping SourceColumn="id_categoria" DataSetColumn="id_categoria" />
+              <Mapping SourceColumn="id_operazioni" DataSetColumn="id_operazioni" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCliente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCliente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCliente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        p.id, pa.id_cliente, pa.id_destinatario_preventivo, pa.data, p.visibile, po.descrizione, p.note, pf.descrizione AS frequenza, pc.descrizione AS categoria, p.sort, p.id_frequenza, p.id_categoria, p.id_operazioni,
+d.locazione                        
+FROM            preventivi_abbinamento pa
+LEFT JOIN preventivi as p ON pa.id_destinatario_preventivo = p.id_destinatario
+LEFT JOIN preventivi_operazioni as po ON p.id_operazioni = po.id
+LEFT JOIN preventivi_frequenze as pf ON p.id_frequenza = pf.id
+LEFT JOIN preventivi_categorie as pc ON p.id_categoria = pc.id
+LEFT JOIN  destinatari as d ON pa.id_destinatario = d.id 
+
+WHERE pa.id_cliente = ?
+AND pa.attivo = ?
+ORDER BY pf.sort</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cliente" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cliente" Precision="0" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="attivo" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDipendente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDipendente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByDipendente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pa.id, pa.id_cliente, pa.id_destinatario_preventivo, pa.data, p.visibile, po.descrizione, p.note, pf.descrizione AS frequenza, pc.descrizione as categoria,p.sort
+
+FROM            preventivi_abbinamento pa
+
+LEFT JOIN preventivi as p ON pa.id_destinatario_preventivo = p.id_destinatario
+
+LEFT JOIN preventivi_operazioni as po ON p.id_operazioni = po.id
+
+LEFT JOIN preventivi_frequenze as pf ON p.id_frequenza = pf.id
+
+LEFT JOIN preventivi_categorie as pc ON p.id_categoria = pc.id
+
+LEFT JOIN 
+(SELECT id_cli FROM abbina_utente_destinatari_presenze as au 
+where au.id_dip = ? GROUP BY au.id_cli) as kk ON kk.id_cli = pa.id_cliente
+
+WHERE pa.attivo = 1
+ORDER BY pf.sort</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taPreventiviAbbinamento" GeneratorDataComponentClassName="taPreventiviAbbinamento" Name="dtPreventiviAbbinamento" UserDataComponentName="taPreventiviAbbinamento">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pa.id, pa.id_cliente, pa.id_destinatario_preventivo, pa.data, pa.attivo, pa.id_destinatario, c.societa, pd.societa AS societa_preventivo, d.locazione as destinatario
+FROM            preventivi_abbinamento pa
+LEFT JOIN cantieri c ON  pa.id_cliente = c.id 
+LEFT JOIN preventivi_destinatari pd ON pa.id_destinatario_preventivo = pd.id 
+LEFT JOIN destinatari d ON pa.id_destinatario = d.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_cliente" DataSetColumn="id_cliente" />
+              <Mapping SourceColumn="id_destinatario_preventivo" DataSetColumn="id_destinatario_preventivo" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="attivo" DataSetColumn="attivo" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="societa_preventivo" DataSetColumn="societa_preventivo" />
+              <Mapping SourceColumn="id_destinatario" DataSetColumn="id_destinatario" />
+              <Mapping SourceColumn="destinatario" DataSetColumn="destinatario" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM preventivi_abbinamento
+WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO preventivi_abbinamento
+                         (id_cliente, id_destinatario_preventivo, data, attivo,id_destinatario)
+VALUES        (?, ?, ?, ?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cliente" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cliente" Precision="0" Scale="0" Size="0" SourceColumn="id_cliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_destinatario_preventivo" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario_preventivo" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario_preventivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="attivo" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="id_destinatario" DataSourceName="cesar.preventivi_abbinamento" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPreventivi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPreventivi" msprop:Generator_UserDSName="dsPreventivi">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtPreventivi" msprop:Generator_TableClassName="dtPreventiviDataTable" msprop:Generator_TableVarName="tabledtPreventivi" msprop:Generator_RowChangedName="dtPreventiviRowChanged" msprop:Generator_TablePropName="dtPreventivi" msprop:Generator_RowDeletingName="dtPreventiviRowDeleting" msprop:Generator_RowChangingName="dtPreventiviRowChanging" msprop:Generator_RowEvHandlerName="dtPreventiviRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPreventiviRowDeleted" msprop:Generator_RowClassName="dtPreventiviRow" msprop:Generator_UserTableName="dtPreventivi" msprop:Generator_RowEvArgName="dtPreventiviRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_operazioni" msprop:Generator_ColumnVarNameInTable="columnid_operazioni" msprop:Generator_ColumnPropNameInRow="id_operazioni" msprop:Generator_ColumnPropNameInTable="id_operazioniColumn" msprop:Generator_UserColumnName="id_operazioni" type="xs:int" />
+              <xs:element name="id_destinatario" msprop:Generator_ColumnVarNameInTable="columnid_destinatario" msprop:Generator_ColumnPropNameInRow="id_destinatario" msprop:Generator_ColumnPropNameInTable="id_destinatarioColumn" msprop:Generator_UserColumnName="id_destinatario" type="xs:int" />
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prezzo" msprop:Generator_ColumnVarNameInTable="columnprezzo" msprop:Generator_ColumnPropNameInRow="prezzo" msprop:Generator_ColumnPropNameInTable="prezzoColumn" msprop:Generator_UserColumnName="prezzo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="id_frequenza" msprop:Generator_ColumnVarNameInTable="columnid_frequenza" msprop:Generator_ColumnPropNameInRow="id_frequenza" msprop:Generator_ColumnPropNameInTable="id_frequenzaColumn" msprop:Generator_UserColumnName="id_frequenza" type="xs:int" />
+              <xs:element name="id_categoria" msprop:Generator_ColumnVarNameInTable="columnid_categoria" msprop:Generator_ColumnPropNameInRow="id_categoria" msprop:Generator_ColumnPropNameInTable="id_categoriaColumn" msprop:Generator_UserColumnName="id_categoria" type="xs:int" />
+              <xs:element name="categoria" msprop:Generator_ColumnVarNameInTable="columncategoria" msprop:Generator_ColumnPropNameInRow="categoria" msprop:Generator_ColumnPropNameInTable="categoriaColumn" msprop:Generator_UserColumnName="categoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="frequenza" msprop:Generator_ColumnVarNameInTable="columnfrequenza" msprop:Generator_ColumnPropNameInRow="frequenza" msprop:Generator_ColumnPropNameInTable="frequenzaColumn" msprop:Generator_UserColumnName="frequenza" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="operazione" msprop:Generator_ColumnVarNameInTable="columnoperazione" msprop:Generator_ColumnPropNameInRow="operazione" msprop:Generator_ColumnPropNameInTable="operazioneColumn" msprop:Generator_UserColumnName="operazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sort" msprop:Generator_ColumnVarNameInTable="columnsort" msprop:Generator_ColumnPropNameInRow="sort" msprop:Generator_ColumnPropNameInTable="sortColumn" msprop:Generator_UserColumnName="sort" type="xs:int" minOccurs="0" />
+              <xs:element name="sortfrequenza" msprop:Generator_ColumnVarNameInTable="columnsortfrequenza" msprop:Generator_ColumnPropNameInRow="sortfrequenza" msprop:Generator_ColumnPropNameInTable="sortfrequenzaColumn" msprop:Generator_UserColumnName="sortfrequenza" type="xs:int" minOccurs="0" />
+              <xs:element name="id_dimensioni" msprop:Generator_ColumnVarNameInTable="columnid_dimensioni" msprop:Generator_ColumnPropNameInRow="id_dimensioni" msprop:Generator_ColumnPropNameInTable="id_dimensioniColumn" msprop:Generator_UserColumnName="id_dimensioni" type="xs:int" minOccurs="0" />
+              <xs:element name="impegnomq" msprop:Generator_ColumnVarNameInTable="columnimpegnomq" msprop:Generator_ColumnPropNameInRow="impegnomq" msprop:Generator_ColumnPropNameInTable="impegnomqColumn" msprop:Generator_UserColumnName="impegnomq" type="xs:decimal" minOccurs="0" />
+              <xs:element name="impegnonumero" msprop:Generator_ColumnVarNameInTable="columnimpegnonumero" msprop:Generator_ColumnPropNameInRow="impegnonumero" msprop:Generator_ColumnPropNameInTable="impegnonumeroColumn" msprop:Generator_UserColumnName="impegnonumero" type="xs:decimal" minOccurs="0" />
+              <xs:element name="dimensioni" msprop:Generator_ColumnVarNameInTable="columndimensioni" msprop:Generator_ColumnPropNameInRow="dimensioni" msprop:Generator_ColumnPropNameInTable="dimensioniColumn" msprop:Generator_UserColumnName="dimensioni" type="xs:decimal" minOccurs="0" />
+              <xs:element name="visibile" msprop:Generator_ColumnVarNameInTable="columnvisibile" msprop:Generator_ColumnPropNameInRow="visibile" msprop:Generator_ColumnPropNameInTable="visibileColumn" msprop:Generator_UserColumnName="visibile" type="xs:short" minOccurs="0" />
+              <xs:element name="taratura" msprop:Generator_ColumnVarNameInTable="columntaratura" msprop:Generator_ColumnPropNameInRow="taratura" msprop:Generator_ColumnPropNameInTable="taraturaColumn" msprop:Generator_UserColumnName="taratura" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPreventiviOperazioni" msprop:Generator_TableClassName="dtPreventiviOperazioniDataTable" msprop:Generator_TableVarName="tabledtPreventiviOperazioni" msprop:Generator_RowChangedName="dtPreventiviOperazioniRowChanged" msprop:Generator_TablePropName="dtPreventiviOperazioni" msprop:Generator_RowDeletingName="dtPreventiviOperazioniRowDeleting" msprop:Generator_RowChangingName="dtPreventiviOperazioniRowChanging" msprop:Generator_RowEvHandlerName="dtPreventiviOperazioniRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPreventiviOperazioniRowDeleted" msprop:Generator_RowClassName="dtPreventiviOperazioniRow" msprop:Generator_UserTableName="dtPreventiviOperazioni" msprop:Generator_RowEvArgName="dtPreventiviOperazioniRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="impegnometroquadro" msprop:Generator_ColumnVarNameInTable="columnimpegnometroquadro" msprop:Generator_ColumnPropNameInRow="impegnometroquadro" msprop:Generator_ColumnPropNameInTable="impegnometroquadroColumn" msprop:Generator_UserColumnName="impegnometroquadro" type="xs:decimal" minOccurs="0" />
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="attivo" msprop:Generator_ColumnVarNameInTable="columnattivo" msprop:Generator_ColumnPropNameInRow="attivo" msprop:Generator_ColumnPropNameInTable="attivoColumn" msprop:Generator_UserColumnName="attivo" type="xs:int" minOccurs="0" />
+              <xs:element name="idcategoria" msprop:Generator_ColumnVarNameInTable="columnidcategoria" msprop:Generator_ColumnPropNameInRow="idcategoria" msprop:Generator_ColumnPropNameInTable="idcategoriaColumn" msprop:Generator_UserColumnName="idcategoria" type="xs:int" minOccurs="0" />
+              <xs:element name="impegnonumero" msprop:Generator_ColumnVarNameInTable="columnimpegnonumero" msprop:Generator_ColumnPropNameInRow="impegnonumero" msprop:Generator_ColumnPropNameInTable="impegnonumeroColumn" msprop:Generator_UserColumnName="impegnonumero" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPreventiviCategorie" msprop:Generator_TableClassName="dtPreventiviCategorieDataTable" msprop:Generator_TableVarName="tabledtPreventiviCategorie" msprop:Generator_RowChangedName="dtPreventiviCategorieRowChanged" msprop:Generator_TablePropName="dtPreventiviCategorie" msprop:Generator_RowDeletingName="dtPreventiviCategorieRowDeleting" msprop:Generator_RowChangingName="dtPreventiviCategorieRowChanging" msprop:Generator_RowEvHandlerName="dtPreventiviCategorieRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPreventiviCategorieRowDeleted" msprop:Generator_RowClassName="dtPreventiviCategorieRow" msprop:Generator_UserTableName="dtPreventiviCategorie" msprop:Generator_RowEvArgName="dtPreventiviCategorieRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sort" msprop:Generator_ColumnVarNameInTable="columnsort" msprop:Generator_ColumnPropNameInRow="sort" msprop:Generator_ColumnPropNameInTable="sortColumn" msprop:Generator_UserColumnName="sort" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPreventiviFrequenze" msprop:Generator_TableClassName="dtPreventiviFrequenzeDataTable" msprop:Generator_TableVarName="tabledtPreventiviFrequenze" msprop:Generator_RowChangedName="dtPreventiviFrequenzeRowChanged" msprop:Generator_TablePropName="dtPreventiviFrequenze" msprop:Generator_RowDeletingName="dtPreventiviFrequenzeRowDeleting" msprop:Generator_RowChangingName="dtPreventiviFrequenzeRowChanging" msprop:Generator_RowEvHandlerName="dtPreventiviFrequenzeRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPreventiviFrequenzeRowDeleted" msprop:Generator_RowClassName="dtPreventiviFrequenzeRow" msprop:Generator_UserTableName="dtPreventiviFrequenze" msprop:Generator_RowEvArgName="dtPreventiviFrequenzeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="numerointerventi" msprop:Generator_ColumnVarNameInTable="columnnumerointerventi" msprop:Generator_ColumnPropNameInRow="numerointerventi" msprop:Generator_ColumnPropNameInTable="numerointerventiColumn" msprop:Generator_UserColumnName="numerointerventi" type="xs:int" minOccurs="0" />
+              <xs:element name="sort" msprop:Generator_ColumnVarNameInTable="columnsort" msprop:Generator_ColumnPropNameInRow="sort" msprop:Generator_ColumnPropNameInTable="sortColumn" msprop:Generator_UserColumnName="sort" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPreventiviDestinatari" msprop:Generator_TableClassName="dtPreventiviDestinatariDataTable" msprop:Generator_TableVarName="tabledtPreventiviDestinatari" msprop:Generator_RowChangedName="dtPreventiviDestinatariRowChanged" msprop:Generator_TablePropName="dtPreventiviDestinatari" msprop:Generator_RowDeletingName="dtPreventiviDestinatariRowDeleting" msprop:Generator_RowChangingName="dtPreventiviDestinatariRowChanging" msprop:Generator_RowEvHandlerName="dtPreventiviDestinatariRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPreventiviDestinatariRowDeleted" msprop:Generator_RowClassName="dtPreventiviDestinatariRow" msprop:Generator_UserTableName="dtPreventiviDestinatari" msprop:Generator_RowEvArgName="dtPreventiviDestinatariRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="indirizzo" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="indirizzo" msprop:Generator_ColumnVarNameInTable="columnindirizzo" msprop:Generator_ColumnPropNameInTable="indirizzoColumn" msprop:Generator_UserColumnName="indirizzo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cap" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="cap" msprop:Generator_ColumnVarNameInTable="columncap" msprop:Generator_ColumnPropNameInTable="capColumn" msprop:Generator_UserColumnName="cap" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="localita" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="localita" msprop:Generator_ColumnVarNameInTable="columnlocalita" msprop:Generator_ColumnPropNameInTable="localitaColumn" msprop:Generator_UserColumnName="localita" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prv" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="prv" msprop:Generator_ColumnVarNameInTable="columnprv" msprop:Generator_ColumnPropNameInTable="prvColumn" msprop:Generator_UserColumnName="prv" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tit" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="tit" msprop:Generator_ColumnVarNameInTable="columntit" msprop:Generator_ColumnPropNameInTable="titColumn" msprop:Generator_UserColumnName="tit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Resp" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Resp" msprop:Generator_ColumnVarNameInTable="columnResp" msprop:Generator_ColumnPropNameInTable="RespColumn" msprop:Generator_UserColumnName="Resp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="telefono" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sicurezzaluoghi" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="sicurezzaluoghi" msprop:Generator_ColumnVarNameInTable="columnsicurezzaluoghi" msprop:Generator_ColumnPropNameInTable="sicurezzaluoghiColumn" msprop:Generator_UserColumnName="sicurezzaluoghi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prezzooranum" msprop:Generator_ColumnVarNameInTable="columnprezzooranum" msprop:Generator_ColumnPropNameInRow="prezzooranum" msprop:Generator_ColumnPropNameInTable="prezzooranumColumn" msprop:Generator_UserColumnName="prezzooranum" type="xs:decimal" minOccurs="0" />
+              <xs:element name="prezzooratxt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="prezzooratxt" msprop:Generator_ColumnVarNameInTable="columnprezzooratxt" msprop:Generator_ColumnPropNameInTable="prezzooratxtColumn" msprop:Generator_UserColumnName="prezzooratxt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="canonenum" msprop:Generator_ColumnVarNameInTable="columncanonenum" msprop:Generator_ColumnPropNameInRow="canonenum" msprop:Generator_ColumnPropNameInTable="canonenumColumn" msprop:Generator_UserColumnName="canonenum" type="xs:decimal" minOccurs="0" />
+              <xs:element name="canonetxt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="canonetxt" msprop:Generator_ColumnVarNameInTable="columncanonetxt" msprop:Generator_ColumnPropNameInTable="canonetxtColumn" msprop:Generator_UserColumnName="canonetxt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sicurezzanum" msprop:Generator_ColumnVarNameInTable="columnsicurezzanum" msprop:Generator_ColumnPropNameInRow="sicurezzanum" msprop:Generator_ColumnPropNameInTable="sicurezzanumColumn" msprop:Generator_UserColumnName="sicurezzanum" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sicurezzatxt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="sicurezzatxt" msprop:Generator_ColumnVarNameInTable="columnsicurezzatxt" msprop:Generator_ColumnPropNameInTable="sicurezzatxtColumn" msprop:Generator_UserColumnName="sicurezzatxt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="provanum" msprop:Generator_ColumnVarNameInTable="columnprovanum" msprop:Generator_ColumnPropNameInRow="provanum" msprop:Generator_ColumnPropNameInTable="provanumColumn" msprop:Generator_UserColumnName="provanum" type="xs:int" minOccurs="0" />
+              <xs:element name="provadat" msprop:Generator_ColumnVarNameInTable="columnprovadat" msprop:Generator_ColumnPropNameInRow="provadat" msprop:Generator_ColumnPropNameInTable="provadatColumn" msprop:Generator_UserColumnName="provadat" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="scadenza" msprop:Generator_ColumnVarNameInTable="columnscadenza" msprop:Generator_ColumnPropNameInRow="scadenza" msprop:Generator_ColumnPropNameInTable="scadenzaColumn" msprop:Generator_UserColumnName="scadenza" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ricontatti" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ricontatti" msprop:Generator_ColumnVarNameInTable="columnricontatti" msprop:Generator_ColumnPropNameInTable="ricontattiColumn" msprop:Generator_UserColumnName="ricontatti" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="r_tel" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="r_tel" msprop:Generator_ColumnVarNameInTable="columnr_tel" msprop:Generator_ColumnPropNameInTable="r_telColumn" msprop:Generator_UserColumnName="r_tel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="r_mail" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="r_mail" msprop:Generator_ColumnVarNameInTable="columnr_mail" msprop:Generator_ColumnPropNameInTable="r_mailColumn" msprop:Generator_UserColumnName="r_mail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="creatoil" msprop:Generator_ColumnVarNameInTable="columncreatoil" msprop:Generator_ColumnPropNameInRow="creatoil" msprop:Generator_ColumnPropNameInTable="creatoilColumn" msprop:Generator_UserColumnName="creatoil" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="decorrenza" msprop:Generator_ColumnVarNameInTable="columndecorrenza" msprop:Generator_ColumnPropNameInRow="decorrenza" msprop:Generator_ColumnPropNameInTable="decorrenzaColumn" msprop:Generator_UserColumnName="decorrenza" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="p_iva" msprop:Generator_ColumnVarNameInTable="columnp_iva" msprop:Generator_ColumnPropNameInRow="p_iva" msprop:Generator_ColumnPropNameInTable="p_ivaColumn" msprop:Generator_UserColumnName="p_iva" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="c_f" msprop:Generator_ColumnVarNameInTable="columnc_f" msprop:Generator_ColumnPropNameInRow="c_f" msprop:Generator_ColumnPropNameInTable="c_fColumn" msprop:Generator_UserColumnName="c_f" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPreventiviDimensioni" msprop:Generator_TableClassName="dtPreventiviDimensioniDataTable" msprop:Generator_TableVarName="tabledtPreventiviDimensioni" msprop:Generator_TablePropName="dtPreventiviDimensioni" msprop:Generator_RowDeletingName="dtPreventiviDimensioniRowDeleting" msprop:Generator_RowChangingName="dtPreventiviDimensioniRowChanging" msprop:Generator_RowEvHandlerName="dtPreventiviDimensioniRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPreventiviDimensioniRowDeleted" msprop:Generator_UserTableName="dtPreventiviDimensioni" msprop:Generator_RowChangedName="dtPreventiviDimensioniRowChanged" msprop:Generator_RowEvArgName="dtPreventiviDimensioniRowChangeEvent" msprop:Generator_RowClassName="dtPreventiviDimensioniRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_preventivo" msprop:Generator_ColumnVarNameInTable="columnid_preventivo" msprop:Generator_ColumnPropNameInRow="id_preventivo" msprop:Generator_ColumnPropNameInTable="id_preventivoColumn" msprop:Generator_UserColumnName="id_preventivo" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dimensioni" msprop:Generator_ColumnVarNameInTable="columndimensioni" msprop:Generator_ColumnPropNameInRow="dimensioni" msprop:Generator_ColumnPropNameInTable="dimensioniColumn" msprop:Generator_UserColumnName="dimensioni" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtGrafico" msprop:Generator_TableClassName="dtGraficoDataTable" msprop:Generator_TableVarName="tabledtGrafico" msprop:Generator_TablePropName="dtGrafico" msprop:Generator_RowDeletingName="dtGraficoRowDeleting" msprop:Generator_RowChangingName="dtGraficoRowChanging" msprop:Generator_RowEvHandlerName="dtGraficoRowChangeEventHandler" msprop:Generator_RowDeletedName="dtGraficoRowDeleted" msprop:Generator_UserTableName="dtGrafico" msprop:Generator_RowChangedName="dtGraficoRowChanged" msprop:Generator_RowEvArgName="dtGraficoRowChangeEvent" msprop:Generator_RowClassName="dtGraficoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dimensioni" msprop:Generator_ColumnVarNameInTable="columndimensioni" msprop:Generator_ColumnPropNameInRow="dimensioni" msprop:Generator_ColumnPropNameInTable="dimensioniColumn" msprop:Generator_UserColumnName="dimensioni" type="xs:decimal" minOccurs="0" />
+              <xs:element name="dettagliocliente" msprop:Generator_ColumnVarNameInTable="columndettagliocliente" msprop:Generator_ColumnPropNameInRow="dettagliocliente" msprop:Generator_ColumnPropNameInTable="dettaglioclienteColumn" msprop:Generator_UserColumnName="dettagliocliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="impegnometroquadro" msprop:Generator_ColumnVarNameInTable="columnimpegnometroquadro" msprop:Generator_ColumnPropNameInRow="impegnometroquadro" msprop:Generator_ColumnPropNameInTable="impegnometroquadroColumn" msprop:Generator_UserColumnName="impegnometroquadro" type="xs:decimal" minOccurs="0" />
+              <xs:element name="impegnonumero" msprop:Generator_ColumnVarNameInTable="columnimpegnonumero" msprop:Generator_ColumnPropNameInRow="impegnonumero" msprop:Generator_ColumnPropNameInTable="impegnonumeroColumn" msprop:Generator_UserColumnName="impegnonumero" type="xs:decimal" minOccurs="0" />
+              <xs:element name="operazionidaeffettuare" msprop:Generator_ColumnVarNameInTable="columnoperazionidaeffettuare" msprop:Generator_ColumnPropNameInRow="operazionidaeffettuare" msprop:Generator_ColumnPropNameInTable="operazionidaeffettuareColumn" msprop:Generator_UserColumnName="operazionidaeffettuare" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="frequenza" msprop:Generator_ColumnVarNameInTable="columnfrequenza" msprop:Generator_ColumnPropNameInRow="frequenza" msprop:Generator_ColumnPropNameInTable="frequenzaColumn" msprop:Generator_UserColumnName="frequenza" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ore" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnore" msprop:Generator_ColumnPropNameInRow="ore" msprop:Generator_ColumnPropNameInTable="oreColumn" msprop:Generator_UserColumnName="ore" type="xs:decimal" minOccurs="0" />
+              <xs:element name="numerointerventi" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnnumerointerventi" msprop:Generator_ColumnPropNameInRow="numerointerventi" msprop:Generator_ColumnPropNameInTable="numerointerventiColumn" msprop:Generator_UserColumnName="numerointerventi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idpreventivo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnidpreventivo" msprop:Generator_ColumnPropNameInRow="idpreventivo" msprop:Generator_ColumnPropNameInTable="idpreventivoColumn" msprop:Generator_UserColumnName="idpreventivo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="visibile" msprop:Generator_ColumnVarNameInTable="columnvisibile" msprop:Generator_ColumnPropNameInRow="visibile" msprop:Generator_ColumnPropNameInTable="visibileColumn" msprop:Generator_UserColumnName="visibile" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtCapitolato" msprop:Generator_TableClassName="dtCapitolatoDataTable" msprop:Generator_TableVarName="tabledtCapitolato" msprop:Generator_RowChangedName="dtCapitolatoRowChanged" msprop:Generator_TablePropName="dtCapitolato" msprop:Generator_RowDeletingName="dtCapitolatoRowDeleting" msprop:Generator_RowChangingName="dtCapitolatoRowChanging" msprop:Generator_RowEvHandlerName="dtCapitolatoRowChangeEventHandler" msprop:Generator_RowDeletedName="dtCapitolatoRowDeleted" msprop:Generator_RowClassName="dtCapitolatoRow" msprop:Generator_UserTableName="dtCapitolato" msprop:Generator_RowEvArgName="dtCapitolatoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_cliente" msprop:Generator_ColumnVarNameInTable="columnid_cliente" msprop:Generator_ColumnPropNameInRow="id_cliente" msprop:Generator_ColumnPropNameInTable="id_clienteColumn" msprop:Generator_UserColumnName="id_cliente" type="xs:int" minOccurs="0" />
+              <xs:element name="id_destinatario_preventivo" msprop:Generator_ColumnVarNameInTable="columnid_destinatario_preventivo" msprop:Generator_ColumnPropNameInRow="id_destinatario_preventivo" msprop:Generator_ColumnPropNameInTable="id_destinatario_preventivoColumn" msprop:Generator_UserColumnName="id_destinatario_preventivo" type="xs:int" minOccurs="0" />
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="frequenza" msprop:Generator_ColumnVarNameInTable="columnfrequenza" msprop:Generator_ColumnPropNameInRow="frequenza" msprop:Generator_ColumnPropNameInTable="frequenzaColumn" msprop:Generator_UserColumnName="frequenza" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="67" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="visibile" msprop:Generator_ColumnVarNameInTable="columnvisibile" msprop:Generator_ColumnPropNameInRow="visibile" msprop:Generator_ColumnPropNameInTable="visibileColumn" msprop:Generator_UserColumnName="visibile" type="xs:short" minOccurs="0" />
+              <xs:element name="categoria" msprop:Generator_ColumnVarNameInTable="columncategoria" msprop:Generator_ColumnPropNameInRow="categoria" msprop:Generator_ColumnPropNameInTable="categoriaColumn" msprop:Generator_UserColumnName="categoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="67" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sort" msprop:Generator_ColumnVarNameInTable="columnsort" msprop:Generator_ColumnPropNameInRow="sort" msprop:Generator_ColumnPropNameInTable="sortColumn" msprop:Generator_UserColumnName="sort" type="xs:int" minOccurs="0" />
+              <xs:element name="id_frequenza" msprop:Generator_ColumnVarNameInTable="columnid_frequenza" msprop:Generator_ColumnPropNameInRow="id_frequenza" msprop:Generator_ColumnPropNameInTable="id_frequenzaColumn" msprop:Generator_UserColumnName="id_frequenza" type="xs:int" minOccurs="0" />
+              <xs:element name="id_categoria" msprop:Generator_ColumnVarNameInTable="columnid_categoria" msprop:Generator_ColumnPropNameInRow="id_categoria" msprop:Generator_ColumnPropNameInTable="id_categoriaColumn" msprop:Generator_UserColumnName="id_categoria" type="xs:int" minOccurs="0" />
+              <xs:element name="id_operazioni" msprop:Generator_ColumnVarNameInTable="columnid_operazioni" msprop:Generator_ColumnPropNameInRow="id_operazioni" msprop:Generator_ColumnPropNameInTable="id_operazioniColumn" msprop:Generator_UserColumnName="id_operazioni" type="xs:int" minOccurs="0" />
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtPreventiviAbbinamento" msprop:Generator_TableClassName="dtPreventiviAbbinamentoDataTable" msprop:Generator_TableVarName="tabledtPreventiviAbbinamento" msprop:Generator_RowChangedName="dtPreventiviAbbinamentoRowChanged" msprop:Generator_TablePropName="dtPreventiviAbbinamento" msprop:Generator_RowDeletingName="dtPreventiviAbbinamentoRowDeleting" msprop:Generator_RowChangingName="dtPreventiviAbbinamentoRowChanging" msprop:Generator_RowEvHandlerName="dtPreventiviAbbinamentoRowChangeEventHandler" msprop:Generator_RowDeletedName="dtPreventiviAbbinamentoRowDeleted" msprop:Generator_RowClassName="dtPreventiviAbbinamentoRow" msprop:Generator_UserTableName="dtPreventiviAbbinamento" msprop:Generator_RowEvArgName="dtPreventiviAbbinamentoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cliente" msprop:Generator_ColumnVarNameInTable="columnid_cliente" msprop:Generator_ColumnPropNameInRow="id_cliente" msprop:Generator_ColumnPropNameInTable="id_clienteColumn" msprop:Generator_UserColumnName="id_cliente" type="xs:int" minOccurs="0" />
+              <xs:element name="id_destinatario_preventivo" msprop:Generator_ColumnVarNameInTable="columnid_destinatario_preventivo" msprop:Generator_ColumnPropNameInRow="id_destinatario_preventivo" msprop:Generator_ColumnPropNameInTable="id_destinatario_preventivoColumn" msprop:Generator_UserColumnName="id_destinatario_preventivo" type="xs:int" minOccurs="0" />
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="attivo" msprop:Generator_ColumnVarNameInTable="columnattivo" msprop:Generator_ColumnPropNameInRow="attivo" msprop:Generator_ColumnPropNameInTable="attivoColumn" msprop:Generator_UserColumnName="attivo" type="xs:short" minOccurs="0" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa_preventivo" msprop:Generator_ColumnVarNameInTable="columnsocieta_preventivo" msprop:Generator_ColumnPropNameInRow="societa_preventivo" msprop:Generator_ColumnPropNameInTable="societa_preventivoColumn" msprop:Generator_UserColumnName="societa_preventivo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="98302" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_destinatario" msprop:Generator_ColumnVarNameInTable="columnid_destinatario" msprop:Generator_ColumnPropNameInRow="id_destinatario" msprop:Generator_ColumnPropNameInTable="id_destinatarioColumn" msprop:Generator_UserColumnName="id_destinatario" type="xs:int" minOccurs="0" />
+              <xs:element name="destinatario" msprop:Generator_ColumnVarNameInTable="columndestinatario" msprop:Generator_ColumnPropNameInRow="destinatario" msprop:Generator_ColumnPropNameInTable="destinatarioColumn" msprop:Generator_UserColumnName="destinatario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tmpCapitolato" msprop:Generator_TableClassName="tmpCapitolatoDataTable" msprop:Generator_TableVarName="tabletmpCapitolato" msprop:Generator_RowChangedName="tmpCapitolatoRowChanged" msprop:Generator_TablePropName="tmpCapitolato" msprop:Generator_RowDeletingName="tmpCapitolatoRowDeleting" msprop:Generator_RowChangingName="tmpCapitolatoRowChanging" msprop:Generator_RowEvHandlerName="tmpCapitolatoRowChangeEventHandler" msprop:Generator_RowDeletedName="tmpCapitolatoRowDeleted" msprop:Generator_RowClassName="tmpCapitolatoRow" msprop:Generator_UserTableName="tmpCapitolato" msprop:Generator_RowEvArgName="tmpCapitolatoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="idDes" msprop:Generator_ColumnVarNameInTable="columnidDes" msprop:Generator_ColumnPropNameInRow="idDes" msprop:Generator_ColumnPropNameInTable="idDesColumn" msprop:Generator_UserColumnName="idDes" type="xs:int" minOccurs="0" />
+              <xs:element name="idCat" msprop:Generator_ColumnVarNameInTable="columnidCat" msprop:Generator_ColumnPropNameInRow="idCat" msprop:Generator_ColumnPropNameInTable="idCatColumn" msprop:Generator_UserColumnName="idCat" type="xs:int" minOccurs="0" />
+              <xs:element name="idFre" msprop:Generator_ColumnVarNameInTable="columnidFre" msprop:Generator_ColumnPropNameInRow="idFre" msprop:Generator_ColumnPropNameInTable="idFreColumn" msprop:Generator_UserColumnName="idFre" type="xs:int" minOccurs="0" />
+              <xs:element name="idOpe" msprop:Generator_ColumnVarNameInTable="columnidOpe" msprop:Generator_ColumnPropNameInRow="idOpe" msprop:Generator_ColumnPropNameInTable="idOpeColumn" msprop:Generator_UserColumnName="idOpe" type="xs:int" minOccurs="0" />
+              <xs:element name="Dettaglio" msprop:Generator_ColumnVarNameInTable="columnDettaglio" msprop:Generator_ColumnPropNameInRow="Dettaglio" msprop:Generator_ColumnPropNameInTable="DettaglioColumn" msprop:Generator_UserColumnName="Dettaglio" type="xs:string" minOccurs="0" />
+              <xs:element name="Categoria" msprop:Generator_ColumnVarNameInTable="columnCategoria" msprop:Generator_ColumnPropNameInRow="Categoria" msprop:Generator_ColumnPropNameInTable="CategoriaColumn" msprop:Generator_UserColumnName="Categoria" type="xs:string" minOccurs="0" />
+              <xs:element name="Frequenza" msprop:Generator_ColumnVarNameInTable="columnFrequenza" msprop:Generator_ColumnPropNameInRow="Frequenza" msprop:Generator_ColumnPropNameInTable="FrequenzaColumn" msprop:Generator_UserColumnName="Frequenza" type="xs:string" minOccurs="0" />
+              <xs:element name="Operazione" msprop:Generator_ColumnVarNameInTable="columnOperazione" msprop:Generator_ColumnPropNameInRow="Operazione" msprop:Generator_ColumnPropNameInTable="OperazioneColumn" msprop:Generator_UserColumnName="Operazione" type="xs:string" minOccurs="0" />
+              <xs:element name="sort" msprop:Generator_ColumnVarNameInTable="columnsort" msprop:Generator_ColumnPropNameInRow="sort" msprop:Generator_ColumnPropNameInTable="sortColumn" msprop:Generator_UserColumnName="sort" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:dtPreventivi" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtPreventiviOperazioni_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:dtPreventiviOperazioni" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtPreventiviCategorie_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:dtPreventiviCategorie" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtPreventiviFrequenze_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:dtPreventiviFrequenze" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtPreventiviDestinatari_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dtPreventiviDestinatari" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtPreventiviDimensioni_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:dtPreventiviDimensioni" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtGrafico_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dtGrafico" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtPreventiviAbbinamento_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:dtPreventiviAbbinamento" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="tmpCapitolato_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:tmpCapitolato" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="RelPreventiviDestinatari_Preventivi" msdata:parent="dtPreventiviDestinatari" msdata:child="dtPreventivi" msdata:parentkey="id" msdata:childkey="id_destinatario" msprop:Generator_UserChildTable="dtPreventivi" msprop:Generator_ChildPropName="GetdtPreventiviRows" msprop:Generator_UserRelationName="RelPreventiviDestinatari_Preventivi" msprop:Generator_RelationVarName="relationRelPreventiviDestinatari_Preventivi" msprop:Generator_UserParentTable="dtPreventiviDestinatari" msprop:Generator_ParentPropName="dtPreventiviDestinatariRow" />
+      <msdata:Relationship name="dtPreventiviDimensioni_dtPreventivi" msdata:parent="dtPreventiviDimensioni" msdata:child="dtPreventivi" msdata:parentkey="id" msdata:childkey="id_dimensioni" msprop:Generator_UserChildTable="dtPreventivi" msprop:Generator_ChildPropName="GetdtPreventiviRows" msprop:Generator_UserRelationName="dtPreventiviDimensioni_dtPreventivi" msprop:Generator_RelationVarName="relationdtPreventiviDimensioni_dtPreventivi" msprop:Generator_UserParentTable="dtPreventiviDimensioni" msprop:Generator_ParentPropName="dtPreventiviDimensioniRow" />
+      <msdata:Relationship name="dtPreventiviDestinatari_dtPreventiviDimensioni" msdata:parent="dtPreventiviDestinatari" msdata:child="dtPreventiviDimensioni" msdata:parentkey="id" msdata:childkey="id_preventivo" msprop:Generator_UserChildTable="dtPreventiviDimensioni" msprop:Generator_ChildPropName="GetdtPreventiviDimensioniRows" msprop:Generator_UserRelationName="dtPreventiviDestinatari_dtPreventiviDimensioni" msprop:Generator_ParentPropName="dtPreventiviDestinatariRow" msprop:Generator_RelationVarName="relationdtPreventiviDestinatari_dtPreventiviDimensioni" msprop:Generator_UserParentTable="dtPreventiviDestinatari" />
+      <msdata:Relationship name="dtPreventivi_dtPreventiviAbbinamento" msdata:parent="dtPreventivi" msdata:child="dtPreventiviAbbinamento" msdata:parentkey="id_destinatario" msdata:childkey="id_destinatario_preventivo" msprop:Generator_UserChildTable="dtPreventiviAbbinamento" msprop:Generator_ChildPropName="GetdtPreventiviAbbinamentoRows" msprop:Generator_UserRelationName="dtPreventivi_dtPreventiviAbbinamento" msprop:Generator_RelationVarName="relationdtPreventivi_dtPreventiviAbbinamento" msprop:Generator_UserParentTable="dtPreventivi" msprop:Generator_ParentPropName="dtPreventiviRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

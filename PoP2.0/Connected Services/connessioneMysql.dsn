@@ -1,0 +1,6 @@
+[ODBC]
+DRIVER=MySQL ODBC 5.3 Unicode Driver
+UID=danilo
+PORT=3306
+DATABASE=cesar
+SERVER=www.pulizieuffici.biz

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_riepiloghi" targetNamespace="http://tempuri.org/DS_riepiloghi.xsd" xmlns:mstns="http://tempuri.org/DS_riepiloghi.xsd" xmlns="http://tempuri.org/DS_riepiloghi.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_impegno" GeneratorDataComponentClassName="TA_impegno" Name="DT_impegno" UserDataComponentName="TA_impegno">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT concat(utenti.nome,' ',utenti.cognome) as anagrafica, cantieri.societa,destinatari.locazione, 
+CONCAT(
+IF(utenti_orario.lu_i BETWEEN '00:01' AND '12:00','LU-am,',IF(utenti_orario.lu_i BETWEEN '12:01' AND '23:59','LU-pm,','')),
+IF(utenti_orario.ma_i BETWEEN '00:01' AND '12:00','MA-am,',IF(utenti_orario.ma_i BETWEEN '12:01' AND '23:59','MA-pm,','')),
+IF(utenti_orario.me_i BETWEEN '00:01' AND '12:00','ME-am,',IF(utenti_orario.me_i BETWEEN '12:01' AND '23:59','ME-pm,','')),
+IF(utenti_orario.gi_i BETWEEN '00:01' AND '12:00','GI-am,',IF(utenti_orario.gi_i BETWEEN '12:01' AND '23:59','GI-pm,','')),
+IF(utenti_orario.ve_i BETWEEN '00:01' AND '12:00','VE-am,',IF(utenti_orario.ve_i BETWEEN '12:01' AND '23:59','VE-pm,','')),
+IF(utenti_orario.sa_i BETWEEN '00:01' AND '12:00','SA-am,',IF(utenti_orario.sa_i BETWEEN '12:01' AND '23:59','SA-pm,','')),
+IF(utenti_orario.do_i BETWEEN '00:01' AND '12:00','DO-am,',IF(utenti_orario.do_i BETWEEN '12:01' AND '23:59','DO-pm,',''))
+) as IMPEGNO
+FROM utenti_orario 
+LEFT OUTER JOIN cantieri ON cantieri.id = utenti_orario.id_cli 
+LEFT OUTER JOIN utenti ON utenti.id = utenti_orario.id_dip 
+LEFT OUTER JOIN destinatari ON destinatari.id = utenti_orario.id_des
+ORDER BY cantieri.societa</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="IMPEGNO" DataSetColumn="impegno" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_impegnoore" GeneratorDataComponentClassName="TA_impegnoore" Name="DT_impegnoore" UserDataComponentName="TA_impegnoore">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT concat(utenti.nome,' ',utenti.cognome) as anagrafica, cantieri.societa,destinatari.locazione,
+hour(lu_i) as oralu, hour(lu_u-lu_i) as difflu,
+hour(ma_i) as orama, hour(ma_u-lu_i) as diffma,
+hour(me_i) as orame, hour(me_u-lu_i) as diffme,
+hour(gi_i) as oragi, hour(gi_u-lu_i) as diffgi,
+hour(ve_i) as orave, hour(ve_u-lu_i) as diffve,
+hour(sa_i) as orasa, hour(sa_u-lu_i) as diffsa,
+hour(do_i) as orado, hour(do_u-lu_i) as diffdo
+
+FROM utenti_orario 
+LEFT OUTER JOIN cantieri ON cantieri.id = utenti_orario.id_cli 
+LEFT OUTER JOIN utenti ON utenti.id = utenti_orario.id_dip 
+LEFT OUTER JOIN destinatari ON destinatari.id = utenti_orario.id_des
+
+ORDER BY cantieri.societa, destinatari.locazione,concat(utenti.nome,' ',utenti.cognome) </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="oralu" DataSetColumn="oralu" />
+              <Mapping SourceColumn="difflu" DataSetColumn="difflu" />
+              <Mapping SourceColumn="orama" DataSetColumn="orama" />
+              <Mapping SourceColumn="diffma" DataSetColumn="diffma" />
+              <Mapping SourceColumn="orame" DataSetColumn="orame" />
+              <Mapping SourceColumn="diffme" DataSetColumn="diffme" />
+              <Mapping SourceColumn="oragi" DataSetColumn="oragi" />
+              <Mapping SourceColumn="diffgi" DataSetColumn="diffgi" />
+              <Mapping SourceColumn="orave" DataSetColumn="orave" />
+              <Mapping SourceColumn="diffve" DataSetColumn="diffve" />
+              <Mapping SourceColumn="orasa" DataSetColumn="orasa" />
+              <Mapping SourceColumn="diffsa" DataSetColumn="diffsa" />
+              <Mapping SourceColumn="orado" DataSetColumn="orado" />
+              <Mapping SourceColumn="diffdo" DataSetColumn="diffdo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_impegno_view" GeneratorDataComponentClassName="TA_impegno_view" Name="DT_impegno_view" UserDataComponentName="TA_impegno_view">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        `pop23-04-19_distribuzionelavoro`.*
+FROM            `pop23-04-19_distribuzionelavoro`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="IMPEGNO" DataSetColumn="IMPEGNO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_riepiloghi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_riepiloghi" msprop:Generator_UserDSName="DS_riepiloghi">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_impegno" msprop:Generator_TableClassName="DT_impegnoDataTable" msprop:Generator_TableVarName="tableDT_impegno" msprop:Generator_TablePropName="DT_impegno" msprop:Generator_RowDeletingName="DT_impegnoRowDeleting" msprop:Generator_RowChangingName="DT_impegnoRowChanging" msprop:Generator_RowEvHandlerName="DT_impegnoRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_impegnoRowDeleted" msprop:Generator_UserTableName="DT_impegno" msprop:Generator_RowChangedName="DT_impegnoRowChanged" msprop:Generator_RowEvArgName="DT_impegnoRowChangeEvent" msprop:Generator_RowClassName="DT_impegnoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="anagrafica" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="impegno" msprop:Generator_ColumnVarNameInTable="columnimpegno" msprop:Generator_ColumnPropNameInRow="impegno" msprop:Generator_ColumnPropNameInTable="impegnoColumn" msprop:Generator_UserColumnName="impegno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_impegnoore" msprop:Generator_TableClassName="DT_impegnooreDataTable" msprop:Generator_TableVarName="tableDT_impegnoore" msprop:Generator_RowChangedName="DT_impegnooreRowChanged" msprop:Generator_TablePropName="DT_impegnoore" msprop:Generator_RowDeletingName="DT_impegnooreRowDeleting" msprop:Generator_RowChangingName="DT_impegnooreRowChanging" msprop:Generator_RowEvHandlerName="DT_impegnooreRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_impegnooreRowDeleted" msprop:Generator_RowClassName="DT_impegnooreRow" msprop:Generator_UserTableName="DT_impegnoore" msprop:Generator_RowEvArgName="DT_impegnooreRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="anagrafica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="oralu" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnoralu" msprop:Generator_ColumnPropNameInRow="oralu" msprop:Generator_ColumnPropNameInTable="oraluColumn" msprop:Generator_UserColumnName="oralu" type="xs:int" minOccurs="0" />
+              <xs:element name="difflu" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndifflu" msprop:Generator_ColumnPropNameInRow="difflu" msprop:Generator_ColumnPropNameInTable="diffluColumn" msprop:Generator_UserColumnName="difflu" type="xs:int" minOccurs="0" />
+              <xs:element name="orama" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorama" msprop:Generator_ColumnPropNameInRow="orama" msprop:Generator_ColumnPropNameInTable="oramaColumn" msprop:Generator_UserColumnName="orama" type="xs:int" minOccurs="0" />
+              <xs:element name="diffma" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndiffma" msprop:Generator_ColumnPropNameInRow="diffma" msprop:Generator_ColumnPropNameInTable="diffmaColumn" msprop:Generator_UserColumnName="diffma" type="xs:int" minOccurs="0" />
+              <xs:element name="orame" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorame" msprop:Generator_ColumnPropNameInRow="orame" msprop:Generator_ColumnPropNameInTable="orameColumn" msprop:Generator_UserColumnName="orame" type="xs:int" minOccurs="0" />
+              <xs:element name="diffme" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndiffme" msprop:Generator_ColumnPropNameInRow="diffme" msprop:Generator_ColumnPropNameInTable="diffmeColumn" msprop:Generator_UserColumnName="diffme" type="xs:int" minOccurs="0" />
+              <xs:element name="oragi" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnoragi" msprop:Generator_ColumnPropNameInRow="oragi" msprop:Generator_ColumnPropNameInTable="oragiColumn" msprop:Generator_UserColumnName="oragi" type="xs:int" minOccurs="0" />
+              <xs:element name="diffgi" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndiffgi" msprop:Generator_ColumnPropNameInRow="diffgi" msprop:Generator_ColumnPropNameInTable="diffgiColumn" msprop:Generator_UserColumnName="diffgi" type="xs:int" minOccurs="0" />
+              <xs:element name="orave" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorave" msprop:Generator_ColumnPropNameInRow="orave" msprop:Generator_ColumnPropNameInTable="oraveColumn" msprop:Generator_UserColumnName="orave" type="xs:int" minOccurs="0" />
+              <xs:element name="diffve" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndiffve" msprop:Generator_ColumnPropNameInRow="diffve" msprop:Generator_ColumnPropNameInTable="diffveColumn" msprop:Generator_UserColumnName="diffve" type="xs:int" minOccurs="0" />
+              <xs:element name="orasa" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorasa" msprop:Generator_ColumnPropNameInRow="orasa" msprop:Generator_ColumnPropNameInTable="orasaColumn" msprop:Generator_UserColumnName="orasa" type="xs:int" minOccurs="0" />
+              <xs:element name="diffsa" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndiffsa" msprop:Generator_ColumnPropNameInRow="diffsa" msprop:Generator_ColumnPropNameInTable="diffsaColumn" msprop:Generator_UserColumnName="diffsa" type="xs:int" minOccurs="0" />
+              <xs:element name="orado" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorado" msprop:Generator_ColumnPropNameInRow="orado" msprop:Generator_ColumnPropNameInTable="oradoColumn" msprop:Generator_UserColumnName="orado" type="xs:int" minOccurs="0" />
+              <xs:element name="diffdo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndiffdo" msprop:Generator_ColumnPropNameInRow="diffdo" msprop:Generator_ColumnPropNameInTable="diffdoColumn" msprop:Generator_UserColumnName="diffdo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_impegno_view" msprop:Generator_TableClassName="DT_impegno_viewDataTable" msprop:Generator_TableVarName="tableDT_impegno_view" msprop:Generator_TablePropName="DT_impegno_view" msprop:Generator_RowDeletingName="DT_impegno_viewRowDeleting" msprop:Generator_RowChangingName="DT_impegno_viewRowChanging" msprop:Generator_RowEvHandlerName="DT_impegno_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_impegno_viewRowDeleted" msprop:Generator_UserTableName="DT_impegno_view" msprop:Generator_RowChangedName="DT_impegno_viewRowChanged" msprop:Generator_RowEvArgName="DT_impegno_viewRowChangeEvent" msprop:Generator_RowClassName="DT_impegno_viewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="anagrafica" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IMPEGNO" msprop:Generator_ColumnVarNameInTable="columnIMPEGNO" msprop:Generator_ColumnPropNameInRow="IMPEGNO" msprop:Generator_ColumnPropNameInTable="IMPEGNOColumn" msprop:Generator_UserColumnName="IMPEGNO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="63" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

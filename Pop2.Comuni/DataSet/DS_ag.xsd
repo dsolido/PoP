@@ -1,0 +1,2076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_ag" targetNamespace="http://tempuri.org/DS_ag.xsd" xmlns:mstns="http://tempuri.org/DS_ag.xsd" xmlns="http://tempuri.org/DS_ag.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_agenda" GeneratorDataComponentClassName="TA_agenda" Name="DT_agenda" UserDataComponentName="TA_agenda">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, utenti_assenze.ora_i, utenti_assenze.ora_f, utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+FROM            utenti_assenze
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="dataoperazione" DataSetColumn="dataoperazione" />
+              <Mapping SourceColumn="id_operatore" DataSetColumn="id_operatore" />
+              <Mapping SourceColumn="dataevento" DataSetColumn="dataevento" />
+              <Mapping SourceColumn="id_dip_a" DataSetColumn="id_dip_a" />
+              <Mapping SourceColumn="id_dip_b" DataSetColumn="id_dip_b" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="id_des" DataSetColumn="id_des" />
+              <Mapping SourceColumn="id_tipo" DataSetColumn="id_tipo" />
+              <Mapping SourceColumn="ora_i" DataSetColumn="ora_i" />
+              <Mapping SourceColumn="ora_f" DataSetColumn="ora_f" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="id_az" DataSetColumn="id_az" />
+              <Mapping SourceColumn="anagrafica_A" DataSetColumn="anagrafica_A" />
+              <Mapping SourceColumn="anagrafica_B" DataSetColumn="anagrafica_B" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDaA" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDaA" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDaA">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, utenti_assenze.ora_i, utenti_assenze.ora_f, utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+FROM            utenti_assenze
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+WHERE utenti_assenze.id_az = ? AND
+utenti_assenze.dataevento BETWEEN ? AND ?
+
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_az" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="dataevento" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="data dal:" Precision="0" Scale="0" Size="0" SourceColumn="dataevento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="dataevento" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="data a:" Precision="0" Scale="0" Size="0" SourceColumn="dataevento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByGiorno" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByGiorno" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByGiorno">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, utenti_assenze.ora_i, utenti_assenze.ora_f, utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+FROM            utenti_assenze
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+WHERE utenti_assenze.dataevento = ? AND utenti_assenze.id_az = ?
+ORDER BY utenti_assenze.ora_i</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="dataevento" DataSourceName="cesar.utenti_assenze" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="dataevento" Precision="0" Scale="0" Size="0" SourceColumn="dataevento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="cesar.utenti_assenze" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMese" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMese" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByMese">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, utenti_assenze.ora_i, utenti_assenze.ora_f, utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+FROM            utenti_assenze
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+WHERE DATE_FORMAT(utenti_assenze.dataevento,'%Y-%m') = ? AND utenti_assenze.id_az = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="AAAA-MM" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMeseDipendente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMeseDipendente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByMeseDipendente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, utenti_assenze.ora_i, utenti_assenze.ora_f, utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+FROM            utenti_assenze
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+WHERE DATE_FORMAT(utenti_assenze.dataevento,'%Y-%m') = ? AND utenti_assenze.id_az = ? AND utenti_assenze.id_dip_a = ?
+ORDER BY utenti_assenze.id_dip_a,utenti_assenze.dataevento,utenti_assenze.ora_i</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="cesar.utenti_assenze" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_dip_a" DataSourceName="cesar.utenti_assenze" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip_a" Precision="0" Scale="0" Size="0" SourceColumn="id_dip_a" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMeseDipendenteTotale" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMeseDipendenteTotale" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillByMeseDipendenteTotale">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        
+utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, 
+DATE_FORMAT(sec_to_time(SUM(Time_to_sec(TimeDiff(utenti_assenze.ora_f,utenti_assenze.ora_i)))),'%H:%i') as ora_t,
+utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+
+FROM            utenti_assenze
+
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+
+WHERE DATE_FORMAT(utenti_assenze.dataevento,'%Y-%m') = ? 
+AND utenti_assenze.id_az = ? 
+and utenti_assenze.id_dip_a = ?
+GROUP BY utenti_assenze.id_des
+
+ORDER BY utenti_assenze.id_dip_a,utenti_assenze.dataevento,utenti_assenze.ora_i</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="cesar.utenti_assenze" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_dip_a" DataSourceName="cesar.utenti_assenze" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip_a" Precision="0" Scale="0" Size="0" SourceColumn="id_dip_a" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMeseNumeroAssenti" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMeseNumeroAssenti" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FillByMeseNumeroAssenti">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+Count(DISTINCT a.dataevento) as tot,
+a.id_dip_a as tot 
+FROM utenti_assenze as a 
+LEFT JOIN utenti as uA ON a.id_dip_a = uA.id 
+WHERE DATE_FORMAT(a.dataevento,'%Y-%m') = ? AND a.id_az = ?
+GROUP BY a.id_dip_a,a.dataevento ORDER BY Count(DISTINCT a.dataevento) DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="cesar.utenti_assenze" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMeseOrdineDipendente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMeseOrdineDipendente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="FillByMeseOrdineDipendente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, utenti_assenze.ora_i, utenti_assenze.ora_f, utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+FROM            utenti_assenze
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+WHERE DATE_FORMAT(utenti_assenze.dataevento,'%Y-%m') = ? AND utenti_assenze.id_az = ?
+ORDER BY utenti_assenze.id_dip_a,utenti_assenze.dataevento,utenti_assenze.ora_i</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="cesar.utenti_assenze" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByNumeroAssentiAnno" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByNumeroAssentiAnno" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="FillByNumeroAssentiAnno">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+COUNT(DISTINCT year(a.dataevento),month(a.dataevento),day(a.dataevento)) as tot
+FROM utenti_assenze as a 
+LEFT JOIN utenti as uA ON a.id_dip_a = uA.id 
+WHERE DATE_FORMAT(a.dataevento,'%Y') = ? AND a.id_az = ?
+GROUP BY a.id_dip_a,year(a.dataevento) ORDER BY Count(DISTINCT a.dataevento) DESC
+
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySettimana" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBySettimana" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="FillBySettimana">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_assenze.id, utenti_assenze.dataoperazione, utenti_assenze.id_operatore, utenti_assenze.dataevento, 
+utenti_assenze.id_dip_a, 
+utenti_assenze.id_dip_b, 
+utenti_assenze.id_cli, utenti_assenze.id_des,
+utenti_assenze.id_tipo, utenti_assenze.ora_i, utenti_assenze.ora_f, utenti_assenze.note, utenti_assenze.id_az,
+CONCAT(uA.cognome,' ', uA.nome) as anagrafica_A,
+CONCAT(uB.cognome,' ', uB.nome) as anagrafica_B,
+c.societa,
+d.locazione,
+t.descrizione
+FROM            utenti_assenze
+LEFT JOIN utenti as uA ON utenti_assenze.id_dip_a = uA.id 
+LEFT JOIN utenti as uB ON utenti_assenze.id_dip_b = uB.id
+LEFT JOIN cantieri as c ON utenti_assenze.id_cli = c.id
+LEFT JOIN destinatari as d ON utenti_assenze.id_des = d.id 
+LEFT JOIN tipo_assenze as t ON utenti_assenze.id_tipo = t.id
+WHERE DATE_FORMAT(utenti_assenze.dataevento,'%Y-%u') = ? AND utenti_assenze.id_az = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="YYYY-ww" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QR_elimina" Modifier="Public" Name="QR_elimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="QR_elimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM utenti_assenze WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QR_inserisce" Modifier="Public" Name="QR_inserisce" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="QR_inserisce">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO utenti_assenze
+         (id_operatore, dataevento, id_dip_a, id_dip_b, id_cli, id_des, id_tipo, ora_i, ora_f, note,id_az)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_operatore" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_operatore" Precision="0" Scale="0" Size="0" SourceColumn="id_operatore" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="dataevento" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="dataevento" Precision="0" Scale="0" Size="0" SourceColumn="dataevento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_dip_a" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip_a" Precision="0" Scale="0" Size="0" SourceColumn="id_dip_a" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="id_dip_b" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip_b" Precision="0" Scale="0" Size="0" SourceColumn="id_dip_b" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="id_cli" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="id_des" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_des" Precision="0" Scale="0" Size="0" SourceColumn="id_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="id_tipo" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_tipo" Precision="0" Scale="0" Size="0" SourceColumn="id_tipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="ora_i" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="ora_i" Precision="0" Scale="0" Size="0" SourceColumn="ora_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="ora_f" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="ora_f" Precision="0" Scale="0" Size="0" SourceColumn="ora_f" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="note" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="id_az" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QR_modifica" Modifier="Public" Name="QR_modifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="QR_modifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE utenti_assenze
+SET    id_operatore = ?, dataevento = ?, id_dip_a = ?, id_dip_b = ?, id_cli = ?, id_des = ?, id_tipo = ?, ora_i = ?, ora_f = ?, note = ?,id_az = ?
+WHERE (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_operatore" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_operatore" Precision="0" Scale="0" Size="0" SourceColumn="id_operatore" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="dataevento" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="dataevento" Precision="0" Scale="0" Size="0" SourceColumn="dataevento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_dip_a" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip_a" Precision="0" Scale="0" Size="0" SourceColumn="id_dip_a" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="id_dip_b" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip_b" Precision="0" Scale="0" Size="0" SourceColumn="id_dip_b" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="id_cli" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="id_des" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_des" Precision="0" Scale="0" Size="0" SourceColumn="id_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="id_tipo" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_tipo" Precision="0" Scale="0" Size="0" SourceColumn="id_tipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="ora_i" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="ora_i" Precision="0" Scale="0" Size="0" SourceColumn="ora_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="ora_f" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="ora_f" Precision="0" Scale="0" Size="0" SourceColumn="ora_f" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="note" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="id_az" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="id" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_utenti" GeneratorDataComponentClassName="TA_utenti" Name="DT_utenti" UserDataComponentName="TA_utenti">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, CONCAT(cognome, ' ', nome) AS anagrafica
+FROM  utenti
+ORDER BY anagrafica</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAttivi" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByAttivi" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByAttivi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, CONCAT(cognome, ' ', nome) AS anagrafica
+FROM  utenti
+WHERE stato = ?
+AND id_az = ?
+ORDER BY anagrafica</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="stato" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="stato" Precision="0" Scale="0" Size="0" SourceColumn="stato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_clienti" GeneratorDataComponentClassName="TA_clienti" Name="DT_clienti" UserDataComponentName="TA_clienti">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, societa
+FROM  cantieri
+ORDER BY societa</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAttivi" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByAttivi" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByAttivi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, societa
+FROM  cantieri
+WHERE attivo = ?
+AND id_az = ?
+ORDER BY societa</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="attivo" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_az" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_locazioni" GeneratorDataComponentClassName="TA_locazioni" Name="DT_locazioni" UserDataComponentName="TA_locazioni">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, locazione, id_terminale
+FROM  destinatari</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="id_terminale" DataSetColumn="id_terminale" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_avvisi" GeneratorDataComponentClassName="TA_avvisi" Name="DT_avvisi" UserDataComponentName="TA_avvisi">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        credenziali_avvisi.descrizione, credenziali_avvisi.data, credenziali_avvisi.accettata, credenziali_avvisi.id_inviata, credenziali_avvisi.id_destinatario, credenziali_avvisi.id, credA.uid AS inviante, credB.uid AS destinatario, credenziali_avvisi.id_az, credenziali_avvisi.risposta
+FROM            credenziali_avvisi
+LEFT JOIN credenziali as credA ON credenziali_avvisi.id_inviata = credA.id
+LEFT JOIN credenziali as credB ON credenziali_avvisi.id_destinatario = credB.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="accettata" DataSetColumn="accettata" />
+              <Mapping SourceColumn="id_inviata" DataSetColumn="id_inviata" />
+              <Mapping SourceColumn="id_destinatario" DataSetColumn="id_destinatario" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="inviante" DataSetColumn="inviante" />
+              <Mapping SourceColumn="destinatario" DataSetColumn="destinatario" />
+              <Mapping SourceColumn="id_az" DataSetColumn="id_az" />
+              <Mapping SourceColumn="risposta" DataSetColumn="risposta" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDestinatario" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDestinatario" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDestinatario">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        credenziali_avvisi.descrizione, credenziali_avvisi.data, credenziali_avvisi.accettata, credenziali_avvisi.id_inviata, credenziali_avvisi.id_destinatario, credenziali_avvisi.id, credA.uid AS inviante, credB.uid AS destinatario, credenziali_avvisi.id_az, credenziali_avvisi.risposta
+FROM            credenziali_avvisi
+LEFT JOIN credenziali as credA ON credenziali_avvisi.id_inviata = credA.id
+LEFT JOIN credenziali as credB ON credenziali_avvisi.id_destinatario = credB.id
+WHERE
+credenziali_avvisi.id_az = ? 
+AND credenziali_avvisi.id_destinatario = ? 
+AND credenziali_avvisi.id_inviata = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_az" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_destinatario" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_inviata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_inviata" Precision="0" Scale="0" Size="0" SourceColumn="id_inviata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDestinatarioAccettata" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDestinatarioAccettata" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByDestinatarioAccettata">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        credenziali_avvisi.descrizione, credenziali_avvisi.data, credenziali_avvisi.accettata, credenziali_avvisi.id_inviata, credenziali_avvisi.id_destinatario, credenziali_avvisi.id, credA.uid AS inviante, credB.uid AS destinatario, credenziali_avvisi.id_az, credenziali_avvisi.risposta
+FROM            credenziali_avvisi
+LEFT JOIN credenziali as credA ON credenziali_avvisi.id_inviata = credA.id
+LEFT JOIN credenziali as credB ON credenziali_avvisi.id_destinatario = credB.id
+WHERE credenziali_avvisi.id_az = ? 
+AND credenziali_avvisi.id_destinatario = ?
+AND credenziali_avvisi.accettata = ?
+GROUP BY credenziali_avvisi.id
+ORDER BY credenziali_avvisi.data ASC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_az" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_destinatario" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="accettata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="accettata" Precision="0" Scale="0" Size="0" SourceColumn="accettata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByInvianteDestinatarioAccettataRisposta" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByInvianteDestinatarioAccettataRisposta" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByInvianteDestinatarioAccettataRisposta">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        credenziali_avvisi.descrizione, credenziali_avvisi.data, credenziali_avvisi.accettata, credenziali_avvisi.id_inviata, credenziali_avvisi.id_destinatario, credenziali_avvisi.id, credA.uid AS inviante, credB.uid AS destinatario, credenziali_avvisi.id_az, credenziali_avvisi.risposta
+FROM            credenziali_avvisi
+LEFT JOIN credenziali as credA ON credenziali_avvisi.id_inviata = credA.id
+LEFT JOIN credenziali as credB ON credenziali_avvisi.id_destinatario = credB.id
+WHERE        
+credenziali_avvisi.id_az = ? 
+AND credenziali_avvisi.id_destinatario = ?
+AND credenziali_avvisi.accettata = ?
+OR 
+credenziali_avvisi.id_az = ? 
+AND credenziali_avvisi.id_inviata = ?
+AND credenziali_avvisi.risposta = ?
+
+GROUP BY credenziali_avvisi.id
+ORDER BY credenziali_avvisi.data ASC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_az" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_destinatario" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="accettata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="accettata" Precision="0" Scale="0" Size="0" SourceColumn="accettata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="id_az" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az1" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="id_inviata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_inviata" Precision="0" Scale="0" Size="0" SourceColumn="id_inviata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="risposta" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="risposta" Precision="0" Scale="0" Size="0" SourceColumn="risposta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QR_Inserisci" Modifier="Public" Name="QR_Inserisci" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="QR_Inserisci">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO credenziali_avvisi
+                         (descrizione, data, accettata, id_inviata, id_destinatario,risposta,id_az)
+VALUES        (?, ?, ?, ?, ?,?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="descrizione" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="1024" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="data" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="accettata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="accettata" Precision="0" Scale="0" Size="0" SourceColumn="accettata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="id_inviata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_inviata" Precision="0" Scale="0" Size="0" SourceColumn="id_inviata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="id_destinatario" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="risposta" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="risposta" Precision="0" Scale="0" Size="0" SourceColumn="risposta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="id_az" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QR_modifica" Modifier="Public" Name="QR_modifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="QR_modifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       credenziali_avvisi
+SET                descrizione = ?, accettata = ?, id_inviata = ?, id_destinatario = ?, risposta = ?, id_az = ?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="descrizione" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="1024" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="accettata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="accettata" Precision="0" Scale="0" Size="0" SourceColumn="accettata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_inviata" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_inviata" Precision="0" Scale="0" Size="0" SourceColumn="id_inviata" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="id_destinatario" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_destinatario" Precision="0" Scale="0" Size="0" SourceColumn="id_destinatario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="risposta" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="risposta" Precision="0" Scale="0" Size="0" SourceColumn="risposta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="id_az" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="id" DataSourceName="cesar.credenziali_avvisi" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_orari" GeneratorDataComponentClassName="TA_orari" Name="DT_orari" UserDataComponentName="TA_orari">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_des,
+utenti_orario.lu_i, utenti_orario.lu_u, utenti_orario.ma_i, utenti_orario.ma_u, utenti_orario.me_i, utenti_orario.me_u, utenti_orario.gi_i, utenti_orario.gi_u, 
+                         utenti_orario.ve_i, utenti_orario.ve_u, utenti_orario.sa_i, utenti_orario.sa_u, utenti_orario.do_i, utenti_orario.do_u,
+TimeDiff(utenti_orario.lu_u,utenti_orario.lu_i ) as T_lu, 
+TimeDiff(utenti_orario.ma_u,utenti_orario.ma_i) as T_ma,
+TimeDiff(utenti_orario.me_u, utenti_orario.me_i) as T_me,
+TimeDiff(utenti_orario.gi_u,  utenti_orario.gi_i) as T_gi,
+TimeDiff(utenti_orario.ve_u, utenti_orario.ve_i) as T_ve,
+TimeDiff(utenti_orario.sa_u, utenti_orario.sa_i) as T_sa,
+TimeDiff(utenti_orario.do_u, utenti_orario.do_i) as T_do,
+cantieri.societa, 
+destinatari.locazione,
+TIME_FORMAT(
+AddTime(
+AddTime(
+AddTime(
+AddTime(
+TimeDiff(utenti_orario.lu_u,utenti_orario.lu_i ), 
+TimeDiff(utenti_orario.ma_u,utenti_orario.ma_i)
+),
+AddTime(
+TimeDiff(utenti_orario.me_u, utenti_orario.me_i),
+TimeDiff(utenti_orario.gi_u,  utenti_orario.gi_i)
+)
+),
+AddTime(
+TimeDiff(utenti_orario.ve_u, utenti_orario.ve_i),
+TimeDiff(utenti_orario.sa_u, utenti_orario.sa_i)
+))
+,
+TimeDiff(utenti_orario.do_u, utenti_orario.do_i)
+)
+,'%H:%i') as T_set,
+utenti_orario.id_cli
+FROM            utenti_orario
+LEFT JOIN  cantieri on utenti_orario.id_cli = cantieri.id 
+LEFT JOIN  destinatari on utenti_orario.id_des = destinatari.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_dip" DataSetColumn="id_dip" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="T_set" DataSetColumn="T_set" />
+              <Mapping SourceColumn="id_des" DataSetColumn="id_des" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDipendente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDipendente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDipendente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_des,
+utenti_orario.lu_i, utenti_orario.lu_u, utenti_orario.ma_i, utenti_orario.ma_u, utenti_orario.me_i, utenti_orario.me_u, utenti_orario.gi_i, utenti_orario.gi_u, 
+                         utenti_orario.ve_i, utenti_orario.ve_u, utenti_orario.sa_i, utenti_orario.sa_u, utenti_orario.do_i, utenti_orario.do_u,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.lu_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.lu_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.lu_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.lu_u,'%H:%i') END
+
+) AS T_lu
+,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.ma_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.ma_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.ma_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.ma_u,'%H:%i') END
+
+) AS T_ma
+,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.me_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.me_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.me_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.me_u,'%H:%i') END
+
+) AS T_me
+,
+
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.gi_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.gi_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.gi_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.gi_u,'%H:%i') END
+
+) AS T_gi
+,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.ve_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.ve_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.ve_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.ve_u,'%H:%i') END
+
+) AS T_ve
+,
+
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.sa_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.sa_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.sa_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.sa_u,'%H:%i') END
+
+) AS T_sa
+,
+
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.do_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.do_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.do_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.do_u,'%H:%i') END
+
+) AS T_do
+,
+cantieri.societa, 
+destinatari.locazione,
+TIME_FORMAT(
+AddTime(
+AddTime(
+AddTime(
+AddTime(
+TimeDiff(utenti_orario.lu_u,utenti_orario.lu_i ), 
+TimeDiff(utenti_orario.ma_u,utenti_orario.ma_i)
+),
+AddTime(
+TimeDiff(utenti_orario.me_u, utenti_orario.me_i),
+TimeDiff(utenti_orario.gi_u,  utenti_orario.gi_i)
+)
+),
+AddTime(
+TimeDiff(utenti_orario.ve_u, utenti_orario.ve_i),
+TimeDiff(utenti_orario.sa_u, utenti_orario.sa_i)
+))
+,
+TimeDiff(utenti_orario.do_u, utenti_orario.do_i)
+)
+,'%H:%i') as T_set,utenti_orario.id_cli
+FROM            utenti_orario
+LEFT JOIN  cantieri on utenti_orario.id_cli = cantieri.id 
+LEFT JOIN  destinatari on utenti_orario.id_des = destinatari.id
+WHERE utenti_orario.id_dip = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByOrari" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOrari" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByOrari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_des,
+utenti_orario.lu_i, utenti_orario.lu_u, utenti_orario.ma_i, utenti_orario.ma_u, utenti_orario.me_i, utenti_orario.me_u, utenti_orario.gi_i, utenti_orario.gi_u, 
+                         utenti_orario.ve_i, utenti_orario.ve_u, utenti_orario.sa_i, utenti_orario.sa_u, utenti_orario.do_i, utenti_orario.do_u,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.lu_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.lu_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.lu_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.lu_u,'%H:%i') END
+
+) AS T_lu
+,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.ma_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.ma_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.ma_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.ma_u,'%H:%i') END
+
+) AS T_ma
+,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.me_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.me_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.me_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.me_u,'%H:%i') END
+
+) AS T_me
+,
+
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.gi_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.gi_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.gi_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.gi_u,'%H:%i') END
+
+) AS T_gi
+,
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.ve_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.ve_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.ve_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.ve_u,'%H:%i') END
+
+) AS T_ve
+,
+
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.sa_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.sa_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.sa_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.sa_u,'%H:%i') END
+
+) AS T_sa
+,
+
+CONCAT(
+
+CASE  DATE_FORMAT(utenti_orario.do_i,'%H:%i')
+
+WHEN '00:00' THEN ' ' 
+ELSE DATE_FORMAT(utenti_orario.do_i,'%H:%i') END
+
+,'--',
+
+CASE DATE_FORMAT(utenti_orario.do_u,'%H:%i') 
+
+WHEN '00:00'
+THEN ' '
+
+ELSE DATE_FORMAT(utenti_orario.do_u,'%H:%i') END
+
+) AS T_do
+,
+cantieri.societa, 
+destinatari.locazione,
+TIME_FORMAT(
+AddTime(
+AddTime(
+AddTime(
+AddTime(
+TimeDiff(utenti_orario.lu_u,utenti_orario.lu_i ), 
+TimeDiff(utenti_orario.ma_u,utenti_orario.ma_i)
+),
+AddTime(
+TimeDiff(utenti_orario.me_u, utenti_orario.me_i),
+TimeDiff(utenti_orario.gi_u,  utenti_orario.gi_i)
+)
+),
+AddTime(
+TimeDiff(utenti_orario.ve_u, utenti_orario.ve_i),
+TimeDiff(utenti_orario.sa_u, utenti_orario.sa_i)
+))
+,
+TimeDiff(utenti_orario.do_u, utenti_orario.do_i)
+)
+,'%H:%i') as T_set,
+utenti_orario.id_cli
+FROM            utenti_orario
+LEFT JOIN  cantieri on utenti_orario.id_cli = cantieri.id 
+LEFT JOIN  destinatari on utenti_orario.id_des = destinatari.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TAsostituzioni" GeneratorDataComponentClassName="TAsostituzioni" Name="DTsostituzioni" UserDataComponentName="TAsostituzioni">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.idsost = 0 AND s.idtipo = 10
+THEN '*nessuno*'
+ELSE concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.')
+END as anagrafica_A,
+concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.') as anagrafica_S,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_orario as t ON s.idtipo = t.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="iddip" DataSetColumn="iddip" />
+              <Mapping SourceColumn="iddes" DataSetColumn="iddes" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="ing" DataSetColumn="ing" />
+              <Mapping SourceColumn="usc" DataSetColumn="usc" />
+              <Mapping SourceColumn="idsost" DataSetColumn="idsost" />
+              <Mapping SourceColumn="idcli" DataSetColumn="idcli" />
+              <Mapping SourceColumn="idpassaggi" DataSetColumn="idpassaggi" />
+              <Mapping SourceColumn="anagrafica_A" DataSetColumn="anagrafica_A" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="anagrafica_S" DataSetColumn="anagrafica_S" />
+              <Mapping SourceColumn="idtipo" DataSetColumn="idtipo" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="idraggruppamento" DataSetColumn="idraggruppamento" />
+              <Mapping SourceColumn="idconferma" DataSetColumn="idconferma" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDaA" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDaA" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDaA">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.idsost = 0 AND s.idtipo = 10
+THEN '*nessuno*'
+ELSE concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.')
+END as anagrafica_A,
+concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.') as anagrafica_S,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_orario as t ON s.idtipo = t.id
+WHERE s.data BETWEEN ? AND ?
+ORDER BY CONCAT(DATE_FORMAT(s.ing,'%H:%i'),'-',DATE_FORMAT(s.usc,'%H:%i'),'-',s.iddes,s.idsost),s.data
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data1" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDaADipendenteDiversodaTipo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDaADipendenteDiversodaTipo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByDaADipendenteDiversodaTipo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.iddip = s.idsost 
+THEN '*nessuno*'
+ELSE concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.')
+END as anagrafica_S,
+concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.') as anagrafica_A,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_assenze as t ON s.idtipo = t.id
+WHERE
+s.data between ? AND ?
+AND s.iddip = ?
+AND s.idtipo &lt;&gt; ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data1" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="iddip" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddip" Precision="0" Scale="0" Size="0" SourceColumn="iddip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="idtipo" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idtipo" Precision="0" Scale="0" Size="0" SourceColumn="idtipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDaADipendenteTipo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDaADipendenteTipo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByDaADipendenteTipo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.iddip = s.idsost 
+THEN '*nessuno*'
+ELSE concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.')
+END as anagrafica_S,
+concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.') as anagrafica_A,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_assenze as t ON s.idtipo = t.id
+AND s.data between ? AND ?
+AND s.iddip = ?
+AND s.idtipo = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data1" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="iddip" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddip" Precision="0" Scale="0" Size="0" SourceColumn="iddip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="idtipo" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idtipo" Precision="0" Scale="0" Size="0" SourceColumn="idtipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDaAperDipendente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDaAperDipendente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByDaAperDipendente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select s.id,s.data,date_format(s.ing,'%H:%i') as ing,date_format(s.usc,'%H:%i') as usc,
+
+CASE WHEN s.iddip = s.idsost 
+THEN '*nessuno*'
+ELSE concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.')
+END as anagrafica_S,
+
+concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.') as anagrafica_A,
+
+c.societa,
+d.locazione,
+t.descrizione,
+s.note,
+s.idsost,
+s.iddip,
+s.idcli,
+s.iddes,
+s.idtipo
+
+FROM utenti_sostituzioni as s
+
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+
+LEFT JOIN cantieri as c ON s.idcli = c.id
+
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+
+LEFT JOIN tipo_assenze as t ON s.idtipo = t.id
+
+WHERE s.data BETWEEN ? AND ? 
+AND s.iddip = ? 
+
+ORDER BY s.data,s.ing</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data1" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="iddip" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddip" Precision="0" Scale="0" Size="0" SourceColumn="iddip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByGiorno" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByGiorno" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillByGiorno">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.idsost = 0 AND s.idtipo = 10
+THEN '*nessuno*'
+ELSE concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.')
+END as anagrafica_A,
+concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.') as anagrafica_S,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_orario as t ON s.idtipo = t.id
+WHERE s.data = ?
+ORDER BY s.ing</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByGiornoTipo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByGiornoTipo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FillByGiornoTipo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.iddip = s.idsost 
+THEN '*nessuno*'
+ELSE concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.')
+END as anagrafica_S,
+concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.') as anagrafica_A,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_orario as t ON s.idtipo = t.id
+WHERE s.data = ?
+AND s.idtipo = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="idtipo" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idtipo" Precision="0" Scale="0" Size="0" SourceColumn="idtipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  *
+FROM   utenti_sostituzioni 
+WHERE id  =?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMese" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMese" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="FillByMese">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.idsost = 0 AND s.idtipo = 10
+THEN '*nessuno*'
+ELSE concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.')
+END as anagrafica_A,
+concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.') as anagrafica_S,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_orario as t ON s.idtipo = t.id
+WHERE
+ (DATE_FORMAT(s.data, '%Y-%m') = ?) 
+ORDER BY s.iddip,s.data,s.ing</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMeseDipendente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMeseDipendente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="FillByMeseDipendente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.iddip = s.idsost 
+THEN '*nessuno*'
+ELSE concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.')
+END as anagrafica_S,
+concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.') as anagrafica_A,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_assenze as t ON s.idtipo = t.id
+WHERE
+ (DATE_FORMAT(s.data, '%Y-%m') = ?) 
+AND s.iddip = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="iddip" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddip" Precision="0" Scale="0" Size="0" SourceColumn="iddip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMeseDipendenteTotale" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMeseDipendenteTotale" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="FillByMeseDipendenteTotale">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.iddip = s.idsost 
+THEN '*nessuno*'
+ELSE concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.')
+END as anagrafica_S,
+concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.') as anagrafica_A,
+c.societa,d.locazione,t.descrizione,
+
+DATE_FORMAT(sec_to_time(SUM(Time_to_sec(TimeDiff(s.usc,s.ing)))),'%H:%i') as ora_t
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_assenze as t ON s.idtipo = t.id
+WHERE
+ (DATE_FORMAT(s.data, '%Y-%m') = ?) 
+AND s.iddip = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="iddip" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddip" Precision="0" Scale="0" Size="0" SourceColumn="iddip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByRicercaPresenza" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByRicercaPresenza" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="FillByRicercaPresenza">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*
+FROM            utenti_sostituzioni as s
+
+WHERE 
+s.iddes= ? AND s.idsost = ? AND data = ?
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="iddes" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddes" Precision="0" Scale="0" Size="0" SourceColumn="iddes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="idsost" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idsost" Precision="0" Scale="0" Size="0" SourceColumn="idsost" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySettimana" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBySettimana" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="FillBySettimana">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  s.*,
+CASE WHEN s.iddip = s.idsost 
+THEN '*nessuno*'
+ELSE concat(LEFT(uS.cognome,9), ' ' ,LEFT(uS.nome,1),'.')
+END as anagrafica_S,
+concat(LEFT(uA.cognome,9), ' ' ,LEFT(uA.nome,1),'.') as anagrafica_A,
+c.societa,d.locazione,t.descrizione
+FROM            utenti_sostituzioni as s
+LEFT JOIN utenti as uA ON s.idsost = uA.id 
+LEFT JOIN utenti as uS ON s.iddip = uS.id
+LEFT JOIN cantieri as c ON s.idcli = c.id
+LEFT JOIN destinatari as d ON s.iddes = d.id 
+LEFT JOIN tipo_assenze as t ON s.idtipo = t.id
+WHERE DATE_FORMAT(s.data,'%Y-%u') = ? </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRelimina" Modifier="Public" Name="QRelimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy12" UserSourceName="QRelimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM utenti_sostituzioni
+WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRinserisce" Modifier="Public" Name="QRinserisce" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy13" UserSourceName="QRinserisce">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO utenti_sostituzioni
+                         (iddip, iddes, data, note, ing, usc, idsost, idcli, idpassaggi, idtipo,idraggruppamento,idconferma)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="iddip" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddip" Precision="0" Scale="0" Size="0" SourceColumn="iddip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="iddes" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddes" Precision="0" Scale="0" Size="0" SourceColumn="iddes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="note" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="ing" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ing" Precision="0" Scale="0" Size="0" SourceColumn="ing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="usc" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="usc" Precision="0" Scale="0" Size="0" SourceColumn="usc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="idsost" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idsost" Precision="0" Scale="0" Size="0" SourceColumn="idsost" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="idcli" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idcli" Precision="0" Scale="0" Size="0" SourceColumn="idcli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="idpassaggi" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idpassaggi" Precision="0" Scale="0" Size="0" SourceColumn="idpassaggi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="idtipo" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idtipo" Precision="0" Scale="0" Size="0" SourceColumn="idtipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="idraggruppamento" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idraggruppamento" Precision="0" Scale="0" Size="0" SourceColumn="idraggruppamento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="idconferma" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idconferma" Precision="0" Scale="0" Size="0" SourceColumn="idconferma" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRmodifica" Modifier="Public" Name="QRmodifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy14" UserSourceName="QRmodifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       utenti_sostituzioni
+SET                iddip = ?, iddes = ?, data = ?, note = ?, ing = ?, usc = ?, idsost = ?, idcli = ?, idpassaggi = ?, idtipo = ?,idraggruppamento = ?,idconferma = ?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="iddip" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddip" Precision="0" Scale="0" Size="0" SourceColumn="iddip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="iddes" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="iddes" Precision="0" Scale="0" Size="0" SourceColumn="iddes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="data" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="data" Precision="0" Scale="0" Size="0" SourceColumn="data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="note" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="ing" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ing" Precision="0" Scale="0" Size="0" SourceColumn="ing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="usc" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="usc" Precision="0" Scale="0" Size="0" SourceColumn="usc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="idsost" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idsost" Precision="0" Scale="0" Size="0" SourceColumn="idsost" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="idcli" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idcli" Precision="0" Scale="0" Size="0" SourceColumn="idcli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="idpassaggi" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idpassaggi" Precision="0" Scale="0" Size="0" SourceColumn="idpassaggi" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="idtipo" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idtipo" Precision="0" Scale="0" Size="0" SourceColumn="idtipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="idraggruppamento" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idraggruppamento" Precision="0" Scale="0" Size="0" SourceColumn="idraggruppamento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="idconferma" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idconferma" Precision="0" Scale="0" Size="0" SourceColumn="idconferma" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="id" DataSourceName="cesar.utenti_sostituzioni" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SQnuovoID" Modifier="Public" Name="SQnuovoID" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy15" UserSourceName="SQnuovoID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  max(s.id) +1 as id
+FROM            utenti_sostituzioni as s</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DTferieutenteTableAdapter" GeneratorDataComponentClassName="DTferieutenteTableAdapter" Name="DTferieutente" UserDataComponentName="DTferieutenteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_ferie.*
+FROM            utenti_ferie</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_dip" DataSetColumn="id_dip" />
+              <Mapping SourceColumn="inizio" DataSetColumn="inizio" />
+              <Mapping SourceColumn="fine" DataSetColumn="fine" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByidutentePeriodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByidutentePeriodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByidutentePeriodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_ferie.*
+FROM            utenti_ferie
+WHERE id_dip = ? and
+? between date_format(inizio,'%Y%m')  AND date_format(fine,'%Y%m')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Int32" Direction="Input" ParameterName="Param2" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPeriodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPeriodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByPeriodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_ferie.*
+FROM            utenti_ferie
+WHERE ? between DATE_FORMAT(inizio,'%Y-%m') AND DATE_FORMAT(fine,'%Y-%m')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUtente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByUtente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByUtente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        utenti_ferie.*
+FROM            utenti_ferie
+WHERE id_dip = ? and
+date_format(inizio,'%Y-%m') = ?
+OR id_dip = ? and
+date_format(fine,'%Y-%m') = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param2" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_dip" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip1" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param4" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUtenteperiodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByUtenteperiodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByUtenteperiodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        utenti_ferie.*
+FROM            utenti_ferie
+WHERE id_dip = ? AND inizio between ? AND ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="inizio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="fine" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio1" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QReliminaByDipendente" Modifier="Public" Name="QReliminaByDipendente" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="QReliminaByDipendente">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM utenti_ferie
+WHERE        (id_dip = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QReliminabyID" Modifier="Public" Name="QReliminabyID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="QReliminabyID">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM utenti_ferie
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRinserisci" Modifier="Public" Name="QRinserisci" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="QRinserisci">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO utenti_ferie
+                         (id_dip, inizio, fine, note)
+VALUES        (?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="inizio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="fine" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fine" Precision="0" Scale="0" Size="0" SourceColumn="fine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="note" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRmodifica" Modifier="Public" Name="QRmodifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="QRmodifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE       utenti_ferie
+SET                id_dip = ?, inizio = ?, fine = ?, note = ?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="inizio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="fine" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fine" Precision="0" Scale="0" Size="0" SourceColumn="fine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="note" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="id" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DTferieclienteTableAdapter" GeneratorDataComponentClassName="DTferieclienteTableAdapter" Name="DTferiecliente" UserDataComponentName="DTferieclienteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        cantieri_ferie.id, cantieri_ferie.id_det, cantieri_ferie.inizio, cantieri_ferie.fine, cantieri_ferie.note, cantieri_ferie.id_cli, destinatari.locazione
+FROM           cantieri_ferie 
+LEFT OUTER JOIN destinatari ON cantieri_ferie.id_det = destinatari.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="inizio" DataSetColumn="inizio" />
+              <Mapping SourceColumn="fine" DataSetColumn="fine" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="id_det" DataSetColumn="id_det" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCliente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCliente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCliente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        cantieri_ferie.id, cantieri_ferie.id_det, cantieri_ferie.inizio, cantieri_ferie.fine, cantieri_ferie.note, cantieri_ferie.id_cli, destinatari.locazione
+FROM           cantieri_ferie 
+LEFT OUTER JOIN destinatari ON cantieri_ferie.id_det = destinatari.id
+ WHERE (id_cli = ?) AND destinatari.attivo =1</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByClienteGperiodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByClienteGperiodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByClienteGperiodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        cantieri_ferie.id, cantieri_ferie.id_det, cantieri_ferie.inizio, cantieri_ferie.fine, cantieri_ferie.note, cantieri_ferie.id_cli, destinatari.locazione
+FROM           cantieri_ferie 
+LEFT OUTER JOIN destinatari ON cantieri_ferie.id_det = destinatari.id
+ WHERE (id_cli = ?) 
+AND DATE_FORMAT(inizio,'%Y%m') &gt;= ?  AND DATE_FORMAT(fine,'%Y%m') &lt;= ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param2" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param3" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByclienteperiodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByclienteperiodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByclienteperiodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        cantieri_ferie.id, cantieri_ferie.id_det, cantieri_ferie.inizio, cantieri_ferie.fine, cantieri_ferie.note, cantieri_ferie.id_cli, destinatari.locazione
+FROM           cantieri_ferie 
+LEFT OUTER JOIN destinatari ON cantieri_ferie.id_det = destinatari.id
+ WHERE (id_cli = ?) AND (inizio &gt;= ?) AND (fine &lt;= ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="inizio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="fine" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fine" Precision="0" Scale="0" Size="0" SourceColumn="fine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBydettaglio" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBydettaglio" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillBydettaglio">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        cantieri_ferie.id, cantieri_ferie.id_det, cantieri_ferie.inizio, cantieri_ferie.fine, cantieri_ferie.note, cantieri_ferie.id_cli, destinatari.locazione
+FROM           cantieri_ferie 
+LEFT OUTER JOIN destinatari ON cantieri_ferie.id_det = destinatari.id
+WHERE (id_det = ?) AND destinatari.attivo = 1
+AND DATE_FORMAT(cantieri_ferie.inizio,'%Y-%m') = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_det" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_det" Precision="0" Scale="0" Size="0" SourceColumn="id_det" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param2" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBydettaglioperiodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBydettaglioperiodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillBydettaglioperiodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        cantieri_ferie.id, cantieri_ferie.id_det, cantieri_ferie.inizio, cantieri_ferie.fine, cantieri_ferie.note, cantieri_ferie.id_cli, destinatari.locazione
+FROM           cantieri_ferie 
+LEFT OUTER JOIN destinatari ON cantieri_ferie.id_det = destinatari.id
+WHERE (id_det = ?) AND 
+? BETWEEN DATE_FORMAT(cantieri_ferie.inizio,'%Y%m') AND DATE_FORMAT(cantieri_ferie.fine,'%Y%m') </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_det" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_det" Precision="0" Scale="0" Size="0" SourceColumn="id_det" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Int32" Direction="Input" ParameterName="periodoyyyymm" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRelimina" Modifier="Public" Name="QRelimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="QRelimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM cantieri_ferie WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QReliminaperdettaglio" Modifier="Public" Name="QReliminaperdettaglio" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="QReliminaperdettaglio">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM cantieri_ferie WHERE id_det = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_det" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_det" Precision="0" Scale="0" Size="0" SourceColumn="id_det" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRinserisci" Modifier="Public" Name="QRinserisci" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="QRinserisci">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO cantieri_ferie
+                         (id_cli,id_det, inizio, fine, note)
+VALUES        (?, ?, ?, ?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_det" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_det" Precision="0" Scale="0" Size="0" SourceColumn="id_det" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="inizio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="fine" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fine" Precision="0" Scale="0" Size="0" SourceColumn="fine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="note" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="QRmodifica" Modifier="Public" Name="QRmodifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="QRmodifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE cantieri_ferie
+SET id_cli = ?,id_det=?,inizio=?, fine=?, note=?
+WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_det" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_det" Precision="0" Scale="0" Size="0" SourceColumn="id_det" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="inizio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="fine" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fine" Precision="0" Scale="0" Size="0" SourceColumn="fine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="note" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="id" DataSourceName="" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="taTipo" GeneratorDataComponentClassName="taTipo" Name="dtTipo" UserDataComponentName="taTipo">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select * FROM tipo_orario</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="colore" DataSetColumn="colore" />
+              <Mapping SourceColumn="conteggiabile" DataSetColumn="conteggiabile" />
+              <Mapping SourceColumn="Attivo_dip" DataSetColumn="Attivo_dip" />
+              <Mapping SourceColumn="Attivo_can" DataSetColumn="Attivo_can" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAttiviDipendenti" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByAttiviDipendenti" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByAttiviDipendenti">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select * FROM tipo_orario
+WHERE Attivo_dip = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_ag" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_ag" msprop:Generator_UserDSName="DS_ag">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_agenda" msprop:Generator_TableClassName="DT_agendaDataTable" msprop:Generator_TableVarName="tableDT_agenda" msprop:Generator_TablePropName="DT_agenda" msprop:Generator_RowDeletingName="DT_agendaRowDeleting" msprop:Generator_RowChangingName="DT_agendaRowChanging" msprop:Generator_RowEvHandlerName="DT_agendaRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_agendaRowDeleted" msprop:Generator_UserTableName="DT_agenda" msprop:Generator_RowChangedName="DT_agendaRowChanged" msprop:Generator_RowEvArgName="DT_agendaRowChangeEvent" msprop:Generator_RowClassName="DT_agendaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="dataoperazione" msprop:Generator_ColumnVarNameInTable="columndataoperazione" msprop:Generator_ColumnPropNameInRow="dataoperazione" msprop:Generator_ColumnPropNameInTable="dataoperazioneColumn" msprop:Generator_UserColumnName="dataoperazione" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="id_operatore" msprop:Generator_ColumnVarNameInTable="columnid_operatore" msprop:Generator_ColumnPropNameInRow="id_operatore" msprop:Generator_ColumnPropNameInTable="id_operatoreColumn" msprop:Generator_UserColumnName="id_operatore" type="xs:int" minOccurs="0" />
+              <xs:element name="dataevento" msprop:Generator_ColumnVarNameInTable="columndataevento" msprop:Generator_ColumnPropNameInRow="dataevento" msprop:Generator_ColumnPropNameInTable="dataeventoColumn" msprop:Generator_UserColumnName="dataevento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="id_dip_a" msprop:Generator_ColumnVarNameInTable="columnid_dip_a" msprop:Generator_ColumnPropNameInRow="id_dip_a" msprop:Generator_ColumnPropNameInTable="id_dip_aColumn" msprop:Generator_UserColumnName="id_dip_a" type="xs:int" minOccurs="0" />
+              <xs:element name="id_dip_b" msprop:Generator_ColumnVarNameInTable="columnid_dip_b" msprop:Generator_ColumnPropNameInRow="id_dip_b" msprop:Generator_ColumnPropNameInTable="id_dip_bColumn" msprop:Generator_UserColumnName="id_dip_b" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" minOccurs="0" />
+              <xs:element name="id_des" msprop:Generator_ColumnVarNameInTable="columnid_des" msprop:Generator_ColumnPropNameInRow="id_des" msprop:Generator_ColumnPropNameInTable="id_desColumn" msprop:Generator_UserColumnName="id_des" type="xs:int" minOccurs="0" />
+              <xs:element name="id_tipo" msprop:Generator_ColumnVarNameInTable="columnid_tipo" msprop:Generator_ColumnPropNameInRow="id_tipo" msprop:Generator_ColumnPropNameInTable="id_tipoColumn" msprop:Generator_UserColumnName="id_tipo" type="xs:int" minOccurs="0" />
+              <xs:element name="ora_i" msprop:Generator_ColumnVarNameInTable="columnora_i" msprop:Generator_ColumnPropNameInRow="ora_i" msprop:Generator_ColumnPropNameInTable="ora_iColumn" msprop:Generator_UserColumnName="ora_i" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ora_f" msprop:Generator_ColumnVarNameInTable="columnora_f" msprop:Generator_ColumnPropNameInRow="ora_f" msprop:Generator_ColumnPropNameInTable="ora_fColumn" msprop:Generator_UserColumnName="ora_f" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_az" msprop:Generator_ColumnVarNameInTable="columnid_az" msprop:Generator_ColumnPropNameInRow="id_az" msprop:Generator_ColumnPropNameInTable="id_azColumn" msprop:Generator_UserColumnName="id_az" type="xs:int" minOccurs="0" />
+              <xs:element name="anagrafica_A" msprop:Generator_ColumnVarNameInTable="columnanagrafica_A" msprop:Generator_ColumnPropNameInRow="anagrafica_A" msprop:Generator_ColumnPropNameInTable="anagrafica_AColumn" msprop:Generator_UserColumnName="anagrafica_A" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="anagrafica_B" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="anagrafica_B" msprop:Generator_ColumnVarNameInTable="columnanagrafica_B" msprop:Generator_ColumnPropNameInTable="anagrafica_BColumn" msprop:Generator_UserColumnName="anagrafica_B" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_utenti" msprop:Generator_TableClassName="DT_utentiDataTable" msprop:Generator_TableVarName="tableDT_utenti" msprop:Generator_TablePropName="DT_utenti" msprop:Generator_RowDeletingName="DT_utentiRowDeleting" msprop:Generator_RowChangingName="DT_utentiRowChanging" msprop:Generator_RowEvHandlerName="DT_utentiRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_utentiRowDeleted" msprop:Generator_UserTableName="DT_utenti" msprop:Generator_RowChangedName="DT_utentiRowChanged" msprop:Generator_RowEvArgName="DT_utentiRowChangeEvent" msprop:Generator_RowClassName="DT_utentiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="anagrafica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_clienti" msprop:Generator_TableClassName="DT_clientiDataTable" msprop:Generator_TableVarName="tableDT_clienti" msprop:Generator_TablePropName="DT_clienti" msprop:Generator_RowDeletingName="DT_clientiRowDeleting" msprop:Generator_RowChangingName="DT_clientiRowChanging" msprop:Generator_RowEvHandlerName="DT_clientiRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_clientiRowDeleted" msprop:Generator_UserTableName="DT_clienti" msprop:Generator_RowChangedName="DT_clientiRowChanged" msprop:Generator_RowEvArgName="DT_clientiRowChangeEvent" msprop:Generator_RowClassName="DT_clientiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_locazioni" msprop:Generator_TableClassName="DT_locazioniDataTable" msprop:Generator_TableVarName="tableDT_locazioni" msprop:Generator_TablePropName="DT_locazioni" msprop:Generator_RowDeletingName="DT_locazioniRowDeleting" msprop:Generator_RowChangingName="DT_locazioniRowChanging" msprop:Generator_RowEvHandlerName="DT_locazioniRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_locazioniRowDeleted" msprop:Generator_UserTableName="DT_locazioni" msprop:Generator_RowChangedName="DT_locazioniRowChanged" msprop:Generator_RowEvArgName="DT_locazioniRowChangeEvent" msprop:Generator_RowClassName="DT_locazioniRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_terminale" msprop:Generator_ColumnVarNameInTable="columnid_terminale" msprop:Generator_ColumnPropNameInRow="id_terminale" msprop:Generator_ColumnPropNameInTable="id_terminaleColumn" msprop:Generator_UserColumnName="id_terminale" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_avvisi" msprop:Generator_TableClassName="DT_avvisiDataTable" msprop:Generator_TableVarName="tableDT_avvisi" msprop:Generator_RowChangedName="DT_avvisiRowChanged" msprop:Generator_TablePropName="DT_avvisi" msprop:Generator_RowDeletingName="DT_avvisiRowDeleting" msprop:Generator_RowChangingName="DT_avvisiRowChanging" msprop:Generator_RowEvHandlerName="DT_avvisiRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_avvisiRowDeleted" msprop:Generator_RowClassName="DT_avvisiRow" msprop:Generator_UserTableName="DT_avvisi" msprop:Generator_RowEvArgName="DT_avvisiRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="accettata" msprop:Generator_ColumnVarNameInTable="columnaccettata" msprop:Generator_ColumnPropNameInRow="accettata" msprop:Generator_ColumnPropNameInTable="accettataColumn" msprop:Generator_UserColumnName="accettata" type="xs:short" minOccurs="0" />
+              <xs:element name="id_inviata" msprop:Generator_ColumnVarNameInTable="columnid_inviata" msprop:Generator_ColumnPropNameInRow="id_inviata" msprop:Generator_ColumnPropNameInTable="id_inviataColumn" msprop:Generator_UserColumnName="id_inviata" type="xs:int" minOccurs="0" />
+              <xs:element name="id_destinatario" msprop:Generator_ColumnVarNameInTable="columnid_destinatario" msprop:Generator_ColumnPropNameInRow="id_destinatario" msprop:Generator_ColumnPropNameInTable="id_destinatarioColumn" msprop:Generator_UserColumnName="id_destinatario" type="xs:int" minOccurs="0" />
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="inviante" msprop:Generator_ColumnVarNameInTable="columninviante" msprop:Generator_ColumnPropNameInRow="inviante" msprop:Generator_ColumnPropNameInTable="invianteColumn" msprop:Generator_UserColumnName="inviante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="destinatario" msprop:Generator_ColumnVarNameInTable="columndestinatario" msprop:Generator_ColumnPropNameInRow="destinatario" msprop:Generator_ColumnPropNameInTable="destinatarioColumn" msprop:Generator_UserColumnName="destinatario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_az" msprop:Generator_ColumnVarNameInTable="columnid_az" msprop:Generator_ColumnPropNameInRow="id_az" msprop:Generator_ColumnPropNameInTable="id_azColumn" msprop:Generator_UserColumnName="id_az" type="xs:int" minOccurs="0" />
+              <xs:element name="risposta" msprop:Generator_ColumnVarNameInTable="columnrisposta" msprop:Generator_ColumnPropNameInRow="risposta" msprop:Generator_ColumnPropNameInTable="rispostaColumn" msprop:Generator_UserColumnName="risposta" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_orari" msprop:Generator_TableClassName="DT_orariDataTable" msprop:Generator_TableVarName="tableDT_orari" msprop:Generator_RowChangedName="DT_orariRowChanged" msprop:Generator_TablePropName="DT_orari" msprop:Generator_RowDeletingName="DT_orariRowDeleting" msprop:Generator_RowChangingName="DT_orariRowChanging" msprop:Generator_RowEvHandlerName="DT_orariRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_orariRowDeleted" msprop:Generator_RowClassName="DT_orariRow" msprop:Generator_UserTableName="DT_orari" msprop:Generator_RowEvArgName="DT_orariRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_dip" msprop:Generator_ColumnVarNameInTable="columnid_dip" msprop:Generator_ColumnPropNameInRow="id_dip" msprop:Generator_ColumnPropNameInTable="id_dipColumn" msprop:Generator_UserColumnName="id_dip" type="xs:int" minOccurs="0" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="T_ma" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_ma" msprop:Generator_ColumnPropNameInRow="T_ma" msprop:Generator_ColumnPropNameInTable="T_maColumn" msprop:Generator_UserColumnName="T_ma" type="xs:string" minOccurs="0" />
+              <xs:element name="T_me" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_me" msprop:Generator_ColumnPropNameInRow="T_me" msprop:Generator_ColumnPropNameInTable="T_meColumn" msprop:Generator_UserColumnName="T_me" type="xs:string" minOccurs="0" />
+              <xs:element name="T_gi" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_gi" msprop:Generator_ColumnPropNameInRow="T_gi" msprop:Generator_ColumnPropNameInTable="T_giColumn" msprop:Generator_UserColumnName="T_gi" type="xs:string" minOccurs="0" />
+              <xs:element name="T_ve" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_ve" msprop:Generator_ColumnPropNameInRow="T_ve" msprop:Generator_ColumnPropNameInTable="T_veColumn" msprop:Generator_UserColumnName="T_ve" type="xs:string" minOccurs="0" />
+              <xs:element name="T_sa" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_sa" msprop:Generator_ColumnPropNameInRow="T_sa" msprop:Generator_ColumnPropNameInTable="T_saColumn" msprop:Generator_UserColumnName="T_sa" type="xs:string" minOccurs="0" />
+              <xs:element name="T_do" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_do" msprop:Generator_ColumnPropNameInRow="T_do" msprop:Generator_ColumnPropNameInTable="T_doColumn" msprop:Generator_UserColumnName="T_do" type="xs:string" minOccurs="0" />
+              <xs:element name="lu_u" msprop:Generator_ColumnVarNameInTable="columnlu_u" msprop:Generator_ColumnPropNameInRow="lu_u" msprop:Generator_ColumnPropNameInTable="lu_uColumn" msprop:Generator_UserColumnName="lu_u" type="xs:string" minOccurs="0" />
+              <xs:element name="ma_i" msprop:Generator_ColumnVarNameInTable="columnma_i" msprop:Generator_ColumnPropNameInRow="ma_i" msprop:Generator_ColumnPropNameInTable="ma_iColumn" msprop:Generator_UserColumnName="ma_i" type="xs:string" minOccurs="0" />
+              <xs:element name="ma_u" msprop:Generator_ColumnVarNameInTable="columnma_u" msprop:Generator_ColumnPropNameInRow="ma_u" msprop:Generator_ColumnPropNameInTable="ma_uColumn" msprop:Generator_UserColumnName="ma_u" type="xs:string" minOccurs="0" />
+              <xs:element name="me_i" msprop:Generator_ColumnVarNameInTable="columnme_i" msprop:Generator_ColumnPropNameInRow="me_i" msprop:Generator_ColumnPropNameInTable="me_iColumn" msprop:Generator_UserColumnName="me_i" type="xs:string" minOccurs="0" />
+              <xs:element name="me_u" msprop:Generator_ColumnVarNameInTable="columnme_u" msprop:Generator_ColumnPropNameInRow="me_u" msprop:Generator_ColumnPropNameInTable="me_uColumn" msprop:Generator_UserColumnName="me_u" type="xs:string" minOccurs="0" />
+              <xs:element name="gi_i" msprop:Generator_ColumnVarNameInTable="columngi_i" msprop:Generator_ColumnPropNameInRow="gi_i" msprop:Generator_ColumnPropNameInTable="gi_iColumn" msprop:Generator_UserColumnName="gi_i" type="xs:string" minOccurs="0" />
+              <xs:element name="gi_u" msprop:Generator_ColumnVarNameInTable="columngi_u" msprop:Generator_ColumnPropNameInRow="gi_u" msprop:Generator_ColumnPropNameInTable="gi_uColumn" msprop:Generator_UserColumnName="gi_u" type="xs:string" minOccurs="0" />
+              <xs:element name="ve_i" msprop:Generator_ColumnVarNameInTable="columnve_i" msprop:Generator_ColumnPropNameInRow="ve_i" msprop:Generator_ColumnPropNameInTable="ve_iColumn" msprop:Generator_UserColumnName="ve_i" type="xs:string" minOccurs="0" />
+              <xs:element name="ve_u" msprop:Generator_ColumnVarNameInTable="columnve_u" msprop:Generator_ColumnPropNameInRow="ve_u" msprop:Generator_ColumnPropNameInTable="ve_uColumn" msprop:Generator_UserColumnName="ve_u" type="xs:string" minOccurs="0" />
+              <xs:element name="sa_i" msprop:Generator_ColumnVarNameInTable="columnsa_i" msprop:Generator_ColumnPropNameInRow="sa_i" msprop:Generator_ColumnPropNameInTable="sa_iColumn" msprop:Generator_UserColumnName="sa_i" type="xs:string" minOccurs="0" />
+              <xs:element name="sa_u" msprop:Generator_ColumnVarNameInTable="columnsa_u" msprop:Generator_ColumnPropNameInRow="sa_u" msprop:Generator_ColumnPropNameInTable="sa_uColumn" msprop:Generator_UserColumnName="sa_u" type="xs:string" minOccurs="0" />
+              <xs:element name="do_i" msprop:Generator_ColumnVarNameInTable="columndo_i" msprop:Generator_ColumnPropNameInRow="do_i" msprop:Generator_ColumnPropNameInTable="do_iColumn" msprop:Generator_UserColumnName="do_i" type="xs:string" minOccurs="0" />
+              <xs:element name="do_u" msprop:Generator_ColumnVarNameInTable="columndo_u" msprop:Generator_ColumnPropNameInRow="do_u" msprop:Generator_ColumnPropNameInTable="do_uColumn" msprop:Generator_UserColumnName="do_u" type="xs:string" minOccurs="0" />
+              <xs:element name="T_lu" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_lu" msprop:Generator_ColumnPropNameInRow="T_lu" msprop:Generator_ColumnPropNameInTable="T_luColumn" msprop:Generator_UserColumnName="T_lu" type="xs:string" minOccurs="0" />
+              <xs:element name="T_set" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnT_set" msprop:Generator_ColumnPropNameInRow="T_set" msprop:Generator_ColumnPropNameInTable="T_setColumn" msprop:Generator_UserColumnName="T_set" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lu_i" msprop:Generator_ColumnVarNameInTable="columnlu_i" msprop:Generator_ColumnPropNameInRow="lu_i" msprop:Generator_ColumnPropNameInTable="lu_iColumn" msprop:Generator_UserColumnName="lu_i" type="xs:string" minOccurs="0" />
+              <xs:element name="id_des" msprop:Generator_ColumnVarNameInTable="columnid_des" msprop:Generator_ColumnPropNameInRow="id_des" msprop:Generator_ColumnPropNameInTable="id_desColumn" msprop:Generator_UserColumnName="id_des" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTsostituzioni" msprop:Generator_TableClassName="DTsostituzioniDataTable" msprop:Generator_TableVarName="tableDTsostituzioni" msprop:Generator_TablePropName="DTsostituzioni" msprop:Generator_RowDeletingName="DTsostituzioniRowDeleting" msprop:Generator_RowChangingName="DTsostituzioniRowChanging" msprop:Generator_RowEvHandlerName="DTsostituzioniRowChangeEventHandler" msprop:Generator_RowDeletedName="DTsostituzioniRowDeleted" msprop:Generator_UserTableName="DTsostituzioni" msprop:Generator_RowChangedName="DTsostituzioniRowChanged" msprop:Generator_RowEvArgName="DTsostituzioniRowChangeEvent" msprop:Generator_RowClassName="DTsostituzioniRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="iddip" msprop:Generator_ColumnVarNameInTable="columniddip" msprop:Generator_ColumnPropNameInRow="iddip" msprop:Generator_ColumnPropNameInTable="iddipColumn" msprop:Generator_UserColumnName="iddip" type="xs:int" minOccurs="0" />
+              <xs:element name="iddes" msprop:Generator_ColumnVarNameInTable="columniddes" msprop:Generator_ColumnPropNameInRow="iddes" msprop:Generator_ColumnPropNameInTable="iddesColumn" msprop:Generator_UserColumnName="iddes" type="xs:int" minOccurs="0" />
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ing" msprop:Generator_ColumnVarNameInTable="columning" msprop:Generator_ColumnPropNameInRow="ing" msprop:Generator_ColumnPropNameInTable="ingColumn" msprop:Generator_UserColumnName="ing" type="xs:duration" minOccurs="0" />
+              <xs:element name="usc" msprop:Generator_ColumnVarNameInTable="columnusc" msprop:Generator_ColumnPropNameInRow="usc" msprop:Generator_ColumnPropNameInTable="uscColumn" msprop:Generator_UserColumnName="usc" type="xs:duration" minOccurs="0" />
+              <xs:element name="idsost" msprop:Generator_ColumnVarNameInTable="columnidsost" msprop:Generator_ColumnPropNameInRow="idsost" msprop:Generator_ColumnPropNameInTable="idsostColumn" msprop:Generator_UserColumnName="idsost" type="xs:int" minOccurs="0" />
+              <xs:element name="idcli" msprop:Generator_ColumnVarNameInTable="columnidcli" msprop:Generator_ColumnPropNameInRow="idcli" msprop:Generator_ColumnPropNameInTable="idcliColumn" msprop:Generator_UserColumnName="idcli" type="xs:int" minOccurs="0" />
+              <xs:element name="idpassaggi" msprop:Generator_ColumnVarNameInTable="columnidpassaggi" msprop:Generator_ColumnPropNameInRow="idpassaggi" msprop:Generator_ColumnPropNameInTable="idpassaggiColumn" msprop:Generator_UserColumnName="idpassaggi" type="xs:int" minOccurs="0" />
+              <xs:element name="anagrafica_A" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica_A" msprop:Generator_ColumnPropNameInRow="anagrafica_A" msprop:Generator_ColumnPropNameInTable="anagrafica_AColumn" msprop:Generator_UserColumnName="anagrafica_A" default="" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="anagrafica_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica_S" msprop:Generator_ColumnPropNameInRow="anagrafica_S" msprop:Generator_ColumnPropNameInTable="anagrafica_SColumn" msprop:Generator_UserColumnName="anagrafica_S" default="" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idtipo" msprop:Generator_ColumnVarNameInTable="columnidtipo" msprop:Generator_ColumnPropNameInRow="idtipo" msprop:Generator_ColumnPropNameInTable="idtipoColumn" msprop:Generator_UserColumnName="idtipo" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idraggruppamento" msprop:Generator_ColumnVarNameInTable="columnidraggruppamento" msprop:Generator_ColumnPropNameInRow="idraggruppamento" msprop:Generator_ColumnPropNameInTable="idraggruppamentoColumn" msprop:Generator_UserColumnName="idraggruppamento" type="xs:int" minOccurs="0" />
+              <xs:element name="idconferma" msprop:Generator_ColumnVarNameInTable="columnidconferma" msprop:Generator_ColumnPropNameInRow="idconferma" msprop:Generator_ColumnPropNameInTable="idconfermaColumn" msprop:Generator_UserColumnName="idconferma" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTferieutente" msprop:Generator_TableClassName="DTferieutenteDataTable" msprop:Generator_TableVarName="tableDTferieutente" msprop:Generator_RowChangedName="DTferieutenteRowChanged" msprop:Generator_TablePropName="DTferieutente" msprop:Generator_RowDeletingName="DTferieutenteRowDeleting" msprop:Generator_RowChangingName="DTferieutenteRowChanging" msprop:Generator_RowEvHandlerName="DTferieutenteRowChangeEventHandler" msprop:Generator_RowDeletedName="DTferieutenteRowDeleted" msprop:Generator_RowClassName="DTferieutenteRow" msprop:Generator_UserTableName="DTferieutente" msprop:Generator_RowEvArgName="DTferieutenteRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_dip" msprop:Generator_ColumnVarNameInTable="columnid_dip" msprop:Generator_ColumnPropNameInRow="id_dip" msprop:Generator_ColumnPropNameInTable="id_dipColumn" msprop:Generator_UserColumnName="id_dip" type="xs:int" minOccurs="0" />
+              <xs:element name="inizio" msprop:Generator_ColumnVarNameInTable="columninizio" msprop:Generator_ColumnPropNameInRow="inizio" msprop:Generator_ColumnPropNameInTable="inizioColumn" msprop:Generator_UserColumnName="inizio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fine" msprop:Generator_ColumnVarNameInTable="columnfine" msprop:Generator_ColumnPropNameInRow="fine" msprop:Generator_ColumnPropNameInTable="fineColumn" msprop:Generator_UserColumnName="fine" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:nullValue="" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTferiecliente" msprop:Generator_TableClassName="DTferieclienteDataTable" msprop:Generator_TableVarName="tableDTferiecliente" msprop:Generator_RowChangedName="DTferieclienteRowChanged" msprop:Generator_TablePropName="DTferiecliente" msprop:Generator_RowDeletingName="DTferieclienteRowDeleting" msprop:Generator_RowChangingName="DTferieclienteRowChanging" msprop:Generator_RowEvHandlerName="DTferieclienteRowChangeEventHandler" msprop:Generator_RowDeletedName="DTferieclienteRowDeleted" msprop:Generator_RowClassName="DTferieclienteRow" msprop:Generator_UserTableName="DTferiecliente" msprop:Generator_RowEvArgName="DTferieclienteRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="inizio" msprop:Generator_ColumnVarNameInTable="columninizio" msprop:Generator_ColumnPropNameInRow="inizio" msprop:Generator_ColumnPropNameInTable="inizioColumn" msprop:Generator_UserColumnName="inizio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fine" msprop:Generator_ColumnVarNameInTable="columnfine" msprop:Generator_ColumnPropNameInRow="fine" msprop:Generator_ColumnPropNameInTable="fineColumn" msprop:Generator_UserColumnName="fine" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:nullValue=" " msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_det" msprop:Generator_ColumnVarNameInTable="columnid_det" msprop:Generator_ColumnPropNameInRow="id_det" msprop:Generator_ColumnPropNameInTable="id_detColumn" msprop:Generator_UserColumnName="id_det" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" minOccurs="0" />
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtTipo" msprop:Generator_TableClassName="dtTipoDataTable" msprop:Generator_TableVarName="tabledtTipo" msprop:Generator_RowChangedName="dtTipoRowChanged" msprop:Generator_TablePropName="dtTipo" msprop:Generator_RowDeletingName="dtTipoRowDeleting" msprop:Generator_RowChangingName="dtTipoRowChanging" msprop:Generator_RowEvHandlerName="dtTipoRowChangeEventHandler" msprop:Generator_RowDeletedName="dtTipoRowDeleted" msprop:Generator_RowClassName="dtTipoRow" msprop:Generator_UserTableName="dtTipo" msprop:Generator_RowEvArgName="dtTipoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="67" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="colore" msprop:Generator_ColumnVarNameInTable="columncolore" msprop:Generator_ColumnPropNameInRow="colore" msprop:Generator_ColumnPropNameInTable="coloreColumn" msprop:Generator_UserColumnName="colore" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="67" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="conteggiabile" msprop:Generator_ColumnVarNameInTable="columnconteggiabile" msprop:Generator_ColumnPropNameInRow="conteggiabile" msprop:Generator_ColumnPropNameInTable="conteggiabileColumn" msprop:Generator_UserColumnName="conteggiabile" type="xs:int" minOccurs="0" />
+              <xs:element name="Attivo_dip" msprop:Generator_ColumnVarNameInTable="columnAttivo_dip" msprop:Generator_ColumnPropNameInRow="Attivo_dip" msprop:Generator_ColumnPropNameInTable="Attivo_dipColumn" msprop:Generator_UserColumnName="Attivo_dip" type="xs:short" minOccurs="0" />
+              <xs:element name="Attivo_can" msprop:Generator_ColumnVarNameInTable="columnAttivo_can" msprop:Generator_ColumnPropNameInRow="Attivo_can" msprop:Generator_ColumnPropNameInTable="Attivo_canColumn" msprop:Generator_UserColumnName="Attivo_can" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:DT_agenda" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_avvisi_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_avvisi" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_orari_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_orari" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DTsostituzioni_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DTsostituzioni" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DTferieutente_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DTferieutente" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DTferiecliente_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DTferiecliente" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="dtTipo_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:dtTipo" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="clienti_R_locazioni" msdata:parent="DT_clienti" msdata:child="DT_locazioni" msdata:parentkey="id" msdata:childkey="id_terminale" msprop:Generator_UserChildTable="DT_locazioni" msprop:Generator_ChildPropName="GetDT_locazioniRows" msprop:Generator_UserRelationName="clienti_R_locazioni" msprop:Generator_ParentPropName="DT_clientiRow" msprop:Generator_RelationVarName="relationclienti_R_locazioni" msprop:Generator_UserParentTable="DT_clienti" />
+      <msdata:Relationship name="DT_agenda_DT_orari" msdata:parent="DT_agenda" msdata:child="DT_orari" msdata:parentkey="id_dip_a" msdata:childkey="id_dip" msprop:Generator_UserChildTable="DT_orari" msprop:Generator_ChildPropName="GetDT_orariRows" msprop:Generator_UserRelationName="DT_agenda_DT_orari" msprop:Generator_RelationVarName="relationDT_agenda_DT_orari" msprop:Generator_UserParentTable="DT_agenda" msprop:Generator_ParentPropName="DT_agendaRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

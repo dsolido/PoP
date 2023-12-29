@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_contabilita" targetNamespace="http://tempuri.org/DS_contabilita.xsd" xmlns:mstns="http://tempuri.org/DS_contabilita.xsd" xmlns="http://tempuri.org/DS_contabilita.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_clienti_scadenze" GeneratorDataComponentClassName="TA_clienti_scadenze" Name="DT_clienti_scadenze" UserDataComponentName="TA_clienti_scadenze">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostra" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="mostra" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="mostra">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT       
+fattura.fat_cli_id as id_cli,
+cantieri.societa, 
+cantieri.condomino,
+cantieri.home_phone,
+cantieri.first_name,
+cantieri.work_phone,
+cantieri.email_name,
+pagamenti.des as pagamento, 
+fattura.fat_paga, 
+fattura.fat_scad, 
+fattura.fat_num_da, 
+fattura.idfatturaunq, 
+fattura.fat_pa_dat, 
+fattura.fat_pa_des, 
+fattura.fat_num_id, 
+fattura.fat_data, 
+fattura.fat_con_l, 
+fattura.fat_pa_imp, 
+CONVERT(sum(a.cfa_prezzo*a.cfa_quanti),DECIMAL(12,2)) AS imponibile,
+CONVERT(sum(a.cfa_prezzo*(1-a.cfa_sconto/100)*a.cfa_quanti) ,DECIMAL(12 , 2 )) AS netto,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva / 100)) ,DECIMAL (12 , 2 )) AS imposta,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva/ 100)) ,DECIMAL (12 , 2 )) AS ivato,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + (a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva/ 100)* i.pagata)) ,DECIMAL (12 , 2 )) AS dapagare,
+fattura.fat_cod_iva,
+fattura.codiceunico, 
+fattura.fat_cod_paga, 
+fattura.fat_pa_fallimento, 
+fattura.fat_nc, 
+cantieri.partitaiva, 
+CONCAT(fattura.fat_num_da,cantieri.societa,cantieri.partitaiva) as ricerca
+
+FROM   fattura
+
+LEFT JOIN pagamenti ON fattura.fat_cod_paga = pagamenti.id
+
+LEFT JOIN cantieri ON fattura.fat_cli_id = cantieri.id 
+
+LEFT JOIN cantieri_FE ON  cantieri.id = cantieri_FE.id_cli 
+
+LEFT JOIN fattura_righe a ON a.cfa_fa_num = fattura.fat_num_da 
+
+LEFT JOIN iva_codici AS i ON i.codiceiva = a.cfa_rc
+
+
+
+GROUP BY a.cfa_fa_num
+ORDER BY fattura.fat_data, fattura.idfatturaunq</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="condomino" DataSetColumn="condomino" />
+              <Mapping SourceColumn="pagamento" DataSetColumn="pagamento" />
+              <Mapping SourceColumn="fat_paga" DataSetColumn="fat_paga" />
+              <Mapping SourceColumn="fat_num_da" DataSetColumn="fat_num_da" />
+              <Mapping SourceColumn="idfatturaunq" DataSetColumn="idfatturaunq" />
+              <Mapping SourceColumn="fat_pa_dat" DataSetColumn="fat_pa_dat" />
+              <Mapping SourceColumn="fat_pa_des" DataSetColumn="fat_pa_des" />
+              <Mapping SourceColumn="fat_cod_paga" DataSetColumn="fat_cod_paga" />
+              <Mapping SourceColumn="fat_data" DataSetColumn="fat_data" />
+              <Mapping SourceColumn="ricerca" DataSetColumn="ricerca" />
+              <Mapping SourceColumn="fat_scad" DataSetColumn="fat_scad" />
+              <Mapping SourceColumn="home_phone" DataSetColumn="home_phone" />
+              <Mapping SourceColumn="first_name" DataSetColumn="first_name" />
+              <Mapping SourceColumn="work_phone" DataSetColumn="work_phone" />
+              <Mapping SourceColumn="email_name" DataSetColumn="email_name" />
+              <Mapping SourceColumn="fat_pa_imp" DataSetColumn="fat_pa_imp" />
+              <Mapping SourceColumn="fat_pa_fallimento" DataSetColumn="fat_pa_fallimento" />
+              <Mapping SourceColumn="fat_num_id" DataSetColumn="fat_num_id" />
+              <Mapping SourceColumn="fat_con_l" DataSetColumn="fat_con_l" />
+              <Mapping SourceColumn="dapagare" DataSetColumn="dapagare" />
+              <Mapping SourceColumn="fat_cod_iva" DataSetColumn="fat_cod_iva" />
+              <Mapping SourceColumn="codiceunico" DataSetColumn="codiceunico" />
+              <Mapping SourceColumn="fat_nc" DataSetColumn="fat_nc" />
+              <Mapping SourceColumn="partitaiva" DataSetColumn="partitaiva" />
+              <Mapping SourceColumn="imponibile" DataSetColumn="imponibile" />
+              <Mapping SourceColumn="netto" DataSetColumn="netto" />
+              <Mapping SourceColumn="imposta" DataSetColumn="imposta" />
+              <Mapping SourceColumn="ivato" DataSetColumn="ivato" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostra_cliente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="mostra_cliente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="mostra_cliente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT       
+fattura.fat_cli_id as id_cli,
+cantieri.societa, 
+cantieri.condomino,
+cantieri.home_phone,
+cantieri.first_name,
+cantieri.work_phone,
+cantieri.email_name,
+pagamenti.des as pagamento, 
+fattura.fat_paga, 
+fattura.fat_scad, 
+fattura.fat_num_da, 
+fattura.idfatturaunq, 
+fattura.fat_pa_dat, 
+fattura.fat_pa_des, 
+fattura.fat_num_id, 
+fattura.fat_data, 
+fattura.fat_con_l, 
+fattura.fat_pa_imp, 
+CONVERT(sum(a.cfa_prezzo*a.cfa_quanti),DECIMAL(12,2)) AS imponibile,
+CONVERT(sum(a.cfa_prezzo*(1-a.cfa_sconto/100)*a.cfa_quanti) ,DECIMAL(12 , 2 )) AS netto,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva / 100)) ,DECIMAL (12 , 2 )) AS imposta,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva/ 100)) ,DECIMAL (12 , 2 )) AS ivato,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + (a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva/ 100)* i.pagata)) ,DECIMAL (12 , 2 )) AS dapagare,
+fattura.fat_cod_iva,
+fattura.codiceunico, 
+fattura.fat_cod_paga, 
+fattura.fat_pa_fallimento, 
+fattura.fat_nc, 
+cantieri.partitaiva, 
+CONCAT(fattura.fat_num_da,cantieri.societa,cantieri.partitaiva) as ricerca
+
+FROM   fattura
+
+LEFT JOIN pagamenti ON fattura.fat_cod_paga = pagamenti.id
+
+LEFT JOIN cantieri ON fattura.fat_cli_id = cantieri.id 
+
+LEFT JOIN cantieri_FE ON  cantieri.id = cantieri_FE.id_cli 
+
+LEFT JOIN fattura_righe a ON a.cfa_fa_num = fattura.fat_num_da 
+
+LEFT JOIN iva_codici AS i ON i.codiceiva = a.cfa_rc
+
+
+WHERE (cantieri.id = ?)
+GROUP BY a.cfa_fa_num
+ORDER BY fattura.fat_data, fattura.idfatturaunq</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostra_paga" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="mostra_paga" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="mostra_paga">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT       
+fattura.fat_cli_id as id_cli,
+cantieri.societa, 
+cantieri.condomino,
+cantieri.home_phone,
+cantieri.first_name,
+cantieri.work_phone,
+cantieri.email_name,
+pagamenti.des as pagamento, 
+fattura.fat_paga, 
+fattura.fat_scad, 
+fattura.fat_num_da, 
+fattura.idfatturaunq, 
+fattura.fat_pa_dat, 
+fattura.fat_pa_des, 
+fattura.fat_num_id, 
+fattura.fat_data, 
+fattura.fat_con_l, 
+fattura.fat_pa_imp, 
+CONVERT(sum(a.cfa_prezzo*a.cfa_quanti),DECIMAL(12,2)) AS imponibile,
+CONVERT(sum(a.cfa_prezzo*(1-a.cfa_sconto/100)*a.cfa_quanti) ,DECIMAL(12 , 2 )) AS netto,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (a.cfa_iva / 100)) ,DECIMAL (12 , 2 )) AS imposta,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (a.cfa_iva / 100)) ,DECIMAL (12 , 2 )) AS ivato,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + (a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (a.cfa_iva / 100)* i.pagata)) ,DECIMAL (12 , 2 )) AS dapagare,
+
+fattura.fat_cod_iva,
+fattura.codiceunico, 
+fattura.fat_cod_paga, 
+fattura.fat_pa_fallimento, 
+fattura.fat_nc, 
+cantieri.partitaiva, 
+CONCAT(fattura.fat_num_da,cantieri.societa,cantieri.partitaiva) as ricerca
+FROM   fattura, pagamenti, cantieri, cantieri_FE,fattura_righe a,iva_codici AS i
+WHERE fattura.fat_cod_paga = pagamenti.id 
+AND fattura.fat_cli_id = cantieri.id 
+AND cantieri.id = cantieri_FE.id_cli 
+AND a.cfa_fa_num = fattura.fat_num_da 
+AND i.codiceiva = a.cfa_rc
+AND (fattura.fat_paga = ?)
+GROUP BY a.cfa_fa_num
+ORDER BY fattura.fat_data, fattura.idfatturaunq</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="fat_paga" DataSourceName="cesar.fattura" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="fat_paga" Precision="0" Scale="0" Size="0" SourceColumn="fat_paga" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostra_periodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="mostra_periodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="mostra_periodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT       
+fattura.fat_cli_id as id_cli,
+cantieri.societa, 
+cantieri.condomino,
+cantieri.home_phone,
+cantieri.first_name,
+cantieri.work_phone,
+cantieri.email_name,
+pagamenti.des as pagamento, 
+fattura.fat_paga, 
+fattura.fat_scad, 
+fattura.fat_num_da, 
+fattura.idfatturaunq, 
+fattura.fat_pa_dat, 
+fattura.fat_pa_des, 
+fattura.fat_num_id, 
+fattura.fat_data, 
+fattura.fat_con_l, 
+fattura.fat_pa_imp, 
+CONVERT(sum(a.cfa_prezzo*a.cfa_quanti),DECIMAL(12,2)) AS imponibile,
+CONVERT(sum(a.cfa_prezzo*(1-a.cfa_sconto/100)*a.cfa_quanti) ,DECIMAL(12 , 2 )) AS netto,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva / 100)) ,DECIMAL (12 , 2 )) AS imposta,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva/ 100)) ,DECIMAL (12 , 2 )) AS ivato,
+CONVERT(sum(a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti + (a.cfa_prezzo * (1 - a.cfa_sconto / 100) * a.cfa_quanti * (i.valoreiva/ 100)* i.pagata)) ,DECIMAL (12 , 2 )) AS dapagare,
+fattura.fat_cod_iva,
+fattura.codiceunico, 
+fattura.fat_cod_paga, 
+fattura.fat_pa_fallimento, 
+fattura.fat_nc, 
+cantieri.partitaiva, 
+CONCAT(fattura.fat_num_da,cantieri.societa,cantieri.partitaiva) as ricerca
+
+FROM   fattura
+
+LEFT JOIN pagamenti ON fattura.fat_cod_paga = pagamenti.id
+
+LEFT JOIN cantieri ON fattura.fat_cli_id = cantieri.id 
+
+LEFT JOIN cantieri_FE ON  cantieri.id = cantieri_FE.id_cli 
+
+LEFT JOIN fattura_righe a ON a.cfa_fa_num = fattura.fat_num_da 
+
+LEFT JOIN iva_codici AS i ON i.codiceiva = a.cfa_rc
+
+
+WHERE (DATE_format(fattura.fat_data,'%Y-%m') = ?)
+GROUP BY a.cfa_fa_num
+ORDER BY fattura.fat_data, fattura.idfatturaunq</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_fattura" GeneratorDataComponentClassName="TA_fattura" Name="DT_fattura" UserDataComponentName="TA_fattura">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        idfatturaunq, fat_pa_dat, fat_pa_des, fat_paga, fat_pa_imp,fat_pa_fallimento
+FROM            fattura</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idfatturaunq" DataSetColumn="idfatturaunq" />
+              <Mapping SourceColumn="fat_pa_dat" DataSetColumn="fat_pa_dat" />
+              <Mapping SourceColumn="fat_pa_des" DataSetColumn="fat_pa_des" />
+              <Mapping SourceColumn="fat_paga" DataSetColumn="fat_paga" />
+              <Mapping SourceColumn="fat_pa_imp" DataSetColumn="fat_pa_imp" />
+              <Mapping SourceColumn="fat_pa_fallimento" DataSetColumn="fat_pa_fallimento" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="modifica" Modifier="Public" Name="modifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="modifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       fattura
+SET                fat_pa_dat = ?, fat_pa_des = ?, fat_paga = ?, fat_pa_imp = ?,fat_pa_fallimento=?
+WHERE        (idfatturaunq = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="fat_pa_dat" DataSourceName="cesar.fattura" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="fat_pa_dat" Precision="0" Scale="0" Size="0" SourceColumn="fat_pa_dat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="fat_pa_des" DataSourceName="cesar.fattura" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="fat_pa_des" Precision="0" Scale="0" Size="1024" SourceColumn="fat_pa_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="fat_paga" DataSourceName="cesar.fattura" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="fat_paga" Precision="0" Scale="0" Size="0" SourceColumn="fat_paga" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="fat_pa_imp" DataSourceName="cesar.fattura" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="fat_pa_imp" Precision="9" Scale="2" Size="0" SourceColumn="fat_pa_imp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="fat_pa_fallimento" DataSourceName="cesar.fattura" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="fat_pa_fallimento" Precision="0" Scale="0" Size="0" SourceColumn="fat_pa_fallimento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="idfatturaunq" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_idfatturaunq" Precision="0" Scale="0" Size="0" SourceColumn="idfatturaunq" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_contabilita" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS_contabilita" msprop:Generator_UserDSName="DS_contabilita">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_clienti_scadenze" msprop:Generator_TableClassName="DT_clienti_scadenzeDataTable" msprop:Generator_TableVarName="tableDT_clienti_scadenze" msprop:Generator_RowChangedName="DT_clienti_scadenzeRowChanged" msprop:Generator_TablePropName="DT_clienti_scadenze" msprop:Generator_RowDeletingName="DT_clienti_scadenzeRowDeleting" msprop:Generator_RowChangingName="DT_clienti_scadenzeRowChanging" msprop:Generator_RowEvHandlerName="DT_clienti_scadenzeRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_clienti_scadenzeRowDeleted" msprop:Generator_RowClassName="DT_clienti_scadenzeRow" msprop:Generator_UserTableName="DT_clienti_scadenze" msprop:Generator_RowEvArgName="DT_clienti_scadenzeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="condomino" msprop:Generator_ColumnVarNameInTable="columncondomino" msprop:Generator_ColumnPropNameInRow="condomino" msprop:Generator_ColumnPropNameInTable="condominoColumn" msprop:Generator_UserColumnName="condomino" type="xs:int" minOccurs="0" />
+              <xs:element name="pagamento" msprop:Generator_ColumnVarNameInTable="columnpagamento" msprop:Generator_ColumnPropNameInRow="pagamento" msprop:Generator_ColumnPropNameInTable="pagamentoColumn" msprop:Generator_UserColumnName="pagamento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fat_paga" msprop:Generator_ColumnVarNameInTable="columnfat_paga" msprop:Generator_ColumnPropNameInRow="fat_paga" msprop:Generator_ColumnPropNameInTable="fat_pagaColumn" msprop:Generator_UserColumnName="fat_paga" type="xs:short" minOccurs="0" />
+              <xs:element name="fat_num_da" msprop:Generator_ColumnVarNameInTable="columnfat_num_da" msprop:Generator_ColumnPropNameInRow="fat_num_da" msprop:Generator_ColumnPropNameInTable="fat_num_daColumn" msprop:Generator_UserColumnName="fat_num_da">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idfatturaunq" msprop:Generator_ColumnVarNameInTable="columnidfatturaunq" msprop:Generator_ColumnPropNameInRow="idfatturaunq" msprop:Generator_ColumnPropNameInTable="idfatturaunqColumn" msprop:Generator_UserColumnName="idfatturaunq" type="xs:int" />
+              <xs:element name="fat_pa_dat" msprop:Generator_ColumnVarNameInTable="columnfat_pa_dat" msprop:Generator_ColumnPropNameInRow="fat_pa_dat" msprop:Generator_ColumnPropNameInTable="fat_pa_datColumn" msprop:Generator_UserColumnName="fat_pa_dat" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fat_pa_des" msprop:Generator_ColumnVarNameInTable="columnfat_pa_des" msprop:Generator_ColumnPropNameInRow="fat_pa_des" msprop:Generator_ColumnPropNameInTable="fat_pa_desColumn" msprop:Generator_UserColumnName="fat_pa_des" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fat_cod_paga" msprop:Generator_ColumnVarNameInTable="columnfat_cod_paga" msprop:Generator_ColumnPropNameInRow="fat_cod_paga" msprop:Generator_ColumnPropNameInTable="fat_cod_pagaColumn" msprop:Generator_UserColumnName="fat_cod_paga" type="xs:int" />
+              <xs:element name="fat_data" msprop:Generator_ColumnVarNameInTable="columnfat_data" msprop:Generator_ColumnPropNameInRow="fat_data" msprop:Generator_ColumnPropNameInTable="fat_dataColumn" msprop:Generator_UserColumnName="fat_data" type="xs:dateTime" />
+              <xs:element name="ricerca" msprop:Generator_ColumnVarNameInTable="columnricerca" msprop:Generator_ColumnPropNameInRow="ricerca" msprop:Generator_ColumnPropNameInTable="ricercaColumn" msprop:Generator_UserColumnName="ricerca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="90" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fat_scad" msprop:Generator_ColumnVarNameInTable="columnfat_scad" msprop:Generator_ColumnPropNameInRow="fat_scad" msprop:Generator_ColumnPropNameInTable="fat_scadColumn" msprop:Generator_UserColumnName="fat_scad" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="home_phone" msprop:Generator_ColumnVarNameInTable="columnhome_phone" msprop:Generator_ColumnPropNameInRow="home_phone" msprop:Generator_ColumnPropNameInTable="home_phoneColumn" msprop:Generator_UserColumnName="home_phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="first_name" msprop:Generator_ColumnVarNameInTable="columnfirst_name" msprop:Generator_ColumnPropNameInRow="first_name" msprop:Generator_ColumnPropNameInTable="first_nameColumn" msprop:Generator_UserColumnName="first_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="46" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="work_phone" msprop:Generator_ColumnVarNameInTable="columnwork_phone" msprop:Generator_ColumnPropNameInRow="work_phone" msprop:Generator_ColumnPropNameInTable="work_phoneColumn" msprop:Generator_UserColumnName="work_phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="28" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email_name" msprop:Generator_ColumnVarNameInTable="columnemail_name" msprop:Generator_ColumnPropNameInRow="email_name" msprop:Generator_ColumnPropNameInTable="email_nameColumn" msprop:Generator_UserColumnName="email_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="55" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fat_pa_imp" msprop:Generator_ColumnVarNameInTable="columnfat_pa_imp" msprop:Generator_ColumnPropNameInRow="fat_pa_imp" msprop:Generator_ColumnPropNameInTable="fat_pa_impColumn" msprop:Generator_UserColumnName="fat_pa_imp" type="xs:decimal" />
+              <xs:element name="fat_pa_fallimento" msprop:Generator_ColumnVarNameInTable="columnfat_pa_fallimento" msprop:Generator_ColumnPropNameInRow="fat_pa_fallimento" msprop:Generator_ColumnPropNameInTable="fat_pa_fallimentoColumn" msprop:Generator_UserColumnName="fat_pa_fallimento" type="xs:short" minOccurs="0" />
+              <xs:element name="fat_num_id" msprop:Generator_ColumnVarNameInTable="columnfat_num_id" msprop:Generator_ColumnPropNameInRow="fat_num_id" msprop:Generator_ColumnPropNameInTable="fat_num_idColumn" msprop:Generator_UserColumnName="fat_num_id" type="xs:int" />
+              <xs:element name="fat_con_l" msprop:Generator_ColumnVarNameInTable="columnfat_con_l" msprop:Generator_ColumnPropNameInRow="fat_con_l" msprop:Generator_ColumnPropNameInTable="fat_con_lColumn" msprop:Generator_UserColumnName="fat_con_l" type="xs:short" />
+              <xs:element name="imponibile" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimponibile" msprop:Generator_ColumnPropNameInRow="imponibile" msprop:Generator_ColumnPropNameInTable="imponibileColumn" msprop:Generator_UserColumnName="imponibile" type="xs:decimal" minOccurs="0" />
+              <xs:element name="netto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnnetto" msprop:Generator_ColumnPropNameInRow="netto" msprop:Generator_ColumnPropNameInTable="nettoColumn" msprop:Generator_UserColumnName="netto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="imposta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimposta" msprop:Generator_ColumnPropNameInRow="imposta" msprop:Generator_ColumnPropNameInTable="impostaColumn" msprop:Generator_UserColumnName="imposta" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ivato" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnivato" msprop:Generator_ColumnPropNameInRow="ivato" msprop:Generator_ColumnPropNameInTable="ivatoColumn" msprop:Generator_UserColumnName="ivato" type="xs:decimal" minOccurs="0" />
+              <xs:element name="dapagare" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndapagare" msprop:Generator_ColumnPropNameInRow="dapagare" msprop:Generator_ColumnPropNameInTable="dapagareColumn" msprop:Generator_UserColumnName="dapagare" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fat_cod_iva" msprop:Generator_ColumnVarNameInTable="columnfat_cod_iva" msprop:Generator_ColumnPropNameInRow="fat_cod_iva" msprop:Generator_ColumnPropNameInTable="fat_cod_ivaColumn" msprop:Generator_UserColumnName="fat_cod_iva" type="xs:decimal" />
+              <xs:element name="codiceunico" msprop:Generator_ColumnVarNameInTable="columncodiceunico" msprop:Generator_ColumnPropNameInRow="codiceunico" msprop:Generator_ColumnPropNameInTable="codiceunicoColumn" msprop:Generator_UserColumnName="codiceunico" type="xs:dateTime" />
+              <xs:element name="fat_nc" msprop:Generator_ColumnVarNameInTable="columnfat_nc" msprop:Generator_ColumnPropNameInRow="fat_nc" msprop:Generator_ColumnPropNameInTable="fat_ncColumn" msprop:Generator_UserColumnName="fat_nc" type="xs:short" minOccurs="0" />
+              <xs:element name="partitaiva" msprop:Generator_ColumnVarNameInTable="columnpartitaiva" msprop:Generator_ColumnPropNameInRow="partitaiva" msprop:Generator_ColumnPropNameInTable="partitaivaColumn" msprop:Generator_UserColumnName="partitaiva" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_fattura" msprop:Generator_TableClassName="DT_fatturaDataTable" msprop:Generator_TableVarName="tableDT_fattura" msprop:Generator_TablePropName="DT_fattura" msprop:Generator_RowDeletingName="DT_fatturaRowDeleting" msprop:Generator_RowChangingName="DT_fatturaRowChanging" msprop:Generator_RowEvHandlerName="DT_fatturaRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_fatturaRowDeleted" msprop:Generator_UserTableName="DT_fattura" msprop:Generator_RowChangedName="DT_fatturaRowChanged" msprop:Generator_RowEvArgName="DT_fatturaRowChangeEvent" msprop:Generator_RowClassName="DT_fatturaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idfatturaunq" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidfatturaunq" msprop:Generator_ColumnPropNameInRow="idfatturaunq" msprop:Generator_ColumnPropNameInTable="idfatturaunqColumn" msprop:Generator_UserColumnName="idfatturaunq" type="xs:int" minOccurs="0" />
+              <xs:element name="fat_pa_dat" msprop:Generator_ColumnVarNameInTable="columnfat_pa_dat" msprop:Generator_ColumnPropNameInRow="fat_pa_dat" msprop:Generator_ColumnPropNameInTable="fat_pa_datColumn" msprop:Generator_UserColumnName="fat_pa_dat" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fat_pa_des" msprop:Generator_ColumnVarNameInTable="columnfat_pa_des" msprop:Generator_ColumnPropNameInRow="fat_pa_des" msprop:Generator_ColumnPropNameInTable="fat_pa_desColumn" msprop:Generator_UserColumnName="fat_pa_des" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fat_paga" msprop:Generator_ColumnVarNameInTable="columnfat_paga" msprop:Generator_ColumnPropNameInRow="fat_paga" msprop:Generator_ColumnPropNameInTable="fat_pagaColumn" msprop:Generator_UserColumnName="fat_paga" type="xs:short" minOccurs="0" />
+              <xs:element name="fat_pa_imp" msprop:Generator_ColumnVarNameInTable="columnfat_pa_imp" msprop:Generator_ColumnPropNameInRow="fat_pa_imp" msprop:Generator_ColumnPropNameInTable="fat_pa_impColumn" msprop:Generator_UserColumnName="fat_pa_imp" type="xs:decimal" />
+              <xs:element name="fat_pa_fallimento" msprop:Generator_ColumnVarNameInTable="columnfat_pa_fallimento" msprop:Generator_ColumnPropNameInRow="fat_pa_fallimento" msprop:Generator_ColumnPropNameInTable="fat_pa_fallimentoColumn" msprop:Generator_UserColumnName="fat_pa_fallimento" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:DT_fattura" />
+      <xs:field xpath="mstns:idfatturaunq" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

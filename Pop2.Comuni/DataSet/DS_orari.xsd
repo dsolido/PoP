@@ -1,0 +1,1455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_orari" targetNamespace="http://tempuri.org/DS_orari.xsd" xmlns:mstns="http://tempuri.org/DS_orari.xsd" xmlns="http://tempuri.org/DS_orari.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_orario" GeneratorDataComponentClassName="TA_orario" Name="DT_orario" UserDataComponentName="TA_orario">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica, destinatari.locazione AS destinatario, cantieri.societa, utenti_orario.lu_i, utenti_orario.lu_u, utenti_orario.ma_i, utenti_orario.ma_u, utenti_orario.me_i, utenti_orario.me_u, 
+                         utenti_orario.gi_i, utenti_orario.gi_u, utenti_orario.ve_i, utenti_orario.ve_u, utenti_orario.sa_i, utenti_orario.sa_u, utenti_orario.do_i, utenti_orario.do_u, utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_cli, 
+                         utenti_orario.id_des,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+
+FROM            utenti_orario
+LEFT JOIN utenti ON utenti.id = utenti_orario.id_dip
+LEFT JOIN destinatari ON utenti_orario.id_des = destinatari.id 
+LEFT JOIN cantieri ON utenti_orario.id_cli = cantieri.id
+
+ORDER BY utenti_orario.id_cli, utenti_orario.id_des, utenti_orario.id_dip,utenti_orario.ma_i</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_dip" DataSetColumn="id_dip" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="id_des" DataSetColumn="id_des" />
+              <Mapping SourceColumn="lu_i" DataSetColumn="lu_i" />
+              <Mapping SourceColumn="lu_u" DataSetColumn="lu_u" />
+              <Mapping SourceColumn="ma_i" DataSetColumn="ma_i" />
+              <Mapping SourceColumn="ma_u" DataSetColumn="ma_u" />
+              <Mapping SourceColumn="me_i" DataSetColumn="me_i" />
+              <Mapping SourceColumn="me_u" DataSetColumn="me_u" />
+              <Mapping SourceColumn="gi_i" DataSetColumn="gi_i" />
+              <Mapping SourceColumn="gi_u" DataSetColumn="gi_u" />
+              <Mapping SourceColumn="ve_i" DataSetColumn="ve_i" />
+              <Mapping SourceColumn="ve_u" DataSetColumn="ve_u" />
+              <Mapping SourceColumn="sa_i" DataSetColumn="sa_i" />
+              <Mapping SourceColumn="sa_u" DataSetColumn="sa_u" />
+              <Mapping SourceColumn="do_i" DataSetColumn="do_i" />
+              <Mapping SourceColumn="do_u" DataSetColumn="do_u" />
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+              <Mapping SourceColumn="destinatario" DataSetColumn="destinatario" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="inizio" DataSetColumn="inizio" />
+              <Mapping SourceColumn="fine" DataSetColumn="fine" />
+              <Mapping SourceColumn="attivo" DataSetColumn="attivo" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="quindicinale" DataSetColumn="quindicinale" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="elimina" Modifier="Public" Name="elimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="elimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM utenti_orario
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_Descrittivo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Fill_Descrittivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Fill_Descrittivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        
+CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica,
+destinatari.locazione AS destinatario,
+cantieri.societa,
+lu_i,lu_u,ma_i,ma_u,me_i,me_u,gi_i,gi_u,ve_i,ve_u,sa_i,sa_u,do_i,do_u,
+date_format(utenti_orario.lu_i,'%H.%m') as lu_in,
+date_format(utenti_orario.lu_u,'%H.%m') as lu_us,
+date_format(utenti_orario.ma_i,'%H.%m') as ma_in,
+date_format(utenti_orario.ma_u,'%H.%m') as ma_us,
+date_format(utenti_orario.me_i, '%H.%m') as me_in,
+date_format(utenti_orario.me_u,'%H.%m') as me_us,
+date_format(utenti_orario.gi_i,'%H.%m') as gi_in,  
+date_format(utenti_orario.gi_u,'%H.%m') as gi_us,
+date_format(utenti_orario.ve_i,'%H.%m') as ve_in,
+date_format(utenti_orario.ve_u,'%H.%m') as ve_us,
+date_format(utenti_orario.sa_i,'%H.%m') as sa_in,
+date_format(utenti_orario.sa_u,'%H.%m') as sa_us,
+date_format(utenti_orario.do_i, '%H.%m') as do_in,
+date_format(utenti_orario.do_u,'%H.%m') as do_us ,
+utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_cli, utenti_orario.id_des,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+
+FROM            utenti_orario, utenti, destinatari, cantieri
+WHERE        utenti_orario.id_dip = utenti.id AND utenti_orario.id_des = destinatari.id AND destinatari.id_terminale = cantieri.id
+ORDER BY utenti_orario.id_cli, utenti_orario.id_des, utenti_orario.id_dip</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByClienti" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByClienti" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByClienti">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica, destinatari.locazione AS destinatario, cantieri.societa, utenti_orario.lu_i, utenti_orario.lu_u, utenti_orario.ma_i, utenti_orario.ma_u, utenti_orario.me_i, utenti_orario.me_u, 
+                         utenti_orario.gi_i, utenti_orario.gi_u, utenti_orario.ve_i, utenti_orario.ve_u, utenti_orario.sa_i, utenti_orario.sa_u, utenti_orario.do_i, utenti_orario.do_u, utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_cli, 
+                         utenti_orario.id_des,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+FROM            utenti_orario
+LEFT JOIN utenti ON utenti.id = utenti_orario.id_dip
+LEFT JOIN destinatari ON utenti_orario.id_des = destinatari.id 
+LEFT JOIN cantieri ON utenti_orario.id_cli = cantieri.id
+WHERE utenti_orario.id_cli = ?
+ORDER BY utenti_orario.id_cli, utenti_orario.id_des, utenti_orario.id_dip,utenti_orario.ma_i</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDipendente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDipendente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByDipendente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica, destinatari.locazione AS destinatario, cantieri.societa, utenti_orario.lu_i, utenti_orario.lu_u, utenti_orario.ma_i, utenti_orario.ma_u, utenti_orario.me_i, utenti_orario.me_u, 
+                         utenti_orario.gi_i, utenti_orario.gi_u, utenti_orario.ve_i, utenti_orario.ve_u, utenti_orario.sa_i, utenti_orario.sa_u, utenti_orario.do_i, utenti_orario.do_u, utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_cli, 
+                         utenti_orario.id_des,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+
+FROM            utenti_orario
+LEFT JOIN utenti ON utenti.id = utenti_orario.id_dip
+LEFT JOIN destinatari ON utenti_orario.id_des = destinatari.id 
+LEFT JOIN cantieri ON utenti_orario.id_cli = cantieri.id
+WHERE   utenti_orario.id_dip = ?
+ORDER BY utenti_orario.id_cli, utenti_orario.id_des, utenti_orario.id_dip,utenti_orario.ma_i</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillByID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, id_dip, id_cli, id_des, lu_i, lu_u, ma_i, ma_u, me_i, me_u, gi_i, gi_u, ve_i, ve_u, sa_i, sa_u, do_i, do_u,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+FROM            utenti_orario
+WHERE id = ?
+ORDER BY id_cli, id_des, id_dip</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_cli" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_cli" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FillByID_cli">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, id_dip, id_cli, id_des, lu_i, lu_u, ma_i, ma_u, me_i, me_u, gi_i, gi_u, ve_i, ve_u, sa_i, sa_u, do_i, do_u,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+
+FROM            utenti_orario
+WHERE id_cli=?
+ORDER BY id_cli, id_des, id_dip</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_dip" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_dip" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="FillByID_dip">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, id_dip, id_cli, id_des, lu_i, lu_u, ma_i, ma_u, me_i, me_u, gi_i, gi_u, ve_i, ve_u, sa_i, sa_u, do_i, do_u,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+
+FROM            utenti_orario
+WHERE id_dip = ?
+ORDER BY id_cli, id_des, id_dip</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="inserisci" Modifier="Public" Name="inserisci" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="inserisci">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO utenti_orario
+                         (id_dip, id_cli, id_des, lu_i, lu_u, ma_i, ma_u, me_i, me_u, gi_i, gi_u, ve_i, ve_u, sa_i, sa_u, do_i, do_u,
+inizio, fine, attivo, note, quindicinale
+)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_cli" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_des" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_des" Precision="0" Scale="0" Size="0" SourceColumn="id_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="lu_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="lu_i" Precision="0" Scale="0" Size="0" SourceColumn="lu_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="lu_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="lu_u" Precision="0" Scale="0" Size="0" SourceColumn="lu_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="ma_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ma_i" Precision="0" Scale="0" Size="0" SourceColumn="ma_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="ma_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ma_u" Precision="0" Scale="0" Size="0" SourceColumn="ma_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="me_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="me_i" Precision="0" Scale="0" Size="0" SourceColumn="me_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="me_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="me_u" Precision="0" Scale="0" Size="0" SourceColumn="me_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="gi_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="gi_i" Precision="0" Scale="0" Size="0" SourceColumn="gi_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="gi_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="gi_u" Precision="0" Scale="0" Size="0" SourceColumn="gi_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="ve_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ve_i" Precision="0" Scale="0" Size="0" SourceColumn="ve_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="ve_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ve_u" Precision="0" Scale="0" Size="0" SourceColumn="ve_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="sa_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="sa_i" Precision="0" Scale="0" Size="0" SourceColumn="sa_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param15" ColumnName="sa_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="sa_u" Precision="0" Scale="0" Size="0" SourceColumn="sa_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param16" ColumnName="do_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="do_i" Precision="0" Scale="0" Size="0" SourceColumn="do_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param17" ColumnName="do_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="do_u" Precision="0" Scale="0" Size="0" SourceColumn="do_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param18" ColumnName="inizio" DataSourceName="cesar.utenti_orario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param19" ColumnName="fine" DataSourceName="cesar.utenti_orario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fine" Precision="0" Scale="0" Size="0" SourceColumn="fine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param20" ColumnName="attivo" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param21" ColumnName="note" DataSourceName="cesar.utenti_orario" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param22" ColumnName="quindicinale" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="quindicinale" Precision="0" Scale="0" Size="0" SourceColumn="quindicinale" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="modifica" Modifier="Public" Name="modifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="modifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       utenti_orario
+SET                id_dip = ?, id_cli = ?, id_des = ?, lu_i = ?, lu_u = ?, ma_i = ?, ma_u = ?, me_i = ?, me_u = ?, gi_i = ?, gi_u = ?, ve_i = ?, ve_u = ?, sa_i = ?, sa_u = ?, do_i = ?, do_u = ?,
+inizio = ?, fine =?, attivo =?, note =?,quindicinale =?
+
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_cli" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_des" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_des" Precision="0" Scale="0" Size="0" SourceColumn="id_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="lu_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="lu_i" Precision="0" Scale="0" Size="0" SourceColumn="lu_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="lu_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="lu_u" Precision="0" Scale="0" Size="0" SourceColumn="lu_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="ma_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ma_i" Precision="0" Scale="0" Size="0" SourceColumn="ma_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="ma_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ma_u" Precision="0" Scale="0" Size="0" SourceColumn="ma_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="me_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="me_i" Precision="0" Scale="0" Size="0" SourceColumn="me_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="me_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="me_u" Precision="0" Scale="0" Size="0" SourceColumn="me_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="gi_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="gi_i" Precision="0" Scale="0" Size="0" SourceColumn="gi_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="gi_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="gi_u" Precision="0" Scale="0" Size="0" SourceColumn="gi_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="ve_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ve_i" Precision="0" Scale="0" Size="0" SourceColumn="ve_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="ve_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="ve_u" Precision="0" Scale="0" Size="0" SourceColumn="ve_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="sa_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="sa_i" Precision="0" Scale="0" Size="0" SourceColumn="sa_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param15" ColumnName="sa_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="sa_u" Precision="0" Scale="0" Size="0" SourceColumn="sa_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param16" ColumnName="do_i" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="do_i" Precision="0" Scale="0" Size="0" SourceColumn="do_i" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param17" ColumnName="do_u" DataSourceName="cesar.utenti_orario" DataTypeServer="time" DbType="DateTime" Direction="Input" ParameterName="do_u" Precision="0" Scale="0" Size="0" SourceColumn="do_u" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param18" ColumnName="inizio" DataSourceName="cesar.utenti_orario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="inizio" Precision="0" Scale="0" Size="0" SourceColumn="inizio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param19" ColumnName="fine" DataSourceName="cesar.utenti_orario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fine" Precision="0" Scale="0" Size="0" SourceColumn="fine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param20" ColumnName="attivo" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param21" ColumnName="note" DataSourceName="cesar.utenti_orario" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="1024" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param22" ColumnName="quindicinale" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="quindicinale" Precision="0" Scale="0" Size="0" SourceColumn="quindicinale" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param23" ColumnName="id" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_clienti" GeneratorDataComponentClassName="TA_clienti" Name="DT_clienti" UserDataComponentName="TA_clienti">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, societa, attivo
+FROM            cantieri
+ORDER BY societa</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="attivo" DataSetColumn="attivo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAttivo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByAttivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByAttivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, societa, attivo
+FROM            cantieri
+WHERE attivo = ?
+ORDER BY societa</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="attivo" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_cli" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_cli" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID_cli">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, societa, attivo
+FROM            cantieri
+WHERE id = ?
+ORDER BY societa</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_utenti" GeneratorDataComponentClassName="TA_utenti" Name="DT_utenti" UserDataComponentName="TA_utenti">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="cesar.utenti" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, CONCAT(cognome, ' ', nome) AS anagrafica FROM utenti ORDER BY anagrafica</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="cesar.utenti" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByAttivo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByAttivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByAttivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, CONCAT(cognome, ' ', nome) AS anagrafica FROM utenti WHERE (stato = ?) ORDER BY anagrafica</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="stato" DataSourceName="cesar.utenti" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="stato" Precision="0" Scale="0" Size="0" SourceColumn="stato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="cesar.utenti" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID_dip" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_dip" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID_dip">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, CONCAT(cognome, ' ', nome) AS anagrafica FROM utenti WHERE (id = ?) ORDER BY anagrafica</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.utenti" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_locazioni" GeneratorDataComponentClassName="TA_locazioni" Name="DT_locazioni" UserDataComponentName="TA_locazioni">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, locazione, id_terminale, extra
+FROM            destinatari
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="id_terminale" DataSetColumn="id_terminale" />
+              <Mapping SourceColumn="extra" DataSetColumn="extra" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByExtra" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByExtra" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByExtra">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, locazione, id_terminale, extra
+FROM            destinatari
+WHERE extra = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="extra" DataSourceName="cesar.destinatari" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="extra" Precision="0" Scale="0" Size="0" SourceColumn="extra" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_cal" GeneratorDataComponentClassName="TA_cal" Name="DT_cal" UserDataComponentName="TA_cal">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostra" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="mostra" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="mostra">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        giorno, festa, DATE_FORMAT(giorno, '%Y-%m') AS periodo, date_format(giorno, '%d') AS gm, festivo
+FROM            tipo_calendario a</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="giorno" DataSetColumn="giorno" />
+              <Mapping SourceColumn="festa" DataSetColumn="festa" />
+              <Mapping SourceColumn="periodo" DataSetColumn="periodo" />
+              <Mapping SourceColumn="gm" DataSetColumn="gm" />
+              <Mapping SourceColumn="festivo" DataSetColumn="festivo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="inserisce" Modifier="Public" Name="inserisce" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="inserisce">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO tipo_calendario
+                         (giorno, festa,festivo)
+VALUES        (?, ?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="giorno" DataSourceName="cesar.tipo_calendario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="giorno" Precision="0" Scale="0" Size="0" SourceColumn="giorno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="festa" DataSourceName="cesar.tipo_calendario" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="festa" Precision="0" Scale="0" Size="1024" SourceColumn="festa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="festivo" DataSourceName="cesar.tipo_calendario" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="festivo" Precision="0" Scale="0" Size="0" SourceColumn="festivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="modifica" Modifier="Public" Name="modifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="modifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       tipo_calendario
+SET                giorno = ?, festa = ?
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="giorno" DataSourceName="cesar.tipo_calendario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="giorno" Precision="0" Scale="0" Size="0" SourceColumn="giorno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="festa" DataSourceName="cesar.tipo_calendario" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="festa" Precision="0" Scale="0" Size="1024" SourceColumn="festa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id" DataSourceName="cesar.tipo_calendario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostraper_periodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="mostraper_periodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="mostraper_periodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        
+        `a`.`giorno` AS `giorno`,
+        `a`.`festa` AS `festa`,
+        DATE_FORMAT(`a`.`giorno`, '%Y-%m') AS `periodo`,
+date_format(giorno, '%d') AS gm,a.festivo
+
+    FROM
+        `tipo_calendario` `a`
+WHERE  DATE_FORMAT(`a`.`giorno`, '%Y-%m') =?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_orario_STP" GeneratorDataComponentClassName="TA_orario_STP" Name="DT_orario_STP" UserDataComponentName="TA_orario_STP">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_cli, utenti_orario.id_des,
+DATE_format(utenti_orario.lu_i, '%H:%i') AS lu_i, 
+DATE_format(utenti_orario.lu_u, '%H:%i') as lu_u,
+DATE_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i), '%H:%i') as lu_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i), '%H:%i')) / 60 / 60 as lu_tn,
+DATE_format(utenti_orario.ma_i, '%H:%i') AS ma_i, 
+DATE_format(utenti_orario.ma_u, '%H:%i') as ma_u,
+DATE_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i), '%H:%i') as ma_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i), '%H:%i')) / 60 / 60 as ma_tn,
+DATE_format(utenti_orario.me_i, '%H:%i') AS me_i, 
+DATE_format(utenti_orario.me_u, '%H:%i') as me_u,
+DATE_format(timediff(utenti_orario.me_u,utenti_orario.me_i), '%H:%i') as me_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.me_u,utenti_orario.me_i), '%H:%i')) / 60 / 60 as me_tn,
+DATE_format(utenti_orario.gi_i, '%H:%i') AS gi_i, 
+DATE_format(utenti_orario.gi_u, '%H:%i') as gi_u,
+DATE_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i), '%H:%i') as gi_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i), '%H:%i')) / 60 / 60 as gi_tn,
+DATE_format(utenti_orario.ve_i, '%H:%i') AS ve_i, 
+DATE_format(utenti_orario.ve_u, '%H:%i') as ve_u,
+DATE_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i), '%H:%i') as ve_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i), '%H:%i')) / 60 / 60 as ve_tn,
+DATE_format(utenti_orario.sa_i, '%H:%i') AS sa_i, 
+DATE_format(utenti_orario.sa_u, '%H:%i') as sa_u,
+DATE_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i), '%H:%i') as sa_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i), '%H:%i')) / 60 / 60 as sa_tn,
+DATE_format(utenti_orario.do_i, '%H:%i') AS do_i, 
+DATE_format(utenti_orario.do_u, '%H:%i') as do_u,
+DATE_format(timediff(utenti_orario.do_u,utenti_orario.do_i), '%H:%i') as do_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.do_u,utenti_orario.do_i), '%H:%i')) / 60 / 60 as do_tn,
+Time_format(
+SEC_to_time(
+Time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i'))
+),'%H:%i')
+ as tot,
+utenti_orario.note,
+CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica, 
+destinatari.locazione AS destinatari, 
+destinatari.address,destinatari.citta,cantieri.societa
+FROM            utenti_orario, utenti, cantieri, destinatari
+WHERE        utenti_orario.id_dip = utenti.id AND utenti_orario.id_cli = cantieri.id AND utenti_orario.id_des = destinatari.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_dip" DataSetColumn="id_dip" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="id_des" DataSetColumn="id_des" />
+              <Mapping SourceColumn="lu_i" DataSetColumn="lu_i" />
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+              <Mapping SourceColumn="destinatari" DataSetColumn="destinatari" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="lu_u" DataSetColumn="lu_u" />
+              <Mapping SourceColumn="ma_i" DataSetColumn="ma_i" />
+              <Mapping SourceColumn="ma_u" DataSetColumn="ma_u" />
+              <Mapping SourceColumn="lu_t" DataSetColumn="lu_t" />
+              <Mapping SourceColumn="ma_t" DataSetColumn="ma_t" />
+              <Mapping SourceColumn="me_i" DataSetColumn="me_i" />
+              <Mapping SourceColumn="me_u" DataSetColumn="me_u" />
+              <Mapping SourceColumn="me_t" DataSetColumn="me_t" />
+              <Mapping SourceColumn="gi_i" DataSetColumn="gi_i" />
+              <Mapping SourceColumn="gi_u" DataSetColumn="gi_u" />
+              <Mapping SourceColumn="gi_t" DataSetColumn="gi_t" />
+              <Mapping SourceColumn="ve_i" DataSetColumn="ve_i" />
+              <Mapping SourceColumn="ve_u" DataSetColumn="ve_u" />
+              <Mapping SourceColumn="ve_t" DataSetColumn="ve_t" />
+              <Mapping SourceColumn="sa_i" DataSetColumn="sa_i" />
+              <Mapping SourceColumn="sa_u" DataSetColumn="sa_u" />
+              <Mapping SourceColumn="sa_t" DataSetColumn="sa_t" />
+              <Mapping SourceColumn="do_i" DataSetColumn="do_i" />
+              <Mapping SourceColumn="do_u" DataSetColumn="do_u" />
+              <Mapping SourceColumn="do_t" DataSetColumn="do_t" />
+              <Mapping SourceColumn="tot" DataSetColumn="tot" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="citta" DataSetColumn="citta" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="lu_tn" DataSetColumn="lu_tn" />
+              <Mapping SourceColumn="ma_tn" DataSetColumn="ma_tn" />
+              <Mapping SourceColumn="me_tn" DataSetColumn="me_tn" />
+              <Mapping SourceColumn="gi_tn" DataSetColumn="gi_tn" />
+              <Mapping SourceColumn="ve_tn" DataSetColumn="ve_tn" />
+              <Mapping SourceColumn="sa_tn" DataSetColumn="sa_tn" />
+              <Mapping SourceColumn="do_tn" DataSetColumn="do_tn" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_cli" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_cli" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByID_cli">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_cli, utenti_orario.id_des,
+DATE_format(utenti_orario.lu_i, '%H:%i') AS lu_i, 
+DATE_format(utenti_orario.lu_u, '%H:%i') as lu_u,
+DATE_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i), '%H:%i') as lu_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i), '%H:%i')) / 60 / 60 as lu_tn,
+DATE_format(utenti_orario.ma_i, '%H:%i') AS ma_i, 
+DATE_format(utenti_orario.ma_u, '%H:%i') as ma_u,
+DATE_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i), '%H:%i') as ma_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i), '%H:%i')) / 60 / 60 as ma_tn,
+DATE_format(utenti_orario.me_i, '%H:%i') AS me_i, 
+DATE_format(utenti_orario.me_u, '%H:%i') as me_u,
+DATE_format(timediff(utenti_orario.me_u,utenti_orario.me_i), '%H:%i') as me_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.me_u,utenti_orario.me_i), '%H:%i')) / 60 / 60 as me_tn,
+DATE_format(utenti_orario.gi_i, '%H:%i') AS gi_i, 
+DATE_format(utenti_orario.gi_u, '%H:%i') as gi_u,
+DATE_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i), '%H:%i') as gi_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i), '%H:%i')) / 60 / 60 as gi_tn,
+DATE_format(utenti_orario.ve_i, '%H:%i') AS ve_i, 
+DATE_format(utenti_orario.ve_u, '%H:%i') as ve_u,
+DATE_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i), '%H:%i') as ve_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i), '%H:%i')) / 60 / 60 as ve_tn,
+DATE_format(utenti_orario.sa_i, '%H:%i') AS sa_i, 
+DATE_format(utenti_orario.sa_u, '%H:%i') as sa_u,
+DATE_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i), '%H:%i') as sa_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i), '%H:%i')) / 60 / 60 as sa_tn,
+DATE_format(utenti_orario.do_i, '%H:%i') AS do_i, 
+DATE_format(utenti_orario.do_u, '%H:%i') as do_u,
+DATE_format(timediff(utenti_orario.do_u,utenti_orario.do_i), '%H:%i') as do_t,
+TIME_TO_SEC(DATE_format(timediff(utenti_orario.do_u,utenti_orario.do_i), '%H:%i')) / 60 / 60 as do_tn,
+Time_format(
+SEC_to_time(
+Time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i'))
+),'%H:%i')
+ as tot,
+utenti_orario.note,
+CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica, 
+destinatari.locazione AS destinatari, 
+destinatari.address,destinatari.citta,cantieri.societa
+FROM            utenti_orario, utenti, cantieri, destinatari
+WHERE        utenti_orario.id_dip = utenti.id AND utenti_orario.id_cli = cantieri.id AND utenti_orario.id_des = destinatari.id
+AND utenti_orario.id_cli = ?
+ORDER BY destinatari.id,utenti_orario.id_dip,utenti_orario.lu_i</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_dip" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_dip" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID_dip">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  utenti_orario.id, utenti_orario.id_dip, utenti_orario.id_cli, utenti_orario.id_des,
+DATE_format(utenti_orario.lu_i, '%H:%i') AS lu_i, 
+DATE_format(utenti_orario.lu_u, '%H:%i') as lu_u,
+DATE_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i), '%H:%i') as lu_t,
+DATE_format(utenti_orario.ma_i, '%H:%i') AS ma_i, 
+DATE_format(utenti_orario.ma_u, '%H:%i') as ma_u,
+DATE_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i), '%H:%i') as ma_t,
+DATE_format(utenti_orario.me_i, '%H:%i') AS me_i, 
+DATE_format(utenti_orario.me_u, '%H:%i') as me_u,
+DATE_format(timediff(utenti_orario.me_u,utenti_orario.me_i), '%H:%i') as me_t,
+DATE_format(utenti_orario.gi_i, '%H:%i') AS gi_i, 
+DATE_format(utenti_orario.gi_u, '%H:%i') as gi_u,
+DATE_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i), '%H:%i') as gi_t,
+DATE_format(utenti_orario.ve_i, '%H:%i') AS ve_i, 
+DATE_format(utenti_orario.ve_u, '%H:%i') as ve_u,
+DATE_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i), '%H:%i') as ve_t,
+DATE_format(utenti_orario.sa_i, '%H:%i') AS sa_i, 
+DATE_format(utenti_orario.sa_u, '%H:%i') as sa_u,
+DATE_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i), '%H:%i') as sa_t,
+DATE_format(utenti_orario.do_i, '%H:%i') AS do_i, 
+DATE_format(utenti_orario.do_u, '%H:%i') as do_u,
+DATE_format(timediff(utenti_orario.do_u,utenti_orario.do_i), '%H:%i') as do_t,
+
+Time_format(
+SEC_to_time(
+Time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i'))
+),'%H:%i')
+ as tot,
+utenti_orario.note,
+CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica, 
+destinatari.locazione AS destinatari, 
+destinatari.address,destinatari.citta, cantieri.societa
+FROM            utenti_orario, utenti, cantieri, destinatari
+WHERE        utenti_orario.id_dip = utenti.id AND utenti_orario.id_cli = cantieri.id AND utenti_orario.id_des = destinatari.id
+AND utenti_orario.id_dip = ?
+ORDER BY utenti_orario.id_dip,destinatari.id</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_orario_STP_totali" GeneratorDataComponentClassName="TA_orario_STP_totali" Name="DT_orario_STP_totali" UserDataComponentName="TA_orario_STP_totali">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  utenti_orario.id,id_cli,id_dip,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i')))),'%H:%i')
+as t_lu,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i')))),'%H:%i')
+as t_ma,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i')))),'%H:%i')
+as t_me,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i')))),'%H:%i')
+as t_gi,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i')))),'%H:%i')
+as t_ve,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i')))),'%H:%i')
+as t_sa,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i')))),'%H:%i')
+as t_do,
+Time_format(
+SEC_to_time(sum(
+Time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i'))
+)),'%H:%i')
+ as tot
+
+FROM utenti_orario
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="tot" DataSetColumn="tot" />
+              <Mapping SourceColumn="t_lu" DataSetColumn="t_lu" />
+              <Mapping SourceColumn="t_ma" DataSetColumn="t_ma" />
+              <Mapping SourceColumn="t_me" DataSetColumn="t_me" />
+              <Mapping SourceColumn="t_gi" DataSetColumn="t_gi" />
+              <Mapping SourceColumn="t_ve" DataSetColumn="t_ve" />
+              <Mapping SourceColumn="t_sa" DataSetColumn="t_sa" />
+              <Mapping SourceColumn="t_do" DataSetColumn="t_do" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="id_dip" DataSetColumn="id_dip" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_cli" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_cli" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByID_cli">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  utenti_orario.id,id_cli,id_dip,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i')))),'%H:%i')
+as t_lu,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i')))),'%H:%i')
+as t_ma,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i')))),'%H:%i')
+as t_me,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i')))),'%H:%i')
+as t_gi,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i')))),'%H:%i')
+as t_ve,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i')))),'%H:%i')
+as t_sa,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i')))),'%H:%i')
+as t_do,
+Time_format(
+SEC_to_time(sum(
+Time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i'))
+)),'%H:%i')
+ as tot
+
+FROM utenti_orario
+WHERE id_cli = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_cli" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_dip" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_dip" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID_dip">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  utenti_orario.id,id_cli,id_dip,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i')))),'%H:%i')
+as t_lu,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i')))),'%H:%i')
+as t_ma,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i')))),'%H:%i')
+as t_me,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i')))),'%H:%i')
+as t_gi,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i')))),'%H:%i')
+as t_ve,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i')))),'%H:%i')
+as t_sa,
+Time_format(sec_to_time(sum(time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i')))),'%H:%i')
+as t_do,
+Time_format(
+SEC_to_time(sum(
+Time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i'))
+)),'%H:%i')
+ as tot
+
+FROM utenti_orario
+WHERE id_dip = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_dip" DataSourceName="cesar.utenti_orario" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_dip" Precision="0" Scale="0" Size="0" SourceColumn="id_dip" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_ProgrammaOrari" GeneratorDataComponentClassName="TA_ProgrammaOrari" Name="DT_ProgrammaOrari" UserDataComponentName="TA_ProgrammaOrari">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  
+utenti_orario.id, 
+utenti_orario.id_dip, 
+utenti_orario.id_cli, 
+utenti_orario.id_des,
+DATE_format(utenti_orario.lu_i, '%H:%i') AS lu_i, 
+DATE_format(utenti_orario.lu_u, '%H:%i') as lu_u,
+DATE_format(utenti_orario.ma_i, '%H:%i') AS ma_i, 
+DATE_format(utenti_orario.ma_u, '%H:%i') as ma_u,
+DATE_format(utenti_orario.me_i, '%H:%i') AS me_i, 
+DATE_format(utenti_orario.me_u, '%H:%i') as me_u,
+DATE_format(utenti_orario.gi_i, '%H:%i') AS gi_i, 
+DATE_format(utenti_orario.gi_u, '%H:%i') as gi_u,
+DATE_format(utenti_orario.ve_i, '%H:%i') AS ve_i, 
+DATE_format(utenti_orario.ve_u, '%H:%i') as ve_u,
+DATE_format(utenti_orario.sa_i, '%H:%i') AS sa_i, 
+DATE_format(utenti_orario.sa_u, '%H:%i') as sa_u,
+DATE_format(utenti_orario.do_i, '%H:%i') AS do_i, 
+DATE_format(utenti_orario.do_u, '%H:%i') as do_u,
+Time_format(
+SEC_to_time(
+Time_to_sec(Time_format(timediff(utenti_orario.lu_u,utenti_orario.lu_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ma_u,utenti_orario.ma_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.me_u,utenti_orario.me_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.gi_u,utenti_orario.gi_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.ve_u,utenti_orario.ve_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.sa_u,utenti_orario.sa_i),'%H:%i'))+
+Time_to_sec(Time_format(timediff(utenti_orario.do_u,utenti_orario.do_i),'%H:%i'))
+),'%H:%i')
+ as tot,
+CONCAT(utenti.cognome, ' ', utenti.nome) AS anagrafica, 
+destinatari.locazione AS destinatari, 
+cantieri.societa,
+utenti_orario.inizio, utenti_orario.fine, utenti_orario.attivo, utenti_orario.note, utenti_orario.quindicinale
+
+
+
+
+FROM utenti_orario
+LEFT JOIN utenti ON utenti_orario.id_dip = utenti.id 
+LEFT JOIN cantieri ON utenti_orario.id_cli = cantieri.id 
+LEFT JOIN destinatari ON utenti_orario.id_des = destinatari.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_dip" DataSetColumn="id_dip" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="id_des" DataSetColumn="id_des" />
+              <Mapping SourceColumn="lu_i" DataSetColumn="lu_i" />
+              <Mapping SourceColumn="lu_u" DataSetColumn="lu_u" />
+              <Mapping SourceColumn="ma_i" DataSetColumn="ma_i" />
+              <Mapping SourceColumn="ma_u" DataSetColumn="ma_u" />
+              <Mapping SourceColumn="me_i" DataSetColumn="me_i" />
+              <Mapping SourceColumn="me_u" DataSetColumn="me_u" />
+              <Mapping SourceColumn="gi_i" DataSetColumn="gi_i" />
+              <Mapping SourceColumn="gi_u" DataSetColumn="gi_u" />
+              <Mapping SourceColumn="ve_i" DataSetColumn="ve_i" />
+              <Mapping SourceColumn="ve_u" DataSetColumn="ve_u" />
+              <Mapping SourceColumn="sa_i" DataSetColumn="sa_i" />
+              <Mapping SourceColumn="sa_u" DataSetColumn="sa_u" />
+              <Mapping SourceColumn="do_i" DataSetColumn="do_i" />
+              <Mapping SourceColumn="do_u" DataSetColumn="do_u" />
+              <Mapping SourceColumn="tot" DataSetColumn="tot" />
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+              <Mapping SourceColumn="destinatari" DataSetColumn="destinatari" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="inizio" DataSetColumn="inizio" />
+              <Mapping SourceColumn="fine" DataSetColumn="fine" />
+              <Mapping SourceColumn="attivo" DataSetColumn="attivo" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="quindicinale" DataSetColumn="quindicinale" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_orari" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_orari" msprop:Generator_UserDSName="DS_orari">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_orario" msprop:Generator_TableClassName="DT_orarioDataTable" msprop:Generator_TableVarName="tableDT_orario" msprop:Generator_TablePropName="DT_orario" msprop:Generator_RowDeletingName="DT_orarioRowDeleting" msprop:Generator_RowChangingName="DT_orarioRowChanging" msprop:Generator_RowEvHandlerName="DT_orarioRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_orarioRowDeleted" msprop:Generator_UserTableName="DT_orario" msprop:Generator_RowChangedName="DT_orarioRowChanged" msprop:Generator_RowEvArgName="DT_orarioRowChangeEvent" msprop:Generator_RowClassName="DT_orarioRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="id_dip" msprop:Generator_ColumnVarNameInTable="columnid_dip" msprop:Generator_ColumnPropNameInRow="id_dip" msprop:Generator_ColumnPropNameInTable="id_dipColumn" msprop:Generator_UserColumnName="id_dip" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" minOccurs="0" />
+              <xs:element name="id_des" msprop:Generator_ColumnVarNameInTable="columnid_des" msprop:Generator_ColumnPropNameInRow="id_des" msprop:Generator_ColumnPropNameInTable="id_desColumn" msprop:Generator_UserColumnName="id_des" type="xs:int" minOccurs="0" />
+              <xs:element name="lu_i" msprop:Generator_ColumnVarNameInTable="columnlu_i" msprop:Generator_ColumnPropNameInRow="lu_i" msprop:Generator_ColumnPropNameInTable="lu_iColumn" msprop:Generator_UserColumnName="lu_i" type="xs:duration" minOccurs="0" />
+              <xs:element name="lu_u" msprop:Generator_ColumnVarNameInTable="columnlu_u" msprop:Generator_ColumnPropNameInRow="lu_u" msprop:Generator_ColumnPropNameInTable="lu_uColumn" msprop:Generator_UserColumnName="lu_u" type="xs:duration" minOccurs="0" />
+              <xs:element name="ma_i" msprop:Generator_ColumnVarNameInTable="columnma_i" msprop:Generator_ColumnPropNameInRow="ma_i" msprop:Generator_ColumnPropNameInTable="ma_iColumn" msprop:Generator_UserColumnName="ma_i" type="xs:duration" minOccurs="0" />
+              <xs:element name="ma_u" msprop:Generator_ColumnVarNameInTable="columnma_u" msprop:Generator_ColumnPropNameInRow="ma_u" msprop:Generator_ColumnPropNameInTable="ma_uColumn" msprop:Generator_UserColumnName="ma_u" type="xs:duration" minOccurs="0" />
+              <xs:element name="me_i" msprop:Generator_ColumnVarNameInTable="columnme_i" msprop:Generator_ColumnPropNameInRow="me_i" msprop:Generator_ColumnPropNameInTable="me_iColumn" msprop:Generator_UserColumnName="me_i" type="xs:duration" minOccurs="0" />
+              <xs:element name="me_u" msprop:Generator_ColumnVarNameInTable="columnme_u" msprop:Generator_ColumnPropNameInRow="me_u" msprop:Generator_ColumnPropNameInTable="me_uColumn" msprop:Generator_UserColumnName="me_u" type="xs:duration" minOccurs="0" />
+              <xs:element name="gi_i" msprop:Generator_ColumnVarNameInTable="columngi_i" msprop:Generator_ColumnPropNameInRow="gi_i" msprop:Generator_ColumnPropNameInTable="gi_iColumn" msprop:Generator_UserColumnName="gi_i" type="xs:duration" minOccurs="0" />
+              <xs:element name="gi_u" msprop:Generator_ColumnVarNameInTable="columngi_u" msprop:Generator_ColumnPropNameInRow="gi_u" msprop:Generator_ColumnPropNameInTable="gi_uColumn" msprop:Generator_UserColumnName="gi_u" type="xs:duration" minOccurs="0" />
+              <xs:element name="ve_i" msprop:Generator_ColumnVarNameInTable="columnve_i" msprop:Generator_ColumnPropNameInRow="ve_i" msprop:Generator_ColumnPropNameInTable="ve_iColumn" msprop:Generator_UserColumnName="ve_i" type="xs:duration" minOccurs="0" />
+              <xs:element name="ve_u" msprop:Generator_ColumnVarNameInTable="columnve_u" msprop:Generator_ColumnPropNameInRow="ve_u" msprop:Generator_ColumnPropNameInTable="ve_uColumn" msprop:Generator_UserColumnName="ve_u" type="xs:duration" minOccurs="0" />
+              <xs:element name="sa_i" msprop:Generator_ColumnVarNameInTable="columnsa_i" msprop:Generator_ColumnPropNameInRow="sa_i" msprop:Generator_ColumnPropNameInTable="sa_iColumn" msprop:Generator_UserColumnName="sa_i" type="xs:duration" minOccurs="0" />
+              <xs:element name="sa_u" msprop:Generator_ColumnVarNameInTable="columnsa_u" msprop:Generator_ColumnPropNameInRow="sa_u" msprop:Generator_ColumnPropNameInTable="sa_uColumn" msprop:Generator_UserColumnName="sa_u" type="xs:duration" minOccurs="0" />
+              <xs:element name="do_i" msprop:Generator_ColumnVarNameInTable="columndo_i" msprop:Generator_ColumnPropNameInRow="do_i" msprop:Generator_ColumnPropNameInTable="do_iColumn" msprop:Generator_UserColumnName="do_i" type="xs:duration" minOccurs="0" />
+              <xs:element name="do_u" msprop:Generator_ColumnVarNameInTable="columndo_u" msprop:Generator_ColumnPropNameInRow="do_u" msprop:Generator_ColumnPropNameInTable="do_uColumn" msprop:Generator_UserColumnName="do_u" type="xs:duration" minOccurs="0" />
+              <xs:element name="anagrafica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="destinatario" msprop:Generator_ColumnVarNameInTable="columndestinatario" msprop:Generator_ColumnPropNameInRow="destinatario" msprop:Generator_ColumnPropNameInTable="destinatarioColumn" msprop:Generator_UserColumnName="destinatario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="inizio" msprop:Generator_ColumnVarNameInTable="columninizio" msprop:Generator_ColumnPropNameInRow="inizio" msprop:Generator_ColumnPropNameInTable="inizioColumn" msprop:Generator_UserColumnName="inizio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fine" msprop:Generator_ColumnVarNameInTable="columnfine" msprop:Generator_ColumnPropNameInRow="fine" msprop:Generator_ColumnPropNameInTable="fineColumn" msprop:Generator_UserColumnName="fine" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="attivo" msprop:Generator_ColumnVarNameInTable="columnattivo" msprop:Generator_ColumnPropNameInRow="attivo" msprop:Generator_ColumnPropNameInTable="attivoColumn" msprop:Generator_UserColumnName="attivo" type="xs:int" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quindicinale" msprop:Generator_ColumnVarNameInTable="columnquindicinale" msprop:Generator_ColumnPropNameInRow="quindicinale" msprop:Generator_ColumnPropNameInTable="quindicinaleColumn" msprop:Generator_UserColumnName="quindicinale" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_clienti" msprop:Generator_TableClassName="DT_clientiDataTable" msprop:Generator_TableVarName="tableDT_clienti" msprop:Generator_TablePropName="DT_clienti" msprop:Generator_RowDeletingName="DT_clientiRowDeleting" msprop:Generator_RowChangingName="DT_clientiRowChanging" msprop:Generator_RowEvHandlerName="DT_clientiRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_clientiRowDeleted" msprop:Generator_UserTableName="DT_clienti" msprop:Generator_RowChangedName="DT_clientiRowChanged" msprop:Generator_RowEvArgName="DT_clientiRowChangeEvent" msprop:Generator_RowClassName="DT_clientiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="attivo" msprop:Generator_ColumnVarNameInTable="columnattivo" msprop:Generator_ColumnPropNameInRow="attivo" msprop:Generator_ColumnPropNameInTable="attivoColumn" msprop:Generator_UserColumnName="attivo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_utenti" msprop:Generator_TableClassName="DT_utentiDataTable" msprop:Generator_TableVarName="tableDT_utenti" msprop:Generator_TablePropName="DT_utenti" msprop:Generator_RowDeletingName="DT_utentiRowDeleting" msprop:Generator_RowChangingName="DT_utentiRowChanging" msprop:Generator_RowEvHandlerName="DT_utentiRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_utentiRowDeleted" msprop:Generator_UserTableName="DT_utenti" msprop:Generator_RowChangedName="DT_utentiRowChanged" msprop:Generator_RowEvArgName="DT_utentiRowChangeEvent" msprop:Generator_RowClassName="DT_utentiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="anagrafica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_locazioni" msprop:Generator_TableClassName="DT_locazioniDataTable" msprop:Generator_TableVarName="tableDT_locazioni" msprop:Generator_TablePropName="DT_locazioni" msprop:Generator_RowDeletingName="DT_locazioniRowDeleting" msprop:Generator_RowChangingName="DT_locazioniRowChanging" msprop:Generator_RowEvHandlerName="DT_locazioniRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_locazioniRowDeleted" msprop:Generator_UserTableName="DT_locazioni" msprop:Generator_RowChangedName="DT_locazioniRowChanged" msprop:Generator_RowEvArgName="DT_locazioniRowChangeEvent" msprop:Generator_RowClassName="DT_locazioniRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_terminale" msprop:Generator_ColumnVarNameInTable="columnid_terminale" msprop:Generator_ColumnPropNameInRow="id_terminale" msprop:Generator_ColumnPropNameInTable="id_terminaleColumn" msprop:Generator_UserColumnName="id_terminale" type="xs:int" />
+              <xs:element name="extra" msprop:Generator_ColumnVarNameInTable="columnextra" msprop:Generator_ColumnPropNameInRow="extra" msprop:Generator_ColumnPropNameInTable="extraColumn" msprop:Generator_UserColumnName="extra" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_cal" msprop:Generator_TableClassName="DT_calDataTable" msprop:Generator_TableVarName="tableDT_cal" msprop:Generator_RowChangedName="DT_calRowChanged" msprop:Generator_TablePropName="DT_cal" msprop:Generator_RowDeletingName="DT_calRowDeleting" msprop:Generator_RowChangingName="DT_calRowChanging" msprop:Generator_RowEvHandlerName="DT_calRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_calRowDeleted" msprop:Generator_RowClassName="DT_calRow" msprop:Generator_UserTableName="DT_cal" msprop:Generator_RowEvArgName="DT_calRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="giorno" msprop:Generator_ColumnVarNameInTable="columngiorno" msprop:Generator_ColumnPropNameInRow="giorno" msprop:Generator_ColumnPropNameInTable="giornoColumn" msprop:Generator_UserColumnName="giorno" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="festa" msprop:Generator_ColumnVarNameInTable="columnfesta" msprop:Generator_ColumnPropNameInRow="festa" msprop:Generator_ColumnPropNameInTable="festaColumn" msprop:Generator_UserColumnName="festa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gm" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngm" msprop:Generator_ColumnPropNameInRow="gm" msprop:Generator_ColumnPropNameInTable="gmColumn" msprop:Generator_UserColumnName="gm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="festivo" msprop:Generator_ColumnVarNameInTable="columnfestivo" msprop:Generator_ColumnPropNameInRow="festivo" msprop:Generator_ColumnPropNameInTable="festivoColumn" msprop:Generator_UserColumnName="festivo" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_orario_STP" msprop:Generator_TableClassName="DT_orario_STPDataTable" msprop:Generator_TableVarName="tableDT_orario_STP" msprop:Generator_TablePropName="DT_orario_STP" msprop:Generator_RowDeletingName="DT_orario_STPRowDeleting" msprop:Generator_RowChangingName="DT_orario_STPRowChanging" msprop:Generator_RowEvHandlerName="DT_orario_STPRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_orario_STPRowDeleted" msprop:Generator_UserTableName="DT_orario_STP" msprop:Generator_RowChangedName="DT_orario_STPRowChanged" msprop:Generator_RowEvArgName="DT_orario_STPRowChangeEvent" msprop:Generator_RowClassName="DT_orario_STPRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_dip" msprop:Generator_ColumnVarNameInTable="columnid_dip" msprop:Generator_ColumnPropNameInRow="id_dip" msprop:Generator_ColumnPropNameInTable="id_dipColumn" msprop:Generator_UserColumnName="id_dip" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" minOccurs="0" />
+              <xs:element name="id_des" msprop:Generator_ColumnVarNameInTable="columnid_des" msprop:Generator_ColumnPropNameInRow="id_des" msprop:Generator_ColumnPropNameInTable="id_desColumn" msprop:Generator_UserColumnName="id_des" type="xs:int" minOccurs="0" />
+              <xs:element name="lu_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlu_i" msprop:Generator_ColumnPropNameInRow="lu_i" msprop:Generator_ColumnPropNameInTable="lu_iColumn" msprop:Generator_UserColumnName="lu_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="anagrafica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="destinatari" msprop:Generator_ColumnVarNameInTable="columndestinatari" msprop:Generator_ColumnPropNameInRow="destinatari" msprop:Generator_ColumnPropNameInTable="destinatariColumn" msprop:Generator_UserColumnName="destinatari" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lu_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlu_u" msprop:Generator_ColumnPropNameInRow="lu_u" msprop:Generator_ColumnPropNameInTable="lu_uColumn" msprop:Generator_UserColumnName="lu_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ma_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnma_i" msprop:Generator_ColumnPropNameInRow="ma_i" msprop:Generator_ColumnPropNameInTable="ma_iColumn" msprop:Generator_UserColumnName="ma_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ma_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnma_u" msprop:Generator_ColumnPropNameInRow="ma_u" msprop:Generator_ColumnPropNameInTable="ma_uColumn" msprop:Generator_UserColumnName="ma_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lu_t" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlu_t" msprop:Generator_ColumnPropNameInRow="lu_t" msprop:Generator_ColumnPropNameInTable="lu_tColumn" msprop:Generator_UserColumnName="lu_t" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ma_t" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnma_t" msprop:Generator_ColumnPropNameInRow="ma_t" msprop:Generator_ColumnPropNameInTable="ma_tColumn" msprop:Generator_UserColumnName="ma_t" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="me_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnme_i" msprop:Generator_ColumnPropNameInRow="me_i" msprop:Generator_ColumnPropNameInTable="me_iColumn" msprop:Generator_UserColumnName="me_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="me_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnme_u" msprop:Generator_ColumnPropNameInRow="me_u" msprop:Generator_ColumnPropNameInTable="me_uColumn" msprop:Generator_UserColumnName="me_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="me_t" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnme_t" msprop:Generator_ColumnPropNameInRow="me_t" msprop:Generator_ColumnPropNameInTable="me_tColumn" msprop:Generator_UserColumnName="me_t" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gi_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngi_i" msprop:Generator_ColumnPropNameInRow="gi_i" msprop:Generator_ColumnPropNameInTable="gi_iColumn" msprop:Generator_UserColumnName="gi_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gi_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngi_u" msprop:Generator_ColumnPropNameInRow="gi_u" msprop:Generator_ColumnPropNameInTable="gi_uColumn" msprop:Generator_UserColumnName="gi_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gi_t" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngi_t" msprop:Generator_ColumnPropNameInRow="gi_t" msprop:Generator_ColumnPropNameInTable="gi_tColumn" msprop:Generator_UserColumnName="gi_t" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ve_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnve_i" msprop:Generator_ColumnPropNameInRow="ve_i" msprop:Generator_ColumnPropNameInTable="ve_iColumn" msprop:Generator_UserColumnName="ve_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ve_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnve_u" msprop:Generator_ColumnPropNameInRow="ve_u" msprop:Generator_ColumnPropNameInTable="ve_uColumn" msprop:Generator_UserColumnName="ve_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ve_t" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnve_t" msprop:Generator_ColumnPropNameInRow="ve_t" msprop:Generator_ColumnPropNameInTable="ve_tColumn" msprop:Generator_UserColumnName="ve_t" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sa_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsa_i" msprop:Generator_ColumnPropNameInRow="sa_i" msprop:Generator_ColumnPropNameInTable="sa_iColumn" msprop:Generator_UserColumnName="sa_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sa_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsa_u" msprop:Generator_ColumnPropNameInRow="sa_u" msprop:Generator_ColumnPropNameInTable="sa_uColumn" msprop:Generator_UserColumnName="sa_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sa_t" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsa_t" msprop:Generator_ColumnPropNameInRow="sa_t" msprop:Generator_ColumnPropNameInTable="sa_tColumn" msprop:Generator_UserColumnName="sa_t" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="do_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndo_i" msprop:Generator_ColumnPropNameInRow="do_i" msprop:Generator_ColumnPropNameInTable="do_iColumn" msprop:Generator_UserColumnName="do_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="do_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndo_u" msprop:Generator_ColumnPropNameInRow="do_u" msprop:Generator_ColumnPropNameInTable="do_uColumn" msprop:Generator_UserColumnName="do_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="do_t" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndo_t" msprop:Generator_ColumnPropNameInRow="do_t" msprop:Generator_ColumnPropNameInTable="do_tColumn" msprop:Generator_UserColumnName="do_t" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tot" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntot" msprop:Generator_ColumnPropNameInRow="tot" msprop:Generator_ColumnPropNameInTable="totColumn" msprop:Generator_UserColumnName="tot" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="72" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="citta" msprop:Generator_ColumnVarNameInTable="columncitta" msprop:Generator_ColumnPropNameInRow="citta" msprop:Generator_ColumnPropNameInTable="cittaColumn" msprop:Generator_UserColumnName="citta" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lu_tn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlu_tn" msprop:Generator_ColumnPropNameInRow="lu_tn" msprop:Generator_ColumnPropNameInTable="lu_tnColumn" msprop:Generator_UserColumnName="lu_tn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ma_tn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnma_tn" msprop:Generator_ColumnPropNameInRow="ma_tn" msprop:Generator_ColumnPropNameInTable="ma_tnColumn" msprop:Generator_UserColumnName="ma_tn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="me_tn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnme_tn" msprop:Generator_ColumnPropNameInRow="me_tn" msprop:Generator_ColumnPropNameInTable="me_tnColumn" msprop:Generator_UserColumnName="me_tn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="gi_tn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngi_tn" msprop:Generator_ColumnPropNameInRow="gi_tn" msprop:Generator_ColumnPropNameInTable="gi_tnColumn" msprop:Generator_UserColumnName="gi_tn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ve_tn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnve_tn" msprop:Generator_ColumnPropNameInRow="ve_tn" msprop:Generator_ColumnPropNameInTable="ve_tnColumn" msprop:Generator_UserColumnName="ve_tn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sa_tn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsa_tn" msprop:Generator_ColumnPropNameInRow="sa_tn" msprop:Generator_ColumnPropNameInTable="sa_tnColumn" msprop:Generator_UserColumnName="sa_tn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="do_tn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndo_tn" msprop:Generator_ColumnPropNameInRow="do_tn" msprop:Generator_ColumnPropNameInTable="do_tnColumn" msprop:Generator_UserColumnName="do_tn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_orario_STP_totali" msprop:Generator_TableClassName="DT_orario_STP_totaliDataTable" msprop:Generator_TableVarName="tableDT_orario_STP_totali" msprop:Generator_RowChangedName="DT_orario_STP_totaliRowChanged" msprop:Generator_TablePropName="DT_orario_STP_totali" msprop:Generator_RowDeletingName="DT_orario_STP_totaliRowDeleting" msprop:Generator_RowChangingName="DT_orario_STP_totaliRowChanging" msprop:Generator_RowEvHandlerName="DT_orario_STP_totaliRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_orario_STP_totaliRowDeleted" msprop:Generator_RowClassName="DT_orario_STP_totaliRow" msprop:Generator_UserTableName="DT_orario_STP_totali" msprop:Generator_RowEvArgName="DT_orario_STP_totaliRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="tot" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntot" msprop:Generator_ColumnPropNameInRow="tot" msprop:Generator_ColumnPropNameInTable="totColumn" msprop:Generator_UserColumnName="tot" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t_lu" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnt_lu" msprop:Generator_ColumnPropNameInRow="t_lu" msprop:Generator_ColumnPropNameInTable="t_luColumn" msprop:Generator_UserColumnName="t_lu" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t_ma" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnt_ma" msprop:Generator_ColumnPropNameInRow="t_ma" msprop:Generator_ColumnPropNameInTable="t_maColumn" msprop:Generator_UserColumnName="t_ma" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t_me" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnt_me" msprop:Generator_ColumnPropNameInRow="t_me" msprop:Generator_ColumnPropNameInTable="t_meColumn" msprop:Generator_UserColumnName="t_me" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t_gi" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnt_gi" msprop:Generator_ColumnPropNameInRow="t_gi" msprop:Generator_ColumnPropNameInTable="t_giColumn" msprop:Generator_UserColumnName="t_gi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t_ve" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnt_ve" msprop:Generator_ColumnPropNameInRow="t_ve" msprop:Generator_ColumnPropNameInTable="t_veColumn" msprop:Generator_UserColumnName="t_ve" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t_sa" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnt_sa" msprop:Generator_ColumnPropNameInRow="t_sa" msprop:Generator_ColumnPropNameInTable="t_saColumn" msprop:Generator_UserColumnName="t_sa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="t_do" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnt_do" msprop:Generator_ColumnPropNameInRow="t_do" msprop:Generator_ColumnPropNameInTable="t_doColumn" msprop:Generator_UserColumnName="t_do" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" minOccurs="0" />
+              <xs:element name="id_dip" msprop:Generator_ColumnVarNameInTable="columnid_dip" msprop:Generator_ColumnPropNameInRow="id_dip" msprop:Generator_ColumnPropNameInTable="id_dipColumn" msprop:Generator_UserColumnName="id_dip" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_ProgrammaOrari" msprop:Generator_TableClassName="DT_ProgrammaOrariDataTable" msprop:Generator_TableVarName="tableDT_ProgrammaOrari" msprop:Generator_RowChangedName="DT_ProgrammaOrariRowChanged" msprop:Generator_TablePropName="DT_ProgrammaOrari" msprop:Generator_RowDeletingName="DT_ProgrammaOrariRowDeleting" msprop:Generator_RowChangingName="DT_ProgrammaOrariRowChanging" msprop:Generator_RowEvHandlerName="DT_ProgrammaOrariRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_ProgrammaOrariRowDeleted" msprop:Generator_RowClassName="DT_ProgrammaOrariRow" msprop:Generator_UserTableName="DT_ProgrammaOrari" msprop:Generator_RowEvArgName="DT_ProgrammaOrariRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_dip" msprop:Generator_ColumnVarNameInTable="columnid_dip" msprop:Generator_ColumnPropNameInRow="id_dip" msprop:Generator_ColumnPropNameInTable="id_dipColumn" msprop:Generator_UserColumnName="id_dip" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" minOccurs="0" />
+              <xs:element name="id_des" msprop:Generator_ColumnVarNameInTable="columnid_des" msprop:Generator_ColumnPropNameInRow="id_des" msprop:Generator_ColumnPropNameInTable="id_desColumn" msprop:Generator_UserColumnName="id_des" type="xs:int" minOccurs="0" />
+              <xs:element name="lu_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlu_i" msprop:Generator_ColumnPropNameInRow="lu_i" msprop:Generator_ColumnPropNameInTable="lu_iColumn" msprop:Generator_UserColumnName="lu_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lu_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlu_u" msprop:Generator_ColumnPropNameInRow="lu_u" msprop:Generator_ColumnPropNameInTable="lu_uColumn" msprop:Generator_UserColumnName="lu_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ma_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnma_i" msprop:Generator_ColumnPropNameInRow="ma_i" msprop:Generator_ColumnPropNameInTable="ma_iColumn" msprop:Generator_UserColumnName="ma_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ma_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnma_u" msprop:Generator_ColumnPropNameInRow="ma_u" msprop:Generator_ColumnPropNameInTable="ma_uColumn" msprop:Generator_UserColumnName="ma_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="me_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnme_i" msprop:Generator_ColumnPropNameInRow="me_i" msprop:Generator_ColumnPropNameInTable="me_iColumn" msprop:Generator_UserColumnName="me_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="me_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnme_u" msprop:Generator_ColumnPropNameInRow="me_u" msprop:Generator_ColumnPropNameInTable="me_uColumn" msprop:Generator_UserColumnName="me_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gi_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngi_i" msprop:Generator_ColumnPropNameInRow="gi_i" msprop:Generator_ColumnPropNameInTable="gi_iColumn" msprop:Generator_UserColumnName="gi_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gi_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngi_u" msprop:Generator_ColumnPropNameInRow="gi_u" msprop:Generator_ColumnPropNameInTable="gi_uColumn" msprop:Generator_UserColumnName="gi_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ve_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnve_i" msprop:Generator_ColumnPropNameInRow="ve_i" msprop:Generator_ColumnPropNameInTable="ve_iColumn" msprop:Generator_UserColumnName="ve_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ve_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnve_u" msprop:Generator_ColumnPropNameInRow="ve_u" msprop:Generator_ColumnPropNameInTable="ve_uColumn" msprop:Generator_UserColumnName="ve_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sa_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsa_i" msprop:Generator_ColumnPropNameInRow="sa_i" msprop:Generator_ColumnPropNameInTable="sa_iColumn" msprop:Generator_UserColumnName="sa_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sa_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsa_u" msprop:Generator_ColumnPropNameInRow="sa_u" msprop:Generator_ColumnPropNameInTable="sa_uColumn" msprop:Generator_UserColumnName="sa_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="do_i" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndo_i" msprop:Generator_ColumnPropNameInRow="do_i" msprop:Generator_ColumnPropNameInTable="do_iColumn" msprop:Generator_UserColumnName="do_i" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="do_u" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndo_u" msprop:Generator_ColumnPropNameInRow="do_u" msprop:Generator_ColumnPropNameInTable="do_uColumn" msprop:Generator_UserColumnName="do_u" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tot" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntot" msprop:Generator_ColumnPropNameInRow="tot" msprop:Generator_ColumnPropNameInTable="totColumn" msprop:Generator_UserColumnName="tot" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="anagrafica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="destinatari" msprop:Generator_ColumnVarNameInTable="columndestinatari" msprop:Generator_ColumnPropNameInRow="destinatari" msprop:Generator_ColumnPropNameInTable="destinatariColumn" msprop:Generator_UserColumnName="destinatari" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="inizio" msprop:Generator_ColumnVarNameInTable="columninizio" msprop:Generator_ColumnPropNameInRow="inizio" msprop:Generator_ColumnPropNameInTable="inizioColumn" msprop:Generator_UserColumnName="inizio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fine" msprop:Generator_ColumnVarNameInTable="columnfine" msprop:Generator_ColumnPropNameInRow="fine" msprop:Generator_ColumnPropNameInTable="fineColumn" msprop:Generator_UserColumnName="fine" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="attivo" msprop:Generator_ColumnVarNameInTable="columnattivo" msprop:Generator_ColumnPropNameInRow="attivo" msprop:Generator_ColumnPropNameInTable="attivoColumn" msprop:Generator_UserColumnName="attivo" type="xs:int" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quindicinale" msprop:Generator_ColumnVarNameInTable="columnquindicinale" msprop:Generator_ColumnPropNameInRow="quindicinale" msprop:Generator_ColumnPropNameInTable="quindicinaleColumn" msprop:Generator_UserColumnName="quindicinale" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DT_orario" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_orario_STP_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_orario_STP" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_orario_STP_totali_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DT_orario_STP_totali" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_ProgrammaOrari_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_ProgrammaOrari" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="DT_clienti_DT_locazioni" msdata:parent="DT_clienti" msdata:child="DT_locazioni" msdata:parentkey="id" msdata:childkey="id_terminale" msprop:Generator_UserChildTable="DT_locazioni" msprop:Generator_ChildPropName="GetDT_locazioniRows" msprop:Generator_UserRelationName="DT_clienti_DT_locazioni" msprop:Generator_RelationVarName="relationDT_clienti_DT_locazioni" msprop:Generator_UserParentTable="DT_clienti" msprop:Generator_ParentPropName="DT_clientiRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

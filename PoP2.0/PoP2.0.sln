@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PoP2.0", "PoP2.0\PoP2.0.vbproj", "{7EFC8F27-2859-4E79-806D-AFE67333280D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED3C8586-444B-4093-B598-C5355939AC00}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Pop 2.0|Any CPU = Pop 2.0|Any CPU
+		Pop 2.0|ARM = Pop 2.0|ARM
+		Pop 2.0|ARM64 = Pop 2.0|ARM64
+		Pop 2.0|x64 = Pop 2.0|x64
+		Pop 2.0|x86 = Pop 2.0|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|x64.Build.0 = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Debug|x86.Build.0 = Debug|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|Any CPU.ActiveCfg = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|Any CPU.Build.0 = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|ARM.ActiveCfg = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|ARM.Build.0 = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|ARM64.ActiveCfg = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|ARM64.Build.0 = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|x64.ActiveCfg = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|x64.Build.0 = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|x86.ActiveCfg = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Pop 2.0|x86.Build.0 = Pop 2.0|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|ARM.Build.0 = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|ARM64.Build.0 = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|x64.ActiveCfg = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|x64.Build.0 = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|x86.ActiveCfg = Release|Any CPU
+		{7EFC8F27-2859-4E79-806D-AFE67333280D}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C753A5D-D5C2-4794-ADBE-7927ADF66B14}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://pegasoapp.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PoP2.0\\PoP2.0.vbproj
+		SccProjectName1 = PoP2.0
+		SccLocalPath1 = PoP2.0
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7EFC8F27-2859-4E79-806D-AFE67333280D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>PoP2._0.My.MyApplication</StartupObject>
+    <RootNamespace>PoP2._0</RootNamespace>
+    <AssemblyName>PoP2.0</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <HockeyAppResourceId>9eba46c8aaca423bbef8944a0be54d60</HockeyAppResourceId>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>V:\ns\software\pop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://pulizieuffici.biz/software/pop/</InstallUrl>
+    <SupportUrl>https://pulizieuffici.biz/</SupportUrl>
+    <ProductName>Pop Programma operativo pulizie</ProductName>
+    <PublisherName>Danilo Enrico Solidoro</PublisherName>
+    <SuiteName>WS</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>134</ApplicationRevision>
+    <ApplicationVersion>6.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsUrl>V:\ns\software\pop\Application Files\PoP2.0_4_0_0_119\Resources</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PoP2.0.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <CodeAnalysisRuleSet>PoP2.0.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PoP2.0.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <CodeAnalysisRuleSet>PoP2.0.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pop.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Pop 2.0|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Pop 2.0\</OutputPath>
+    <DocumentationFile>PoP2.0.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9AA04759551AE0744098C7D5FB5D78FC7BB59278</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PoP2.0_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.Reporting" />
+    <Import Include="Microsoft.Reporting.WinForms" />
+    <Import Include="Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Pop2.Comuni" />
+    <Import Include="Pop2.Dipendenti" />
+    <Import Include="Pop2.Preventivi" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="frmQualita\FrmAbbinamentoCantieriCQ.Designer.vb">
+      <DependentUpon>FrmAbbinamentoCantieriCQ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQualita\FrmAbbinamentoCantieriCQ.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_9001\frmDescrizioneProdotti.Designer.vb">
+      <DependentUpon>frmDescrizioneProdotti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_9001\frmDescrizioneProdotti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_9001\frmIstruzioniOperative.Designer.vb">
+      <DependentUpon>frmIstruzioniOperative.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_9001\frmIstruzioniOperative.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_9001\frmProcedureOperative.Designer.vb">
+      <DependentUpon>frmProcedureOperative.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_9001\frmProcedureOperative.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_autofattura\frmAggiungeAziendaAutofattura.Designer.vb">
+      <DependentUpon>frmAggiungeAziendaAutofattura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_autofattura\frmAggiungeAziendaAutofattura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_avvio\frmSplash.Designer.vb">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_avvio\frmSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Avvisi\FRM_AggiungeAvviso.Designer.vb">
+      <DependentUpon>FRM_AggiungeAvviso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Avvisi\FRM_AggiungeAvviso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_gestione_documentale\FRM_gestioneDocumentale.Designer.vb">
+      <DependentUpon>FRM_gestioneDocumentale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_gestione_documentale\FRM_gestioneDocumentale.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\frmElencoPresenzeInserite.Designer.vb">
+      <DependentUpon>frmElencoPresenzeInserite.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\frmElencoPresenzeInserite.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\FRMmod_macchinari.Designer.vb">
+      <DependentUpon>FRMmod_macchinari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRMmod_macchinari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_pdf\FRM_separatorePDF.Designer.vb">
+      <DependentUpon>FRM_separatorePDF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_pdf\FRM_separatorePDF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_avvio\FRMavvio.designer.vb">
+      <DependentUpon>FRMavvio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_avvio\FRMavvio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_avvio\FRM_login.designer.vb">
+      <DependentUpon>FRM_login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_avvio\FRM_login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_avvio\test_internet.vb" />
+    <Compile Include="frm_modifica\FRM_elenca_presenze_periodo_destinatario.Designer.vb">
+      <DependentUpon>FRM_elenca_presenze_periodo_destinatario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_elenca_presenze_periodo_destinatario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_Formazione.Designer.vb">
+      <DependentUpon>FRM_Formazione.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_Formazione.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_fattura.Designer.vb">
+      <DependentUpon>FRM_MOD_fattura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_fattura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_findClienti.Designer.vb">
+      <DependentUpon>FRM_findClienti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_findClienti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_cliente.Designer.vb">
+      <DependentUpon>FRM_MOD_cliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\frm_modifica_formazione_dipendente.Designer.vb">
+      <DependentUpon>frm_modifica_formazione_dipendente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\frm_modifica_formazione_dipendente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_ordini.Designer.vb">
+      <DependentUpon>FRM_MOD_ordini.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_ordini.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_rigafattura.Designer.vb">
+      <DependentUpon>FRM_MOD_rigafattura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_modifica\FRM_MOD_rigafattura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_FIND_prodotti.Designer.vb">
+      <DependentUpon>FRM_FIND_prodotti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_FIND_prodotti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_RicercaDipendente.Designer.vb">
+      <DependentUpon>FRM_RicercaDipendente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_RicercaDipendente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_selezionacantiere.Designer.vb">
+      <DependentUpon>FRM_selezionacantiere.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_selezionacantiere.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_selezionafornitore.Designer.vb">
+      <DependentUpon>FRM_selezionafornitore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_selezionafornitore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_selezionapagamenti.Designer.vb">
+      <DependentUpon>FRM_selezionapagamenti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ricerca\FRM_selezionapagamenti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRMstampaclientipec.Designer.vb">
+      <DependentUpon>FRMstampaclientipec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRMstampaclientipec.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRMstampapresenzeweb.Designer.vb">
+      <DependentUpon>FRMstampapresenzeweb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRMstampapresenzeweb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRMSTPagendaSettimanale.Designer.vb">
+      <DependentUpon>FRMSTPagendaSettimanale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRMSTPagendaSettimanale.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRMSTPprogrammaferie.Designer.vb">
+      <DependentUpon>FRMSTPprogrammaferie.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRMSTPprogrammaferie.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRMSTPstampaelencosostituzionidellasettimana.Designer.vb">
+      <DependentUpon>FRMSTPstampaelencosostituzionidellasettimana.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRMSTPstampaelencosostituzionidellasettimana.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_riepilogo_presenze_Cliente.Designer.vb">
+      <DependentUpon>FRM_riepilogo_presenze_Cliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_riepilogo_presenze_Cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_stp_clienti.Designer.vb">
+      <DependentUpon>FRM_stp_clienti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_stp_clienti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_stp_fattura.Designer.vb">
+      <DependentUpon>FRM_stp_fattura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_stp_fattura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_fattura_elenco.Designer.vb">
+      <DependentUpon>FRM_STP_fattura_elenco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_fattura_elenco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_fatture.Designer.vb">
+      <DependentUpon>FRM_STP_fatture.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_fatture.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\frm_stp_foglio_presenza.Designer.vb">
+      <DependentUpon>frm_stp_foglio_presenza.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\frm_stp_foglio_presenza.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_OreClienti.Designer.vb">
+      <DependentUpon>FRM_STP_OreClienti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_OreClienti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_ordini.Designer.vb">
+      <DependentUpon>FRM_STP_ordini.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_ordini.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_riepilogoOre.Designer.vb">
+      <DependentUpon>FRM_STP_riepilogoOre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_riepilogoOre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\frm_stp_sca_ins.Designer.vb">
+      <DependentUpon>frm_stp_sca_ins.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\frm_stp_sca_ins.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_scheda.Designer.vb">
+      <DependentUpon>FRM_STP_scheda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\FRM_STP_scheda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_stampa\STP_ElencoAssenti.Designer.vb">
+      <DependentUpon>STP_ElencoAssenti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_stampa\STP_ElencoAssenti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\frmControlloPosizioneGPS.Designer.vb">
+      <DependentUpon>frmControlloPosizioneGPS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\frmControlloPosizioneGPS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMmacchinari.Designer.vb">
+      <DependentUpon>FRMmacchinari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMmacchinari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMmail.Designer.vb">
+      <DependentUpon>FRMmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmFatturaDettaglio.Designer.vb">
+      <DependentUpon>FrmFatturaDettaglio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmFatturaDettaglio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMmodificapresenzeWEB.Designer.vb">
+      <DependentUpon>FRMmodificapresenzeWEB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMmodificapresenzeWEB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMmodificarigaordineweb.Designer.vb">
+      <DependentUpon>FRMmodificarigaordineweb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMmodificarigaordineweb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmProdotti.Designer.vb">
+      <DependentUpon>FrmProdotti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmProdotti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMpubblicaFatturePDF.Designer.vb">
+      <DependentUpon>FRMpubblicaFatturePDF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMpubblicaFatturePDF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMgestSos.Designer.vb">
+      <DependentUpon>FRMgestSos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMgestSos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmRapportoQualita.designer.vb">
+      <DependentUpon>FrmRapportoQualita.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmRapportoQualita.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMsostituzioni.Designer.vb">
+      <DependentUpon>FRMsostituzioni.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMsostituzioni.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRM_AndamentoAzienda.Designer.vb">
+      <DependentUpon>FRM_AndamentoAzienda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRM_AndamentoAzienda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmCantieri.Designer.vb">
+      <DependentUpon>FrmCantieri.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmCantieri.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmCantieriRese.Designer.vb">
+      <DependentUpon>FrmCantieriRese.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmCantieriRese.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRM_FatturazioneB2B.Designer.vb">
+      <DependentUpon>FRM_FatturazioneB2B.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRM_FatturazioneB2B.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRM_calendario.Designer.vb">
+      <DependentUpon>FRM_calendario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRM_calendario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmFattura.Designer.vb">
+      <DependentUpon>FrmFattura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmFattura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRM_fatture_scadenze.Designer.vb">
+      <DependentUpon>FRM_fatture_scadenze.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRM_fatture_scadenze.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRM_genera_fatture.Designer.vb">
+      <DependentUpon>FRM_genera_fatture.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRM_genera_fatture.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmOrdineMateriale.Designer.vb">
+      <DependentUpon>FrmOrdineMateriale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmOrdineMateriale.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FrmCantieriRiepilogoPresenze.Designer.vb">
+      <DependentUpon>FrmCantieriRiepilogoPresenze.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FrmCantieriRiepilogoPresenze.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_viste\FRMordiniWeb.Designer.vb">
+      <DependentUpon>FRMordiniWeb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_viste\FRMordiniWeb.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="funzioni\creaFE.vb" />
+    <Compile Include="funzioni\inviomail.vb" />
+    <Compile Include="GlobalSuppressions.vb" />
+    <Compile Include="IISHandler1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QRcode\vbQRCode.vb" />
+    <Compile Include="Settings.vb" />
+    <Compile Include="votazioni\frmVotazioni.Designer.vb">
+      <DependentUpon>frmVotazioni.vb</DependentUpon>
+    </Compile>
+    <Compile Include="votazioni\frmVotazioni.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmQualita\FrmAbbinamentoCantieriCQ.resx">
+      <DependentUpon>FrmAbbinamentoCantieriCQ.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_9001\frmDescrizioneProdotti.resx">
+      <DependentUpon>frmDescrizioneProdotti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_9001\frmIstruzioniOperative.resx">
+      <DependentUpon>frmIstruzioniOperative.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_9001\frmProcedureOperative.resx">
+      <DependentUpon>frmProcedureOperative.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_autofattura\frmAggiungeAziendaAutofattura.resx">
+      <DependentUpon>frmAggiungeAziendaAutofattura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_avvio\frmSplash.resx">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_avvio\FRMavvio.resx">
+      <DependentUpon>FRMavvio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_avvio\FRM_login.resx">
+      <DependentUpon>FRM_login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Avvisi\FRM_AggiungeAvviso.resx">
+      <DependentUpon>FRM_AggiungeAvviso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_gestione_documentale\FRM_gestioneDocumentale.resx">
+      <DependentUpon>FRM_gestioneDocumentale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\frmElencoPresenzeInserite.resx">
+      <DependentUpon>frmElencoPresenzeInserite.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRMmod_macchinari.resx">
+      <DependentUpon>FRMmod_macchinari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRM_elenca_presenze_periodo_destinatario.resx">
+      <DependentUpon>FRM_elenca_presenze_periodo_destinatario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRM_Formazione.resx">
+      <DependentUpon>FRM_Formazione.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRM_MOD_fattura.resx">
+      <DependentUpon>FRM_MOD_fattura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRM_findClienti.resx">
+      <DependentUpon>FRM_findClienti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRM_MOD_cliente.resx">
+      <DependentUpon>FRM_MOD_cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\frm_modifica_formazione_dipendente.resx">
+      <DependentUpon>frm_modifica_formazione_dipendente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRM_MOD_ordini.resx">
+      <DependentUpon>FRM_MOD_ordini.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_modifica\FRM_MOD_rigafattura.resx">
+      <DependentUpon>FRM_MOD_rigafattura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_pdf\FRM_separatorePDF.resx">
+      <DependentUpon>FRM_separatorePDF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ricerca\FRM_FIND_prodotti.resx">
+      <DependentUpon>FRM_FIND_prodotti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ricerca\FRM_RicercaDipendente.resx">
+      <DependentUpon>FRM_RicercaDipendente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ricerca\FRM_selezionacantiere.resx">
+      <DependentUpon>FRM_selezionacantiere.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ricerca\FRM_selezionafornitore.resx">
+      <DependentUpon>FRM_selezionafornitore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ricerca\FRM_selezionapagamenti.resx">
+      <DependentUpon>FRM_selezionapagamenti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRMstampaclientipec.resx">
+      <DependentUpon>FRMstampaclientipec.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRMstampapresenzeweb.resx">
+      <DependentUpon>FRMstampapresenzeweb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRMSTPagendaSettimanale.resx">
+      <DependentUpon>FRMSTPagendaSettimanale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRMSTPprogrammaferie.resx">
+      <DependentUpon>FRMSTPprogrammaferie.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRMSTPstampaelencosostituzionidellasettimana.resx">
+      <DependentUpon>FRMSTPstampaelencosostituzionidellasettimana.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_riepilogo_presenze_Cliente.resx">
+      <DependentUpon>FRM_riepilogo_presenze_Cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_stp_clienti.resx">
+      <DependentUpon>FRM_stp_clienti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_stp_fattura.resx">
+      <DependentUpon>FRM_stp_fattura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_STP_fattura_elenco.resx">
+      <DependentUpon>FRM_STP_fattura_elenco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_STP_fatture.resx">
+      <DependentUpon>FRM_STP_fatture.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\frm_stp_foglio_presenza.resx">
+      <DependentUpon>frm_stp_foglio_presenza.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_STP_OreClienti.resx">
+      <DependentUpon>FRM_STP_OreClienti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_STP_ordini.resx">
+      <DependentUpon>FRM_STP_ordini.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_STP_riepilogoOre.resx">
+      <DependentUpon>FRM_STP_riepilogoOre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\frm_stp_sca_ins.resx">
+      <DependentUpon>frm_stp_sca_ins.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\FRM_STP_scheda.resx">
+      <DependentUpon>FRM_STP_scheda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_stampa\STP_ElencoAssenti.resx">
+      <DependentUpon>STP_ElencoAssenti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\frmControlloPosizioneGPS.resx">
+      <DependentUpon>frmControlloPosizioneGPS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMmacchinari.resx">
+      <DependentUpon>FRMmacchinari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMmail.resx">
+      <DependentUpon>FRMmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmFatturaDettaglio.resx">
+      <DependentUpon>FrmFatturaDettaglio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMmodificapresenzeWEB.resx">
+      <DependentUpon>FRMmodificapresenzeWEB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMmodificarigaordineweb.resx">
+      <DependentUpon>FRMmodificarigaordineweb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmProdotti.resx">
+      <DependentUpon>FrmProdotti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMpubblicaFatturePDF.resx">
+      <DependentUpon>FRMpubblicaFatturePDF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMgestSos.resx">
+      <DependentUpon>FRMgestSos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmRapportoQualita.resx">
+      <DependentUpon>FrmRapportoQualita.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMsostituzioni.resx">
+      <DependentUpon>FRMsostituzioni.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRM_AndamentoAzienda.resx">
+      <DependentUpon>FRM_AndamentoAzienda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmCantieri.resx">
+      <DependentUpon>FrmCantieri.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmCantieriRese.resx">
+      <DependentUpon>FrmCantieriRese.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRM_FatturazioneB2B.resx">
+      <DependentUpon>FRM_FatturazioneB2B.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRM_calendario.resx">
+      <DependentUpon>FRM_calendario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmFattura.resx">
+      <DependentUpon>FrmFattura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRM_fatture_scadenze.resx">
+      <DependentUpon>FRM_fatture_scadenze.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRM_genera_fatture.resx">
+      <DependentUpon>FRM_genera_fatture.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmOrdineMateriale.resx">
+      <DependentUpon>FrmOrdineMateriale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FrmCantieriRiepilogoPresenze.resx">
+      <DependentUpon>FrmCantieriRiepilogoPresenze.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_viste\FRMordiniWeb.resx">
+      <DependentUpon>FRMordiniWeb.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rapporti\cardQRdettaglioclienteTMP.rdlc" />
+    <EmbeddedResource Include="rapporti\ClientiElenco.rdlc" />
+    <EmbeddedResource Include="rapporti\elenco_Fornitori.rdlc" />
+    <EmbeddedResource Include="rapporti\FO_fattura.rdlc" />
+    <EmbeddedResource Include="rapporti\ProcedureIOP.rdlc" />
+    <EmbeddedResource Include="rapporti\rpAgendaSettimanalesostituzioni.rdlc" />
+    <EmbeddedResource Include="rapporti\RPmonteore.rdlc" />
+    <EmbeddedResource Include="rapporti\RPmonteoredipendente.rdlc" />
+    <EmbeddedResource Include="rapporti\RPpianoferiedipendente.rdlc" />
+    <EmbeddedResource Include="rapporti\RPpresenzeweb.rdlc" />
+    <EmbeddedResource Include="rapporti\RPprogrammazionechiusure.rdlc" />
+    <EmbeddedResource Include="rapporti\rpt_checkQualita.rdlc" />
+    <EmbeddedResource Include="rapporti\rpt_rapportoQualita.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_ClientiPec.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_ElencoAssenti.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_ElencoSostituzioni.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_fattura.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_fatturaN.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_fattura_elenco_fatture.rdlc" />
+    <EmbeddedResource Include="rapporti\fattura_elenco_scadenze.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rapporti\fp.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rapporti\orari_dipendenti.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rapporti\RP_OrdineMateriale2.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_presenze_cliente.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_programmaclienti.rdlc" />
+    <EmbeddedResource Include="rapporti\RP_schedaMateriale.rdlc" />
+    <EmbeddedResource Include="rapporti\scheda_materiale.rdlc" />
+    <EmbeddedResource Include="votazioni\frmVotazioni.resx">
+      <DependentUpon>frmVotazioni.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="EULA.rtf" />
+    <Content Include="jsConfigurazione.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="PoP2.0.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="impostazione.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="logo.ico" />
+    <Content Include="logoappegaso.ico" />
+    <Content Include="pop.ico" />
+    <None Include="Resources\omino modifica48.png" />
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types per SQL Server® 2014 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Visual.C++.14.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Visual C++ "14" Runtime Libraries %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="cli_ure">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="de\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="de\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="de\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="de\Microsoft.ReportViewer.WebDesign.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="de\Microsoft.ReportViewer.WebForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="de\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="es\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="es\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="es\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="es\Microsoft.ReportViewer.WebDesign.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="es\Microsoft.ReportViewer.WebForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="es\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\Microsoft.ReportViewer.WebDesign.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\Microsoft.ReportViewer.WebForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="fr\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ja\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ja\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ja\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ja\Microsoft.ReportViewer.WebDesign.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ja\Microsoft.ReportViewer.WebForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ja\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ko\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ko\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ko\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ko\Microsoft.ReportViewer.WebDesign.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ko\Microsoft.ReportViewer.WebForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ko\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="pt\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="pt\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="pt\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="pt\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ru\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ru\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ru\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="ru\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHS\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHS\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHS\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHS\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHT\Microsoft.ReportViewer.Common.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHT\Microsoft.ReportViewer.DataVisualization.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHT\Microsoft.ReportViewer.Design.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+    <PublishFile Include="zh-CHT\Microsoft.ReportViewer.WinForms.resources">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Satellite</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="cli_basetypes, Version=1.0.20.0, Culture=neutral, PublicKeyToken=ce2cb7e279207b9e">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="cli_cppuhelper, Version=1.0.23.0, Culture=neutral, PublicKeyToken=ce2cb7e279207b9e, processorArchitecture=x86">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="cli_oootypes, Version=1.0.9.0, Culture=neutral, PublicKeyToken=ce2cb7e279207b9e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="cli_uretypes, Version=1.0.9.0, Culture=neutral, PublicKeyToken=ce2cb7e279207b9e, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-adapter, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.bouncy-castle-adapter.8.0.2\lib\net461\itext.bouncy-castle-adapter.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.8.0.2\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.6\lib\netstandard2.0\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.6\lib\netstandard2.0\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\netstandard2.0\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.8.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.8.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.8.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.8.0.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.2.0\lib\netstandard2.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2023.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2023.0.0\lib\netstandard2.0\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SshNet.Security.Cryptography, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SshNet.Security.Cryptography.1.3.0\lib\net45\SshNet.Security.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.0\lib\netstandard2.0\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Pipelines, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.8.0.0\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.WebSockets.4.0.0\lib\net46\System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client, Version=4.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.WebSockets.Client.4.0.2\lib\net46\System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Loader, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Loader.4.3.0\lib\netstandard1.5\System.Runtime.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.1.1\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Cng.5.0.0\lib\net461\System.Security.Cryptography.Cng.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.0.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.8.0.0\lib\netstandard2.0\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.8.0.0\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.1.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.8.0.0\lib\netstandard2.0\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.0\lib\netstandard2.0\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZstdSharp, Version=0.7.4.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.4\lib\netstandard2.0\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pop2.Comuni\Pop2.Comuni.vbproj">
+      <Project>{f71bb72e-8bc1-46d6-8c8a-b24585620fab}</Project>
+      <Name>Pop2.Comuni</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pop2.Dipendenti\Pop2.Dipendenti.vbproj">
+      <Project>{d008b419-25a3-4e90-8f43-54b7fe3c77de}</Project>
+      <Name>Pop2.Dipendenti</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pop2.Preventivi\Pop2.Preventivi.vbproj">
+      <Project>{df7f76cf-3a83-4bd4-9226-fb557bfa7274}</Project>
+      <Name>Pop2.Preventivi</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

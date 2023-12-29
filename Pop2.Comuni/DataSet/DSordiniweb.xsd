@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSordiniweb" targetNamespace="http://tempuri.org/DSordiniweb.xsd" xmlns:mstns="http://tempuri.org/DSordiniweb.xsd" xmlns="http://tempuri.org/DSordiniweb.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TAprodottiweb" GeneratorDataComponentClassName="TAprodottiweb" Name="DTprodottiweb" UserDataComponentName="TAprodottiweb">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        prodotti.id, prodotti.descrizione, prodotti.id_tipologia, prodotti.id_fornitoretxt, prodotti.id_fornitore, prodotti.sconto, prodotti.prezzoconfezione, prodotti.prezzounitario, prodotti.tipoconfezione, prodotti.quantita_conf, prodotti.data, 
+                         prodotti.note, prodotti.schedatura, prodotti.fatturabile, prodotti.id_marca
+FROM            prodotti, immagini
+WHERE        prodotti.id = immagini.idriferimento AND (prodotti.schedatura = 1)
+ORDER BY prodotti.descrizione</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="tipoconfezione" DataSetColumn="tipoconfezione" />
+              <Mapping SourceColumn="quantita_conf" DataSetColumn="quantita_conf" />
+              <Mapping SourceColumn="schedatura" DataSetColumn="schedatura" />
+              <Mapping SourceColumn="id_fornitore" DataSetColumn="id_fornitore" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_tipologia" DataSetColumn="id_tipologia" />
+              <Mapping SourceColumn="id_fornitoretxt" DataSetColumn="id_fornitoretxt" />
+              <Mapping SourceColumn="sconto" DataSetColumn="sconto" />
+              <Mapping SourceColumn="prezzoconfezione" DataSetColumn="prezzoconfezione" />
+              <Mapping SourceColumn="prezzounitario" DataSetColumn="prezzounitario" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="fatturabile" DataSetColumn="fatturabile" />
+              <Mapping SourceColumn="id_marca" DataSetColumn="id_marca" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TAimmagini" GeneratorDataComponentClassName="TAimmagini" Name="DTimmagini" UserDataComponentName="TAimmagini">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        immagini.*
+FROM            immagini</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="foto" DataSetColumn="foto" />
+              <Mapping SourceColumn="idriferimento" DataSetColumn="idriferimento" />
+              <Mapping SourceColumn="iddatabase" DataSetColumn="iddatabase" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DTimmagini" msprop:Generator_TableClassName="DTimmaginiDataTable" msprop:Generator_TableVarName="tableDTimmagini" msprop:Generator_TablePropName="DTimmagini" msprop:Generator_RowDeletingName="DTimmaginiRowDeleting" msprop:Generator_RowChangingName="DTimmaginiRowChanging" msprop:Generator_RowEvHandlerName="DTimmaginiRowChangeEventHandler" msprop:Generator_RowDeletedName="DTimmaginiRowDeleted" msprop:Generator_UserTableName="DTimmagini" msprop:Generator_RowChangedName="DTimmaginiRowChanged" msprop:Generator_RowEvArgName="DTimmaginiRowChangeEvent" msprop:Generator_RowClassName="DTimmaginiRow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+        <xs:element name="foto" msprop:Generator_ColumnVarNameInTable="columnfoto" msprop:Generator_ColumnPropNameInRow="foto" msprop:Generator_ColumnPropNameInTable="fotoColumn" msprop:Generator_UserColumnName="foto" type="xs:base64Binary" minOccurs="0" />
+        <xs:element name="idriferimento" msprop:Generator_ColumnVarNameInTable="columnidriferimento" msprop:Generator_ColumnPropNameInRow="idriferimento" msprop:Generator_ColumnPropNameInTable="idriferimentoColumn" msprop:Generator_UserColumnName="idriferimento" type="xs:int" minOccurs="0" />
+        <xs:element name="iddatabase" msprop:Generator_ColumnVarNameInTable="columniddatabase" msprop:Generator_ColumnPropNameInRow="iddatabase" msprop:Generator_ColumnPropNameInTable="iddatabaseColumn" msprop:Generator_UserColumnName="iddatabase" type="xs:int" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DSordiniweb" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSordiniweb" msprop:Generator_UserDSName="DSordiniweb">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="DTimmagini" />
+        <xs:element name="DTprodottiweb" msprop:Generator_TableClassName="DTprodottiwebDataTable" msprop:Generator_TableVarName="tableDTprodottiweb" msprop:Generator_TablePropName="DTprodottiweb" msprop:Generator_RowDeletingName="DTprodottiwebRowDeleting" msprop:Generator_RowChangingName="DTprodottiwebRowChanging" msprop:Generator_RowEvHandlerName="DTprodottiwebRowChangeEventHandler" msprop:Generator_RowDeletedName="DTprodottiwebRowDeleted" msprop:Generator_UserTableName="DTprodottiweb" msprop:Generator_RowChangedName="DTprodottiwebRowChanged" msprop:Generator_RowEvArgName="DTprodottiwebRowChangeEvent" msprop:Generator_RowClassName="DTprodottiwebRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="375" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipoconfezione" msprop:Generator_ColumnVarNameInTable="columntipoconfezione" msprop:Generator_ColumnPropNameInRow="tipoconfezione" msprop:Generator_ColumnPropNameInTable="tipoconfezioneColumn" msprop:Generator_UserColumnName="tipoconfezione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantita_conf" msprop:Generator_ColumnVarNameInTable="columnquantita_conf" msprop:Generator_ColumnPropNameInRow="quantita_conf" msprop:Generator_ColumnPropNameInTable="quantita_confColumn" msprop:Generator_UserColumnName="quantita_conf" type="xs:decimal" minOccurs="0" />
+              <xs:element name="schedatura" msprop:Generator_ColumnVarNameInTable="columnschedatura" msprop:Generator_ColumnPropNameInRow="schedatura" msprop:Generator_ColumnPropNameInTable="schedaturaColumn" msprop:Generator_UserColumnName="schedatura" type="xs:int" minOccurs="0" />
+              <xs:element name="id_fornitore" msprop:Generator_ColumnVarNameInTable="columnid_fornitore" msprop:Generator_ColumnPropNameInRow="id_fornitore" msprop:Generator_ColumnPropNameInTable="id_fornitoreColumn" msprop:Generator_UserColumnName="id_fornitore" type="xs:int" />
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="id_tipologia" msprop:Generator_ColumnVarNameInTable="columnid_tipologia" msprop:Generator_ColumnPropNameInRow="id_tipologia" msprop:Generator_ColumnPropNameInTable="id_tipologiaColumn" msprop:Generator_UserColumnName="id_tipologia" type="xs:int" minOccurs="0" />
+              <xs:element name="id_fornitoretxt" msprop:Generator_ColumnVarNameInTable="columnid_fornitoretxt" msprop:Generator_ColumnPropNameInRow="id_fornitoretxt" msprop:Generator_ColumnPropNameInTable="id_fornitoretxtColumn" msprop:Generator_UserColumnName="id_fornitoretxt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sconto" msprop:Generator_ColumnVarNameInTable="columnsconto" msprop:Generator_ColumnPropNameInRow="sconto" msprop:Generator_ColumnPropNameInTable="scontoColumn" msprop:Generator_UserColumnName="sconto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="prezzoconfezione" msprop:Generator_ColumnVarNameInTable="columnprezzoconfezione" msprop:Generator_ColumnPropNameInRow="prezzoconfezione" msprop:Generator_ColumnPropNameInTable="prezzoconfezioneColumn" msprop:Generator_UserColumnName="prezzoconfezione" type="xs:decimal" minOccurs="0" />
+              <xs:element name="prezzounitario" msprop:Generator_ColumnVarNameInTable="columnprezzounitario" msprop:Generator_ColumnPropNameInRow="prezzounitario" msprop:Generator_ColumnPropNameInTable="prezzounitarioColumn" msprop:Generator_UserColumnName="prezzounitario" type="xs:decimal" minOccurs="0" />
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="375" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fatturabile" msprop:Generator_ColumnVarNameInTable="columnfatturabile" msprop:Generator_ColumnPropNameInRow="fatturabile" msprop:Generator_ColumnPropNameInTable="fatturabileColumn" msprop:Generator_UserColumnName="fatturabile" type="xs:int" minOccurs="0" />
+              <xs:element name="id_marca" msprop:Generator_ColumnVarNameInTable="columnid_marca" msprop:Generator_ColumnPropNameInRow="id_marca" msprop:Generator_ColumnPropNameInTable="id_marcaColumn" msprop:Generator_UserColumnName="id_marca" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:DTimmagini" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DTprodottiweb_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DTprodottiweb" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

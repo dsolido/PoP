@@ -1,0 +1,22 @@
+﻿[*.vb]
+
+# CA1031: Non rilevare tipi di eccezione generali
+dotnet_diagnostic.CA1031.severity = none
+
+# CA1707: Gli identificatori non devono contenere caratteri di sottolineatura
+dotnet_diagnostic.CA1707.severity = suggestion
+
+# BC42030: La variabile è stata passata per riferimento prima dell'assegnazione di un valore
+dotnet_diagnostic.BC42030.severity = none
+
+# CA1045: Non passare i tipi per riferimento
+dotnet_diagnostic.CA1045.severity = none
+
+# Default severity for analyzer diagnostics with category 'Design'
+dotnet_analyzer_diagnostic.category-Design.severity = none
+
+# BC42025: L'accesso del membro condiviso, del membro costante, del membro di enumerazione o del tipo nidificato verrà effettuato tramite un'istanza
+dotnet_diagnostic.BC42025.severity = none
+
+# IDE0058: Il valore dell'espressione non viene mai usato
+dotnet_diagnostic.IDE0058.severity = none

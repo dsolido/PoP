@@ -1,0 +1,1169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_generatore_fatture" targetNamespace="http://tempuri.org/generatore_fatture.xsd" xmlns:mstns="http://tempuri.org/generatore_fatture.xsd" xmlns="http://tempuri.org/generatore_fatture.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="Interrogazioni_fattura" GeneratorFunctionsComponentClassName="Interrogazioni_fattura" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="Interrogazioni_fattura" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_tipo_servizio" GeneratorDataComponentClassName="TA_tipo_servizio" Name="DT_tipo_servizio" UserDataComponentName="TA_tipo_servizio">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostra" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="mostra" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="mostra">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        fattura_righe_tipo.*
+FROM            fattura_righe_tipo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_fatture" GeneratorDataComponentClassName="TA_fatture" Name="DT_fatture" UserDataComponentName="TA_fatture">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        fattura.*
+FROM            fattura</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idfatturaunq" DataSetColumn="idfatturaunq" />
+              <Mapping SourceColumn="fat_num_id" DataSetColumn="fat_num_id" />
+              <Mapping SourceColumn="fat_num_da" DataSetColumn="fat_num_da" />
+              <Mapping SourceColumn="fat_cli_id" DataSetColumn="fat_cli_id" />
+              <Mapping SourceColumn="fat_data" DataSetColumn="fat_data" />
+              <Mapping SourceColumn="fat_scad" DataSetColumn="fat_scad" />
+              <Mapping SourceColumn="fat_paga" DataSetColumn="fat_paga" />
+              <Mapping SourceColumn="fat_pa_dat" DataSetColumn="fat_pa_dat" />
+              <Mapping SourceColumn="fat_pa_des" DataSetColumn="fat_pa_des" />
+              <Mapping SourceColumn="fat_con_l" DataSetColumn="fat_con_l" />
+              <Mapping SourceColumn="fat_pa_imp" DataSetColumn="fat_pa_imp" />
+              <Mapping SourceColumn="fat_cod_iva" DataSetColumn="fat_cod_iva" />
+              <Mapping SourceColumn="codiceunico" DataSetColumn="codiceunico" />
+              <Mapping SourceColumn="fat_cod_paga" DataSetColumn="fat_cod_paga" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Elimina" Modifier="Public" Name="Elimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Elimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM fattura
+WHERE        (idfatturaunq = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="idfatturaunq" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="idfatturaunq" Precision="0" Scale="0" Size="0" SourceColumn="idfatturaunq" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPeriodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPeriodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByPeriodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        c.idfatturaunq, c.fat_num_id, c.fat_num_da, c.fat_cli_id, c.fat_data, c.fat_scad, c.fat_paga, c.fat_pa_dat, c.fat_pa_des, c.fat_con_l, c.fat_pa_imp, c.fat_cod_iva, c.codiceunico, c.fat_cod_paga, c.fat_pa_fallimento, c.fat_nc, c.id_az, c.inviata, c.datainvio, c.note
+FROM            fattura c
+WHERE DATE_FORMAT(c.fat_data,'%Y-%m')  = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Inserisce" Modifier="Public" Name="Inserisce" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Inserisce">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO fattura
+                         (fat_num_id, fat_num_da, fat_cli_id, fat_data, fat_scad, fat_paga, fat_pa_dat, fat_pa_des, fat_con_l, fat_pa_imp, fat_cod_iva, codiceunico, fat_cod_paga)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="fat_num_id" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="fat_num_id" Precision="0" Scale="0" Size="0" SourceColumn="fat_num_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="fat_num_da" DataSourceName="cesar.fattura" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="fat_num_da" Precision="0" Scale="0" Size="1024" SourceColumn="fat_num_da" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="fat_cli_id" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="fat_cli_id" Precision="0" Scale="0" Size="0" SourceColumn="fat_cli_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="fat_data" DataSourceName="cesar.fattura" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="fat_data" Precision="0" Scale="0" Size="0" SourceColumn="fat_data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="fat_scad" DataSourceName="cesar.fattura" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="fat_scad" Precision="0" Scale="0" Size="0" SourceColumn="fat_scad" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="fat_paga" DataSourceName="cesar.fattura" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="fat_paga" Precision="0" Scale="0" Size="0" SourceColumn="fat_paga" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="fat_pa_dat" DataSourceName="cesar.fattura" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="fat_pa_dat" Precision="0" Scale="0" Size="0" SourceColumn="fat_pa_dat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="fat_pa_des" DataSourceName="cesar.fattura" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="fat_pa_des" Precision="0" Scale="0" Size="1024" SourceColumn="fat_pa_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param9" ColumnName="fat_con_l" DataSourceName="cesar.fattura" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="fat_con_l" Precision="0" Scale="0" Size="0" SourceColumn="fat_con_l" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param10" ColumnName="fat_pa_imp" DataSourceName="cesar.fattura" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="fat_pa_imp" Precision="9" Scale="2" Size="0" SourceColumn="fat_pa_imp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param11" ColumnName="fat_cod_iva" DataSourceName="cesar.fattura" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="fat_cod_iva" Precision="4" Scale="2" Size="0" SourceColumn="fat_cod_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param12" ColumnName="codiceunico" DataSourceName="cesar.fattura" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="codiceunico" Precision="0" Scale="0" Size="0" SourceColumn="codiceunico" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param13" ColumnName="fat_cod_paga" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="fat_cod_paga" Precision="0" Scale="0" Size="0" SourceColumn="fat_cod_paga" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="modifica" Modifier="Public" Name="modifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="modifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       fattura
+SET                fat_cli_id = ?, fat_data = ?, fat_scad = ?, fat_paga = ?, fat_pa_dat = ?, fat_pa_des = ?, fat_con_l = ?, fat_pa_imp = ?, fat_cod_iva = ?, fat_cod_paga = ?
+WHERE        (idfatturaunq = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="fat_cli_id" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="fat_cli_id" Precision="0" Scale="0" Size="0" SourceColumn="fat_cli_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="fat_data" DataSourceName="cesar.fattura" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="fat_data" Precision="0" Scale="0" Size="0" SourceColumn="fat_data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="fat_scad" DataSourceName="cesar.fattura" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="fat_scad" Precision="0" Scale="0" Size="0" SourceColumn="fat_scad" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="fat_paga" DataSourceName="cesar.fattura" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="fat_paga" Precision="0" Scale="0" Size="0" SourceColumn="fat_paga" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="fat_pa_dat" DataSourceName="cesar.fattura" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="fat_pa_dat" Precision="0" Scale="0" Size="0" SourceColumn="fat_pa_dat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="fat_pa_des" DataSourceName="cesar.fattura" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="fat_pa_des" Precision="0" Scale="0" Size="1024" SourceColumn="fat_pa_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="fat_con_l" DataSourceName="cesar.fattura" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="fat_con_l" Precision="0" Scale="0" Size="0" SourceColumn="fat_con_l" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param8" ColumnName="fat_pa_imp" DataSourceName="cesar.fattura" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="fat_pa_imp" Precision="9" Scale="2" Size="0" SourceColumn="fat_pa_imp" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param9" ColumnName="fat_cod_iva" DataSourceName="cesar.fattura" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="fat_cod_iva" Precision="4" Scale="2" Size="0" SourceColumn="fat_cod_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param10" ColumnName="fat_cod_paga" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="fat_cod_paga" Precision="0" Scale="0" Size="0" SourceColumn="fat_cod_paga" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="idfatturaunq" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_idfatturaunq" Precision="0" Scale="0" Size="0" SourceColumn="idfatturaunq" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_righe_fatture" GeneratorDataComponentClassName="TA_righe_fatture" Name="DT_righe_fatture" UserDataComponentName="TA_righe_fatture">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="cesar.fattura_righe" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `fattura_righe` WHERE (((? = 1 AND `id` IS NULL) OR (`id` = ?)) AND (`ordine` = ?) AND (`cfa_fa_num` = ?) AND (`cfa_des` = ?) AND (`cfa_quanti` = ?) AND (`cfa_prezzo` = ?) AND (`cfa_sconto` = ?) AND (`cfa_iva` = ?) AND (`cfa_iddest` = ?) AND (`cfa_idcli` = ?) AND (`cfa_pulofor` = ?) AND (`cfa_dataunica` = ?) AND (`cfa_rc` = ?) AND (`cfa_tipo` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ordine" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ordine" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="Original_cfa_fa_num" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="Original_cfa_des" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_des" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_quanti" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_quanti" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_prezzo" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_prezzo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_sconto" Precision="6" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_sconto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_iva" Precision="4" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_iva" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_iddest" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_iddest" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_idcli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_idcli" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_pulofor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_pulofor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_cfa_dataunica" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="cfa_dataunica" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_rc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_rc" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_tipo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_tipo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `fattura_righe` (`ordine`, `cfa_fa_num`, `cfa_des`, `cfa_quanti`, `cfa_prezzo`, `cfa_sconto`, `cfa_iva`, `cfa_iddest`, `cfa_idcli`, `cfa_pulofor`, `cfa_dataunica`, `cfa_rc`, `cfa_tipo`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="ordine" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ordine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="cfa_fa_num" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="cfa_des" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_quanti" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_quanti" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_prezzo" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_prezzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_sconto" Precision="6" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_sconto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_iva" Precision="4" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_iddest" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_iddest" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_idcli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_idcli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_pulofor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_pulofor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="cfa_dataunica" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="cfa_dataunica" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_rc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_rc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_tipo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_tipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, ordine, cfa_fa_num, cfa_des, cfa_quanti, cfa_prezzo, cfa_sconto, cfa_iva, cfa_iddest, cfa_idcli, cfa_pulofor, cfa_dataunica, cfa_rc, cfa_tipo FROM fattura_righe</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `fattura_righe` SET `ordine` = ?, `cfa_fa_num` = ?, `cfa_des` = ?, `cfa_quanti` = ?, `cfa_prezzo` = ?, `cfa_sconto` = ?, `cfa_iva` = ?, `cfa_iddest` = ?, `cfa_idcli` = ?, `cfa_pulofor` = ?, `cfa_dataunica` = ?, `cfa_rc` = ?, `cfa_tipo` = ? WHERE (((? = 1 AND `id` IS NULL) OR (`id` = ?)) AND (`ordine` = ?) AND (`cfa_fa_num` = ?) AND (`cfa_des` = ?) AND (`cfa_quanti` = ?) AND (`cfa_prezzo` = ?) AND (`cfa_sconto` = ?) AND (`cfa_iva` = ?) AND (`cfa_iddest` = ?) AND (`cfa_idcli` = ?) AND (`cfa_pulofor` = ?) AND (`cfa_dataunica` = ?) AND (`cfa_rc` = ?) AND (`cfa_tipo` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="ordine" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ordine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="cfa_fa_num" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="cfa_des" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_quanti" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_quanti" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_prezzo" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_prezzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_sconto" Precision="6" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_sconto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="cfa_iva" Precision="4" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_iddest" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_iddest" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_idcli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_idcli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_pulofor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_pulofor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="cfa_dataunica" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="cfa_dataunica" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_rc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_rc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="cfa_tipo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_tipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ordine" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ordine" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="Original_cfa_fa_num" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="Original_cfa_des" Precision="0" ProviderType="Char" Scale="0" Size="0" SourceColumn="cfa_des" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_quanti" Precision="10" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_quanti" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_prezzo" Precision="15" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_prezzo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_sconto" Precision="6" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_sconto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="Original_cfa_iva" Precision="4" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="cfa_iva" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_iddest" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_iddest" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_idcli" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_idcli" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_pulofor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_pulofor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_cfa_dataunica" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="cfa_dataunica" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_rc" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_rc" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_cfa_tipo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cfa_tipo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="ordine" DataSetColumn="ordine" />
+              <Mapping SourceColumn="cfa_fa_num" DataSetColumn="cfa_fa_num" />
+              <Mapping SourceColumn="cfa_des" DataSetColumn="cfa_des" />
+              <Mapping SourceColumn="cfa_quanti" DataSetColumn="cfa_quanti" />
+              <Mapping SourceColumn="cfa_prezzo" DataSetColumn="cfa_prezzo" />
+              <Mapping SourceColumn="cfa_sconto" DataSetColumn="cfa_sconto" />
+              <Mapping SourceColumn="cfa_iva" DataSetColumn="cfa_iva" />
+              <Mapping SourceColumn="cfa_iddest" DataSetColumn="cfa_iddest" />
+              <Mapping SourceColumn="cfa_idcli" DataSetColumn="cfa_idcli" />
+              <Mapping SourceColumn="cfa_pulofor" DataSetColumn="cfa_pulofor" />
+              <Mapping SourceColumn="cfa_dataunica" DataSetColumn="cfa_dataunica" />
+              <Mapping SourceColumn="cfa_rc" DataSetColumn="cfa_rc" />
+              <Mapping SourceColumn="cfa_tipo" DataSetColumn="cfa_tipo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Elimina" Modifier="Public" Name="Elimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Elimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM fattura_righe
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Elimina_ByNumeroFattura" Modifier="Public" Name="Elimina_ByNumeroFattura" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Elimina_ByNumeroFattura">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM fattura_righe
+WHERE        (cfa_fa_num = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="cfa_fa_num" DataSourceName="cesar.fattura_righe" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="cfa_fa_num" Precision="0" Scale="0" Size="1024" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="cesar.fattura_righe" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByNumeroFattura" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByNumeroFattura" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByNumeroFattura">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, ordine, cfa_fa_num, cfa_des, cfa_quanti, cfa_prezzo, cfa_sconto, cfa_iva, cfa_iddest, cfa_idcli, cfa_pulofor, cfa_dataunica, cfa_rc, cfa_tipo FROM fattura_righe WHERE (cfa_fa_num = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="cfa_fa_num" DataSourceName="cesar.fattura_righe" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="cfa_fa_num" Precision="0" Scale="0" Size="1024" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPeriodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPeriodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="FillByPeriodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        r.id,c.idfatturaunq, c.fat_num_id, c.fat_num_da, c.fat_cli_id, c.fat_data, c.fat_scad, c.fat_paga, c.fat_pa_dat, c.fat_pa_des, c.fat_con_l, c.fat_pa_imp, c.fat_cod_iva, c.codiceunico, c.fat_cod_paga, c.fat_pa_fallimento, c.fat_nc, c.id_az, 
+                         c.inviata, c.datainvio, c.note, r.ordine, r.cfa_fa_num, r.cfa_des, r.cfa_quanti, r.cfa_prezzo, r.cfa_sconto, r.cfa_iva, r.cfa_iddest, r.cfa_idcli, r.cfa_pulofor, r.cfa_dataunica, r.cfa_rc, r.cfa_tipo, r.cfa_id
+FROM            fattura c
+RIGHT JOIN fattura_righe r ON c.fat_num_da = r.cfa_fa_num
+WHERE DATE_FORMAT(c.fat_data,'%Y-%m')  = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPeriodoCliente" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPeriodoCliente" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FillByPeriodoCliente">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        r.id,c.idfatturaunq, c.fat_num_id, c.fat_num_da, c.fat_cli_id, c.fat_data, c.fat_scad, c.fat_paga, c.fat_pa_dat, c.fat_pa_des, c.fat_con_l, c.fat_pa_imp, c.fat_cod_iva, c.codiceunico, c.fat_cod_paga, c.fat_pa_fallimento, c.fat_nc, c.id_az, 
+                         c.inviata, c.datainvio, c.note, r.ordine, r.cfa_fa_num, r.cfa_des, r.cfa_quanti, r.cfa_prezzo, r.cfa_sconto, r.cfa_iva, r.cfa_iddest, r.cfa_idcli, r.cfa_pulofor, r.cfa_dataunica, r.cfa_rc, r.cfa_tipo, r.cfa_id
+FROM            fattura c
+RIGHT JOIN fattura_righe r ON c.fat_num_da = r.cfa_fa_num
+WHERE DATE_FORMAT(c.fat_data,'%Y-%m')  = ?
+AND c.fat_cli_id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="integer" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="fat_cli_id" DataSourceName="cesar.fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="fat_cli_id" Precision="0" Scale="0" Size="0" SourceColumn="fat_cli_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Inserisce" Modifier="Public" Name="Inserisce" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Inserisce">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO fattura_righe
+                         ( ordine, cfa_fa_num, cfa_des, cfa_quanti, cfa_prezzo, cfa_sconto, cfa_iva, cfa_iddest, cfa_idcli, cfa_pulofor, cfa_dataunica, cfa_rc, cfa_tipo)
+VALUES        ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="ordine" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="ordine" Precision="0" Scale="0" Size="0" SourceColumn="ordine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="cfa_fa_num" DataSourceName="cesar.fattura_righe" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="cfa_fa_num" Precision="0" Scale="0" Size="1024" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="cfa_des" DataSourceName="cesar.fattura_righe" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="cfa_des" Precision="0" Scale="0" Size="1024" SourceColumn="cfa_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="cfa_quanti" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_quanti" Precision="10" Scale="2" Size="0" SourceColumn="cfa_quanti" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param5" ColumnName="cfa_prezzo" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_prezzo" Precision="15" Scale="2" Size="0" SourceColumn="cfa_prezzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param6" ColumnName="cfa_sconto" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_sconto" Precision="6" Scale="2" Size="0" SourceColumn="cfa_sconto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="cfa_iva" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_iva" Precision="4" Scale="2" Size="0" SourceColumn="cfa_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param8" ColumnName="cfa_iddest" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_iddest" Precision="0" Scale="0" Size="0" SourceColumn="cfa_iddest" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param9" ColumnName="cfa_idcli" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_idcli" Precision="0" Scale="0" Size="0" SourceColumn="cfa_idcli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param10" ColumnName="cfa_pulofor" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_pulofor" Precision="0" Scale="0" Size="0" SourceColumn="cfa_pulofor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param11" ColumnName="cfa_dataunica" DataSourceName="cesar.fattura_righe" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="cfa_dataunica" Precision="0" Scale="0" Size="0" SourceColumn="cfa_dataunica" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param12" ColumnName="cfa_rc" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_rc" Precision="0" Scale="0" Size="0" SourceColumn="cfa_rc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param13" ColumnName="cfa_tipo" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_tipo" Precision="0" Scale="0" Size="0" SourceColumn="cfa_tipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="modifica" Modifier="Public" Name="modifica" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="modifica">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       fattura_righe
+SET                ordine = ?, cfa_fa_num = ?,cfa_des = ?, cfa_quanti = ?, cfa_prezzo = ?, cfa_sconto = ?, cfa_iva = ?, cfa_iddest = ?, cfa_idcli = ?, cfa_pulofor = ?, cfa_dataunica = ?, cfa_rc = ?, cfa_tipo = ? WHERE id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="ordine" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="ordine" Precision="0" Scale="0" Size="0" SourceColumn="ordine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="cfa_fa_num" DataSourceName="cesar.fattura_righe" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="cfa_fa_num" Precision="0" Scale="0" Size="1024" SourceColumn="cfa_fa_num" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="cfa_des" DataSourceName="cesar.fattura_righe" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="cfa_des" Precision="0" Scale="0" Size="1024" SourceColumn="cfa_des" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="cfa_quanti" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_quanti" Precision="10" Scale="2" Size="0" SourceColumn="cfa_quanti" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param5" ColumnName="cfa_prezzo" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_prezzo" Precision="15" Scale="2" Size="0" SourceColumn="cfa_prezzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param6" ColumnName="cfa_sconto" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_sconto" Precision="6" Scale="2" Size="0" SourceColumn="cfa_sconto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="cfa_iva" DataSourceName="cesar.fattura_righe" DataTypeServer="decimal" DbType="Decimal" Direction="Input" ParameterName="cfa_iva" Precision="4" Scale="2" Size="0" SourceColumn="cfa_iva" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param8" ColumnName="cfa_iddest" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_iddest" Precision="0" Scale="0" Size="0" SourceColumn="cfa_iddest" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param9" ColumnName="cfa_idcli" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_idcli" Precision="0" Scale="0" Size="0" SourceColumn="cfa_idcli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param10" ColumnName="cfa_pulofor" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_pulofor" Precision="0" Scale="0" Size="0" SourceColumn="cfa_pulofor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param11" ColumnName="cfa_dataunica" DataSourceName="cesar.fattura_righe" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="cfa_dataunica" Precision="0" Scale="0" Size="0" SourceColumn="cfa_dataunica" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param12" ColumnName="cfa_rc" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_rc" Precision="0" Scale="0" Size="0" SourceColumn="cfa_rc" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param13" ColumnName="cfa_tipo" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_tipo" Precision="0" Scale="0" Size="0" SourceColumn="cfa_tipo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="id" DataSourceName="cesar.fattura_righe" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_fatture_righe_tipo" GeneratorDataComponentClassName="TA_fatture_righe_tipo" Name="DT_fatture_righe_tipo" UserDataComponentName="TA_fatture_righe_tipo">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        fattura_righe_tipo.*
+FROM            fattura_righe_tipo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_iva_codici" GeneratorDataComponentClassName="TA_iva_codici" Name="DT_iva_codici" UserDataComponentName="TA_iva_codici">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        iva_codici.*
+FROM            iva_codici</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="codiceiva" DataSetColumn="codiceiva" />
+              <Mapping SourceColumn="nome" DataSetColumn="nome" />
+              <Mapping SourceColumn="nomebreve" DataSetColumn="nomebreve" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="valoreiva" DataSetColumn="valoreiva" />
+              <Mapping SourceColumn="pagata" DataSetColumn="pagata" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_ore" GeneratorDataComponentClassName="TA_ore" Name="DT_ore" UserDataComponentName="TA_ore">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        contore_mese_dipendente_destinatario_informato_tipologia.*
+FROM            contore_mese_dipendente_destinatario_informato_tipologia</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_dest" DataSetColumn="id_dest" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+              <Mapping SourceColumn="id_dip" DataSetColumn="id_dip" />
+              <Mapping SourceColumn="totOre" DataSetColumn="totOre" />
+              <Mapping SourceColumn="data" DataSetColumn="data" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="anagrafica" DataSetColumn="anagrafica" />
+              <Mapping SourceColumn="id_tipo" DataSetColumn="id_tipo" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="periodo" DataSetColumn="periodo" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPeriodo_ID_cli" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPeriodo_ID_cli" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByPeriodo_ID_cli">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        contore_mese_dipendente_destinatario_informato_tipologia.*
+FROM            contore_mese_dipendente_destinatario_informato_tipologia 
+WHERE periodo = ? AND id_cli = ?
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="periodo" DataSourceName="cesar.contore_mese_dipendente_destinatario_informato_tipologia" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="periodo" Precision="0" Scale="0" Size="1024" SourceColumn="periodo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="id_cli" DataSourceName="cesar.contore_mese_dipendente_destinatario_informato_tipologia" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_cli" Precision="0" Scale="0" Size="0" SourceColumn="id_cli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_locazioni" GeneratorDataComponentClassName="TA_locazioni" Name="DT_locazioni" UserDataComponentName="TA_locazioni">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        locazioni_fattura.*
+FROM            locazioni_fattura</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_terminale" DataSetColumn="id_terminale" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="citta" DataSetColumn="citta" />
+              <Mapping SourceColumn="ordine" DataSetColumn="ordine" />
+              <Mapping SourceColumn="ck" DataSetColumn="ck" />
+              <Mapping SourceColumn="riga_fattura" DataSetColumn="riga_fattura" />
+              <Mapping SourceColumn="canone" DataSetColumn="canone" />
+              <Mapping SourceColumn="id_tipo" DataSetColumn="id_tipo" />
+              <Mapping SourceColumn="id_iva" DataSetColumn="id_iva" />
+              <Mapping SourceColumn="tiposervizio" DataSetColumn="tiposervizio" />
+              <Mapping SourceColumn="tipoiva" DataSetColumn="tipoiva" />
+              <Mapping SourceColumn="lat" DataSetColumn="lat" />
+              <Mapping SourceColumn="lon" DataSetColumn="lon" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_terminale" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_terminale" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByID_terminale">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, id_terminale, locazione, address, citta, ordine, ck, riga_fattura, canone, id_tipo, id_iva, tiposervizio, tipoiva, lat, lon
+FROM            locazioni_fattura
+WHERE        (id_terminale = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="id_terminale" DataSourceName="cesar.locazioni_fattura" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_terminale" Precision="0" Scale="0" Size="0" SourceColumn="id_terminale" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_righe_storico" GeneratorDataComponentClassName="TA_righe_storico" Name="DT_righe_storico" UserDataComponentName="TA_righe_storico">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        fatture_righe_storico.*
+FROM            fatture_righe_storico</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cfa_id" DataSetColumn="cfa_id" />
+              <Mapping SourceColumn="ordine" DataSetColumn="ordine" />
+              <Mapping SourceColumn="cfa_fa_num" DataSetColumn="cfa_fa_num" />
+              <Mapping SourceColumn="cfa_des" DataSetColumn="cfa_des" />
+              <Mapping SourceColumn="cfa_quanti" DataSetColumn="cfa_quanti" />
+              <Mapping SourceColumn="cfa_prezzo" DataSetColumn="cfa_prezzo" />
+              <Mapping SourceColumn="cfa_sconto" DataSetColumn="cfa_sconto" />
+              <Mapping SourceColumn="cfa_iva" DataSetColumn="cfa_iva" />
+              <Mapping SourceColumn="cfa_iddest" DataSetColumn="cfa_iddest" />
+              <Mapping SourceColumn="cfa_idcli" DataSetColumn="cfa_idcli" />
+              <Mapping SourceColumn="cfa_rc" DataSetColumn="cfa_rc" />
+              <Mapping SourceColumn="cfa_tipo" DataSetColumn="cfa_tipo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByID_cli" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID_cli" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByID_cli">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        *
+FROM            fatture_righe_storico
+
+WHERE        (cfa_idcli = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="cfa_idcli" DataSourceName="cesar.fatture_righe_storico" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cfa_idcli" Precision="0" Scale="0" Size="0" SourceColumn="cfa_idcli" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_clienti_fatturabili" GeneratorDataComponentClassName="TA_clienti_fatturabili" Name="DT_clienti_fatturabili" UserDataComponentName="TA_clienti_fatturabili">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        cantieri.id, cantieri.societa, cantieri.address, cantieri.postalcode, cantieri.city, cantieri.region, cantieri.state, cantieri.email_name, cantieri.partitaiva, cantieri.pagamento, cantieri.bancaappog, cantieri.contabilita, cantieri.attivo, 
+                         cantieri.budget, cantieri.condomino, pagamenti.des as des_pagamento
+FROM            cantieri, pagamenti
+WHERE        cantieri.pagamento = pagamenti.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="postalcode" DataSetColumn="postalcode" />
+              <Mapping SourceColumn="city" DataSetColumn="city" />
+              <Mapping SourceColumn="region" DataSetColumn="region" />
+              <Mapping SourceColumn="state" DataSetColumn="state" />
+              <Mapping SourceColumn="email_name" DataSetColumn="email_name" />
+              <Mapping SourceColumn="partitaiva" DataSetColumn="partitaiva" />
+              <Mapping SourceColumn="pagamento" DataSetColumn="pagamento" />
+              <Mapping SourceColumn="bancaappog" DataSetColumn="bancaappog" />
+              <Mapping SourceColumn="contabilita" DataSetColumn="contabilita" />
+              <Mapping SourceColumn="attivo" DataSetColumn="attivo" />
+              <Mapping SourceColumn="budget" DataSetColumn="budget" />
+              <Mapping SourceColumn="condomino" DataSetColumn="condomino" />
+              <Mapping SourceColumn="des_pagamento" DataSetColumn="des_pagamento" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBybudget_attivo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBybudget_attivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBybudget_attivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        cantieri.id, cantieri.societa, cantieri.address, cantieri.postalcode, cantieri.city, cantieri.region, cantieri.state, cantieri.email_name, cantieri.partitaiva, cantieri.pagamento, cantieri.bancaappog, cantieri.contabilita, cantieri.attivo, 
+                         cantieri.budget, cantieri.condomino, pagamenti.des as des_pagamento
+FROM            cantieri, pagamenti
+WHERE        cantieri.pagamento = pagamenti.id AND
+budget = ? AND attivo = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="budget" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="budget" Precision="0" Scale="0" Size="0" SourceColumn="budget" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="attivo" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="attivo" Precision="0" Scale="0" Size="0" SourceColumn="attivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_generatore_fatture" GeneratorDataComponentClassName="TA_generatore_fatture" Name="DT_generatore_fatture" UserDataComponentName="TA_generatore_fatture">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="mostra" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="mostra" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="mostra">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        cantieri.id as id_cli,cantieri.societa, destinatari.id_terminale, destinatari.id AS id_dest, destinatari.riga_fattura, cantieri.pagamento, cantieri.condomino, destinatari.canone, pagamenti.des, pagamenti.num, destinatari.fatturabile, destinatari.extra, 
+                         fattura_righe_tipo.descrizione
+FROM            cantieri, destinatari, pagamenti, fattura_righe_tipo
+WHERE        cantieri.id = destinatari.id_terminale AND cantieri.pagamento = pagamenti.id AND destinatari.extra = fattura_righe_tipo.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="id_terminale" DataSetColumn="id_terminale" />
+              <Mapping SourceColumn="id_dest" DataSetColumn="id_dest" />
+              <Mapping SourceColumn="riga_fattura" DataSetColumn="riga_fattura" />
+              <Mapping SourceColumn="pagamento" DataSetColumn="pagamento" />
+              <Mapping SourceColumn="condomino" DataSetColumn="condomino" />
+              <Mapping SourceColumn="canone" DataSetColumn="canone" />
+              <Mapping SourceColumn="des" DataSetColumn="des" />
+              <Mapping SourceColumn="num" DataSetColumn="num" />
+              <Mapping SourceColumn="fatturabile" DataSetColumn="fatturabile" />
+              <Mapping SourceColumn="extra" DataSetColumn="extra" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="id_cli" DataSetColumn="id_cli" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_ordini" GeneratorDataComponentClassName="TA_ordini" Name="DT_ordini" UserDataComponentName="TA_ordini">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ordini.id, ordini.id_cliente, ordini.id_locazione, ordini.id_fornitore, ordini.id_utente, ordini.data_ordine, ordini.annotazioni, SUM(ordini_righe_tot.totNetto) AS totNetto, SUM(ordini_righe_tot.totLordo) AS totLordo, cantieri.societa, 
+                         destinatari.locazione, destinatari.extra, destinatari.fatturabile
+FROM            ordini, ordini_righe_tot, cantieri, destinatari
+WHERE        ordini.id = ordini_righe_tot.id_ordine 
+AND ordini.id_cliente = cantieri.id 
+AND ordini.id_locazione = destinatari.id 
+AND (ordini.id_az = ?)
+GROUP BY ordini.id, destinatari.locazione, destinatari.extra, destinatari.fatturabile</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_az" DataSourceName="cesar.ordini" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="id_cliente" DataSetColumn="id_cliente" />
+              <Mapping SourceColumn="id_locazione" DataSetColumn="id_locazione" />
+              <Mapping SourceColumn="id_fornitore" DataSetColumn="id_fornitore" />
+              <Mapping SourceColumn="id_utente" DataSetColumn="id_utente" />
+              <Mapping SourceColumn="data_ordine" DataSetColumn="data_ordine" />
+              <Mapping SourceColumn="annotazioni" DataSetColumn="annotazioni" />
+              <Mapping SourceColumn="totNetto" DataSetColumn="totNetto" />
+              <Mapping SourceColumn="totLordo" DataSetColumn="totLordo" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="locazione" DataSetColumn="locazione" />
+              <Mapping SourceColumn="extra" DataSetColumn="extra" />
+              <Mapping SourceColumn="fatturabile" DataSetColumn="fatturabile" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPeriodo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByPeriodo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByPeriodo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ordini.id, ordini.id_cliente, ordini.id_locazione, ordini.id_fornitore, ordini.id_utente, ordini.data_ordine, ordini.annotazioni, SUM(ordini_righe_tot.totNetto) AS totNetto, SUM(ordini_righe_tot.totLordo) AS totLordo, cantieri.societa, 
+                         destinatari.locazione, destinatari.extra, destinatari.fatturabile
+FROM            ordini, ordini_righe_tot, cantieri, destinatari
+WHERE        ordini.id = ordini_righe_tot.id_ordine 
+AND ordini.id_cliente = cantieri.id 
+AND ordini.id_locazione = destinatari.id 
+AND (ordini.id_az = ?)
+AND DATE_FORMAT(ordini.data_ordine,'%Y-%m') = ?
+GROUP BY ordini.id, destinatari.locazione, destinatari.extra, destinatari.fatturabile</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_az" DataSourceName="cesar.ordini" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param2" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+          <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="idprogressivoFattura" MethodsParameterType="CLR" Modifier="Public" Name="idprogressivoFattura" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="idprogressivoFattura">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT       MAX(fat_num_id) + 1 as fatnumid
+FROM           fattura
+WHERE YEAR(fat_data ) = ?</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+          <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ultimonumeroFattura" MethodsParameterType="CLR" Modifier="Public" Name="ultimonumeroFattura" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ultimonumeroFattura">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT       MAX(fat_num_da)
+FROM           fattura
+WHERE YEAR(fat_data ) = ?</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+          <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ultimoIDrighe" MethodsParameterType="CLR" Modifier="Public" Name="ultimoIDrighe" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ultimoIDrighe">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT MAX(cfa_id) FROM fattura_righe</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_generatore_fatture" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_generatore_fatture" msprop:Generator_UserDSName="DS_generatore_fatture">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_tipo_servizio" msprop:Generator_TableClassName="DT_tipo_servizioDataTable" msprop:Generator_TableVarName="tableDT_tipo_servizio" msprop:Generator_RowChangedName="DT_tipo_servizioRowChanged" msprop:Generator_TablePropName="DT_tipo_servizio" msprop:Generator_RowDeletingName="DT_tipo_servizioRowDeleting" msprop:Generator_RowChangingName="DT_tipo_servizioRowChanging" msprop:Generator_RowEvHandlerName="DT_tipo_servizioRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_tipo_servizioRowDeleted" msprop:Generator_RowClassName="DT_tipo_servizioRow" msprop:Generator_UserTableName="DT_tipo_servizio" msprop:Generator_RowEvArgName="DT_tipo_servizioRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_fatture" msprop:Generator_TableClassName="DT_fattureDataTable" msprop:Generator_TableVarName="tableDT_fatture" msprop:Generator_TablePropName="DT_fatture" msprop:Generator_RowDeletingName="DT_fattureRowDeleting" msprop:Generator_RowChangingName="DT_fattureRowChanging" msprop:Generator_RowEvHandlerName="DT_fattureRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_fattureRowDeleted" msprop:Generator_UserTableName="DT_fatture" msprop:Generator_RowChangedName="DT_fattureRowChanged" msprop:Generator_RowEvArgName="DT_fattureRowChangeEvent" msprop:Generator_RowClassName="DT_fattureRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idfatturaunq" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidfatturaunq" msprop:Generator_ColumnPropNameInRow="idfatturaunq" msprop:Generator_ColumnPropNameInTable="idfatturaunqColumn" msprop:Generator_UserColumnName="idfatturaunq" type="xs:int" minOccurs="0" />
+              <xs:element name="fat_num_id" msprop:Generator_ColumnVarNameInTable="columnfat_num_id" msprop:Generator_ColumnPropNameInRow="fat_num_id" msprop:Generator_ColumnPropNameInTable="fat_num_idColumn" msprop:Generator_UserColumnName="fat_num_id" type="xs:int" />
+              <xs:element name="fat_num_da" msprop:Generator_ColumnVarNameInTable="columnfat_num_da" msprop:Generator_ColumnPropNameInRow="fat_num_da" msprop:Generator_ColumnPropNameInTable="fat_num_daColumn" msprop:Generator_UserColumnName="fat_num_da">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fat_cli_id" msprop:Generator_ColumnVarNameInTable="columnfat_cli_id" msprop:Generator_ColumnPropNameInRow="fat_cli_id" msprop:Generator_ColumnPropNameInTable="fat_cli_idColumn" msprop:Generator_UserColumnName="fat_cli_id" type="xs:int" />
+              <xs:element name="fat_data" msprop:Generator_ColumnVarNameInTable="columnfat_data" msprop:Generator_ColumnPropNameInRow="fat_data" msprop:Generator_ColumnPropNameInTable="fat_dataColumn" msprop:Generator_UserColumnName="fat_data" type="xs:dateTime" />
+              <xs:element name="fat_scad" msprop:Generator_ColumnVarNameInTable="columnfat_scad" msprop:Generator_ColumnPropNameInRow="fat_scad" msprop:Generator_ColumnPropNameInTable="fat_scadColumn" msprop:Generator_UserColumnName="fat_scad" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fat_paga" msprop:Generator_ColumnVarNameInTable="columnfat_paga" msprop:Generator_ColumnPropNameInRow="fat_paga" msprop:Generator_ColumnPropNameInTable="fat_pagaColumn" msprop:Generator_UserColumnName="fat_paga" type="xs:short" minOccurs="0" />
+              <xs:element name="fat_pa_dat" msprop:Generator_ColumnVarNameInTable="columnfat_pa_dat" msprop:Generator_ColumnPropNameInRow="fat_pa_dat" msprop:Generator_ColumnPropNameInTable="fat_pa_datColumn" msprop:Generator_UserColumnName="fat_pa_dat" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fat_pa_des" msprop:Generator_ColumnVarNameInTable="columnfat_pa_des" msprop:Generator_ColumnPropNameInRow="fat_pa_des" msprop:Generator_ColumnPropNameInTable="fat_pa_desColumn" msprop:Generator_UserColumnName="fat_pa_des" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fat_con_l" msprop:Generator_ColumnVarNameInTable="columnfat_con_l" msprop:Generator_ColumnPropNameInRow="fat_con_l" msprop:Generator_ColumnPropNameInTable="fat_con_lColumn" msprop:Generator_UserColumnName="fat_con_l" type="xs:short" />
+              <xs:element name="fat_pa_imp" msprop:Generator_ColumnVarNameInTable="columnfat_pa_imp" msprop:Generator_ColumnPropNameInRow="fat_pa_imp" msprop:Generator_ColumnPropNameInTable="fat_pa_impColumn" msprop:Generator_UserColumnName="fat_pa_imp" type="xs:decimal" />
+              <xs:element name="fat_cod_iva" msprop:Generator_ColumnVarNameInTable="columnfat_cod_iva" msprop:Generator_ColumnPropNameInRow="fat_cod_iva" msprop:Generator_ColumnPropNameInTable="fat_cod_ivaColumn" msprop:Generator_UserColumnName="fat_cod_iva" type="xs:decimal" />
+              <xs:element name="codiceunico" msprop:Generator_ColumnVarNameInTable="columncodiceunico" msprop:Generator_ColumnPropNameInRow="codiceunico" msprop:Generator_ColumnPropNameInTable="codiceunicoColumn" msprop:Generator_UserColumnName="codiceunico" type="xs:dateTime" />
+              <xs:element name="fat_cod_paga" msprop:Generator_ColumnVarNameInTable="columnfat_cod_paga" msprop:Generator_ColumnPropNameInRow="fat_cod_paga" msprop:Generator_ColumnPropNameInTable="fat_cod_pagaColumn" msprop:Generator_UserColumnName="fat_cod_paga" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_righe_fatture" msprop:Generator_TableClassName="DT_righe_fattureDataTable" msprop:Generator_TableVarName="tableDT_righe_fatture" msprop:Generator_TablePropName="DT_righe_fatture" msprop:Generator_RowDeletingName="DT_righe_fattureRowDeleting" msprop:Generator_RowChangingName="DT_righe_fattureRowChanging" msprop:Generator_RowEvHandlerName="DT_righe_fattureRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_righe_fattureRowDeleted" msprop:Generator_UserTableName="DT_righe_fatture" msprop:Generator_RowChangedName="DT_righe_fattureRowChanged" msprop:Generator_RowEvArgName="DT_righe_fattureRowChangeEvent" msprop:Generator_RowClassName="DT_righe_fattureRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="ordine" msprop:Generator_ColumnVarNameInTable="columnordine" msprop:Generator_ColumnPropNameInRow="ordine" msprop:Generator_ColumnPropNameInTable="ordineColumn" msprop:Generator_UserColumnName="ordine" type="xs:int" minOccurs="0" />
+              <xs:element name="cfa_fa_num" msprop:Generator_ColumnVarNameInTable="columncfa_fa_num" msprop:Generator_ColumnPropNameInRow="cfa_fa_num" msprop:Generator_ColumnPropNameInTable="cfa_fa_numColumn" msprop:Generator_UserColumnName="cfa_fa_num" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cfa_des" msprop:Generator_ColumnVarNameInTable="columncfa_des" msprop:Generator_ColumnPropNameInRow="cfa_des" msprop:Generator_ColumnPropNameInTable="cfa_desColumn" msprop:Generator_UserColumnName="cfa_des" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cfa_quanti" msprop:Generator_ColumnVarNameInTable="columncfa_quanti" msprop:Generator_ColumnPropNameInRow="cfa_quanti" msprop:Generator_ColumnPropNameInTable="cfa_quantiColumn" msprop:Generator_UserColumnName="cfa_quanti" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cfa_prezzo" msprop:Generator_ColumnVarNameInTable="columncfa_prezzo" msprop:Generator_ColumnPropNameInRow="cfa_prezzo" msprop:Generator_ColumnPropNameInTable="cfa_prezzoColumn" msprop:Generator_UserColumnName="cfa_prezzo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cfa_sconto" msprop:Generator_ColumnVarNameInTable="columncfa_sconto" msprop:Generator_ColumnPropNameInRow="cfa_sconto" msprop:Generator_ColumnPropNameInTable="cfa_scontoColumn" msprop:Generator_UserColumnName="cfa_sconto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cfa_iva" msprop:Generator_ColumnVarNameInTable="columncfa_iva" msprop:Generator_ColumnPropNameInRow="cfa_iva" msprop:Generator_ColumnPropNameInTable="cfa_ivaColumn" msprop:Generator_UserColumnName="cfa_iva" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cfa_iddest" msprop:Generator_ColumnVarNameInTable="columncfa_iddest" msprop:Generator_ColumnPropNameInRow="cfa_iddest" msprop:Generator_ColumnPropNameInTable="cfa_iddestColumn" msprop:Generator_UserColumnName="cfa_iddest" type="xs:int" minOccurs="0" />
+              <xs:element name="cfa_idcli" msprop:Generator_ColumnVarNameInTable="columncfa_idcli" msprop:Generator_ColumnPropNameInRow="cfa_idcli" msprop:Generator_ColumnPropNameInTable="cfa_idcliColumn" msprop:Generator_UserColumnName="cfa_idcli" type="xs:int" minOccurs="0" />
+              <xs:element name="cfa_pulofor" msprop:Generator_ColumnVarNameInTable="columncfa_pulofor" msprop:Generator_ColumnPropNameInRow="cfa_pulofor" msprop:Generator_ColumnPropNameInTable="cfa_puloforColumn" msprop:Generator_UserColumnName="cfa_pulofor" type="xs:int" minOccurs="0" />
+              <xs:element name="cfa_dataunica" msprop:Generator_ColumnVarNameInTable="columncfa_dataunica" msprop:Generator_ColumnPropNameInRow="cfa_dataunica" msprop:Generator_ColumnPropNameInTable="cfa_dataunicaColumn" msprop:Generator_UserColumnName="cfa_dataunica" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cfa_rc" msprop:Generator_ColumnVarNameInTable="columncfa_rc" msprop:Generator_ColumnPropNameInRow="cfa_rc" msprop:Generator_ColumnPropNameInTable="cfa_rcColumn" msprop:Generator_UserColumnName="cfa_rc" type="xs:int" minOccurs="0" />
+              <xs:element name="cfa_tipo" msprop:Generator_ColumnVarNameInTable="columncfa_tipo" msprop:Generator_ColumnPropNameInRow="cfa_tipo" msprop:Generator_ColumnPropNameInTable="cfa_tipoColumn" msprop:Generator_UserColumnName="cfa_tipo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_fatture_righe_tipo" msprop:Generator_TableClassName="DT_fatture_righe_tipoDataTable" msprop:Generator_TableVarName="tableDT_fatture_righe_tipo" msprop:Generator_TablePropName="DT_fatture_righe_tipo" msprop:Generator_RowDeletingName="DT_fatture_righe_tipoRowDeleting" msprop:Generator_RowChangingName="DT_fatture_righe_tipoRowChanging" msprop:Generator_RowEvHandlerName="DT_fatture_righe_tipoRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_fatture_righe_tipoRowDeleted" msprop:Generator_UserTableName="DT_fatture_righe_tipo" msprop:Generator_RowChangedName="DT_fatture_righe_tipoRowChanged" msprop:Generator_RowEvArgName="DT_fatture_righe_tipoRowChangeEvent" msprop:Generator_RowClassName="DT_fatture_righe_tipoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_iva_codici" msprop:Generator_TableClassName="DT_iva_codiciDataTable" msprop:Generator_TableVarName="tableDT_iva_codici" msprop:Generator_TablePropName="DT_iva_codici" msprop:Generator_RowDeletingName="DT_iva_codiciRowDeleting" msprop:Generator_RowChangingName="DT_iva_codiciRowChanging" msprop:Generator_RowEvHandlerName="DT_iva_codiciRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_iva_codiciRowDeleted" msprop:Generator_UserTableName="DT_iva_codici" msprop:Generator_RowChangedName="DT_iva_codiciRowChanged" msprop:Generator_RowEvArgName="DT_iva_codiciRowChangeEvent" msprop:Generator_RowClassName="DT_iva_codiciRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="codiceiva" msprop:Generator_ColumnVarNameInTable="columncodiceiva" msprop:Generator_ColumnPropNameInRow="codiceiva" msprop:Generator_ColumnPropNameInTable="codiceivaColumn" msprop:Generator_UserColumnName="codiceiva" type="xs:int" />
+              <xs:element name="nome" msprop:Generator_ColumnVarNameInTable="columnnome" msprop:Generator_ColumnPropNameInRow="nome" msprop:Generator_ColumnPropNameInTable="nomeColumn" msprop:Generator_UserColumnName="nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nomebreve" msprop:Generator_ColumnVarNameInTable="columnnomebreve" msprop:Generator_ColumnPropNameInRow="nomebreve" msprop:Generator_ColumnPropNameInTable="nomebreveColumn" msprop:Generator_UserColumnName="nomebreve">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valoreiva" msprop:Generator_ColumnVarNameInTable="columnvaloreiva" msprop:Generator_ColumnPropNameInRow="valoreiva" msprop:Generator_ColumnPropNameInTable="valoreivaColumn" msprop:Generator_UserColumnName="valoreiva" type="xs:decimal" />
+              <xs:element name="pagata" msprop:Generator_ColumnVarNameInTable="columnpagata" msprop:Generator_ColumnPropNameInRow="pagata" msprop:Generator_ColumnPropNameInTable="pagataColumn" msprop:Generator_UserColumnName="pagata" type="xs:short" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_ore" msprop:Generator_TableClassName="DT_oreDataTable" msprop:Generator_TableVarName="tableDT_ore" msprop:Generator_RowChangedName="DT_oreRowChanged" msprop:Generator_TablePropName="DT_ore" msprop:Generator_RowDeletingName="DT_oreRowDeleting" msprop:Generator_RowChangingName="DT_oreRowChanging" msprop:Generator_RowEvHandlerName="DT_oreRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_oreRowDeleted" msprop:Generator_RowClassName="DT_oreRow" msprop:Generator_UserTableName="DT_ore" msprop:Generator_RowEvArgName="DT_oreRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_dest" msprop:Generator_ColumnVarNameInTable="columnid_dest" msprop:Generator_ColumnPropNameInRow="id_dest" msprop:Generator_ColumnPropNameInTable="id_destColumn" msprop:Generator_UserColumnName="id_dest" type="xs:int" />
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" />
+              <xs:element name="id_dip" msprop:Generator_ColumnVarNameInTable="columnid_dip" msprop:Generator_ColumnPropNameInRow="id_dip" msprop:Generator_ColumnPropNameInTable="id_dipColumn" msprop:Generator_UserColumnName="id_dip" type="xs:int" />
+              <xs:element name="totOre" msprop:Generator_ColumnVarNameInTable="columntotOre" msprop:Generator_ColumnPropNameInRow="totOre" msprop:Generator_ColumnPropNameInTable="totOreColumn" msprop:Generator_UserColumnName="totOre" type="xs:decimal" minOccurs="0" />
+              <xs:element name="data" msprop:Generator_ColumnVarNameInTable="columndata" msprop:Generator_ColumnPropNameInRow="data" msprop:Generator_ColumnPropNameInTable="dataColumn" msprop:Generator_UserColumnName="data" type="xs:dateTime" />
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="anagrafica" msprop:Generator_ColumnVarNameInTable="columnanagrafica" msprop:Generator_ColumnPropNameInRow="anagrafica" msprop:Generator_ColumnPropNameInTable="anagraficaColumn" msprop:Generator_UserColumnName="anagrafica" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_tipo" msprop:Generator_ColumnVarNameInTable="columnid_tipo" msprop:Generator_ColumnPropNameInRow="id_tipo" msprop:Generator_ColumnPropNameInTable="id_tipoColumn" msprop:Generator_UserColumnName="id_tipo" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_locazioni" msprop:Generator_TableClassName="DT_locazioniDataTable" msprop:Generator_TableVarName="tableDT_locazioni" msprop:Generator_RowChangedName="DT_locazioniRowChanged" msprop:Generator_TablePropName="DT_locazioni" msprop:Generator_RowDeletingName="DT_locazioniRowDeleting" msprop:Generator_RowChangingName="DT_locazioniRowChanging" msprop:Generator_RowEvHandlerName="DT_locazioniRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_locazioniRowDeleted" msprop:Generator_RowClassName="DT_locazioniRow" msprop:Generator_UserTableName="DT_locazioni" msprop:Generator_RowEvArgName="DT_locazioniRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="id_terminale" msprop:Generator_ColumnVarNameInTable="columnid_terminale" msprop:Generator_ColumnPropNameInRow="id_terminale" msprop:Generator_ColumnPropNameInTable="id_terminaleColumn" msprop:Generator_UserColumnName="id_terminale" type="xs:int" />
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="72" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="citta" msprop:Generator_ColumnVarNameInTable="columncitta" msprop:Generator_ColumnPropNameInRow="citta" msprop:Generator_ColumnPropNameInTable="cittaColumn" msprop:Generator_UserColumnName="citta" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ordine" msprop:Generator_ColumnVarNameInTable="columnordine" msprop:Generator_ColumnPropNameInRow="ordine" msprop:Generator_ColumnPropNameInTable="ordineColumn" msprop:Generator_UserColumnName="ordine" type="xs:int" />
+              <xs:element name="ck" msprop:Generator_ColumnVarNameInTable="columnck" msprop:Generator_ColumnPropNameInRow="ck" msprop:Generator_ColumnPropNameInTable="ckColumn" msprop:Generator_UserColumnName="ck" type="xs:int" minOccurs="0" />
+              <xs:element name="riga_fattura" msprop:Generator_ColumnVarNameInTable="columnriga_fattura" msprop:Generator_ColumnPropNameInRow="riga_fattura" msprop:Generator_ColumnPropNameInTable="riga_fatturaColumn" msprop:Generator_UserColumnName="riga_fattura">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="381" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="canone" msprop:Generator_ColumnVarNameInTable="columncanone" msprop:Generator_ColumnPropNameInRow="canone" msprop:Generator_ColumnPropNameInTable="canoneColumn" msprop:Generator_UserColumnName="canone" type="xs:decimal" />
+              <xs:element name="id_tipo" msprop:Generator_ColumnVarNameInTable="columnid_tipo" msprop:Generator_ColumnPropNameInRow="id_tipo" msprop:Generator_ColumnPropNameInTable="id_tipoColumn" msprop:Generator_UserColumnName="id_tipo" type="xs:int" minOccurs="0" />
+              <xs:element name="id_iva" msprop:Generator_ColumnVarNameInTable="columnid_iva" msprop:Generator_ColumnPropNameInRow="id_iva" msprop:Generator_ColumnPropNameInTable="id_ivaColumn" msprop:Generator_UserColumnName="id_iva" type="xs:int" minOccurs="0" />
+              <xs:element name="tiposervizio" msprop:Generator_ColumnVarNameInTable="columntiposervizio" msprop:Generator_ColumnPropNameInRow="tiposervizio" msprop:Generator_ColumnPropNameInTable="tiposervizioColumn" msprop:Generator_UserColumnName="tiposervizio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipoiva" msprop:Generator_ColumnVarNameInTable="columntipoiva" msprop:Generator_ColumnPropNameInRow="tipoiva" msprop:Generator_ColumnPropNameInTable="tipoivaColumn" msprop:Generator_UserColumnName="tipoiva" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lat" msprop:Generator_ColumnVarNameInTable="columnlat" msprop:Generator_ColumnPropNameInRow="lat" msprop:Generator_ColumnPropNameInTable="latColumn" msprop:Generator_UserColumnName="lat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lon" msprop:Generator_ColumnVarNameInTable="columnlon" msprop:Generator_ColumnPropNameInRow="lon" msprop:Generator_ColumnPropNameInTable="lonColumn" msprop:Generator_UserColumnName="lon" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_righe_storico" msprop:Generator_TableClassName="DT_righe_storicoDataTable" msprop:Generator_TableVarName="tableDT_righe_storico" msprop:Generator_TablePropName="DT_righe_storico" msprop:Generator_RowDeletingName="DT_righe_storicoRowDeleting" msprop:Generator_RowChangingName="DT_righe_storicoRowChanging" msprop:Generator_RowEvHandlerName="DT_righe_storicoRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_righe_storicoRowDeleted" msprop:Generator_UserTableName="DT_righe_storico" msprop:Generator_RowChangedName="DT_righe_storicoRowChanged" msprop:Generator_RowEvArgName="DT_righe_storicoRowChangeEvent" msprop:Generator_RowClassName="DT_righe_storicoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cfa_id" msprop:Generator_ColumnVarNameInTable="columncfa_id" msprop:Generator_ColumnPropNameInRow="cfa_id" msprop:Generator_ColumnPropNameInTable="cfa_idColumn" msprop:Generator_UserColumnName="cfa_id" type="xs:int" />
+              <xs:element name="ordine" msprop:Generator_ColumnVarNameInTable="columnordine" msprop:Generator_ColumnPropNameInRow="ordine" msprop:Generator_ColumnPropNameInTable="ordineColumn" msprop:Generator_UserColumnName="ordine" type="xs:int" />
+              <xs:element name="cfa_fa_num" msprop:Generator_ColumnVarNameInTable="columncfa_fa_num" msprop:Generator_ColumnPropNameInRow="cfa_fa_num" msprop:Generator_ColumnPropNameInTable="cfa_fa_numColumn" msprop:Generator_UserColumnName="cfa_fa_num">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cfa_des" msprop:Generator_ColumnVarNameInTable="columncfa_des" msprop:Generator_ColumnPropNameInRow="cfa_des" msprop:Generator_ColumnPropNameInTable="cfa_desColumn" msprop:Generator_UserColumnName="cfa_des">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="254" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cfa_quanti" msprop:Generator_ColumnVarNameInTable="columncfa_quanti" msprop:Generator_ColumnPropNameInRow="cfa_quanti" msprop:Generator_ColumnPropNameInTable="cfa_quantiColumn" msprop:Generator_UserColumnName="cfa_quanti" type="xs:decimal" />
+              <xs:element name="cfa_prezzo" msprop:Generator_ColumnVarNameInTable="columncfa_prezzo" msprop:Generator_ColumnPropNameInRow="cfa_prezzo" msprop:Generator_ColumnPropNameInTable="cfa_prezzoColumn" msprop:Generator_UserColumnName="cfa_prezzo" type="xs:decimal" />
+              <xs:element name="cfa_sconto" msprop:Generator_ColumnVarNameInTable="columncfa_sconto" msprop:Generator_ColumnPropNameInRow="cfa_sconto" msprop:Generator_ColumnPropNameInTable="cfa_scontoColumn" msprop:Generator_UserColumnName="cfa_sconto" type="xs:decimal" />
+              <xs:element name="cfa_iva" msprop:Generator_ColumnVarNameInTable="columncfa_iva" msprop:Generator_ColumnPropNameInRow="cfa_iva" msprop:Generator_ColumnPropNameInTable="cfa_ivaColumn" msprop:Generator_UserColumnName="cfa_iva" type="xs:decimal" />
+              <xs:element name="cfa_iddest" msprop:Generator_ColumnVarNameInTable="columncfa_iddest" msprop:Generator_ColumnPropNameInRow="cfa_iddest" msprop:Generator_ColumnPropNameInTable="cfa_iddestColumn" msprop:Generator_UserColumnName="cfa_iddest" type="xs:int" />
+              <xs:element name="cfa_idcli" msprop:Generator_ColumnVarNameInTable="columncfa_idcli" msprop:Generator_ColumnPropNameInRow="cfa_idcli" msprop:Generator_ColumnPropNameInTable="cfa_idcliColumn" msprop:Generator_UserColumnName="cfa_idcli" type="xs:int" />
+              <xs:element name="cfa_rc" msprop:Generator_ColumnVarNameInTable="columncfa_rc" msprop:Generator_ColumnPropNameInRow="cfa_rc" msprop:Generator_ColumnPropNameInTable="cfa_rcColumn" msprop:Generator_UserColumnName="cfa_rc" type="xs:int" />
+              <xs:element name="cfa_tipo" msprop:Generator_ColumnVarNameInTable="columncfa_tipo" msprop:Generator_ColumnPropNameInRow="cfa_tipo" msprop:Generator_ColumnPropNameInTable="cfa_tipoColumn" msprop:Generator_UserColumnName="cfa_tipo" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_clienti_fatturabili" msprop:Generator_TableClassName="DT_clienti_fatturabiliDataTable" msprop:Generator_TableVarName="tableDT_clienti_fatturabili" msprop:Generator_RowChangedName="DT_clienti_fatturabiliRowChanged" msprop:Generator_TablePropName="DT_clienti_fatturabili" msprop:Generator_RowDeletingName="DT_clienti_fatturabiliRowDeleting" msprop:Generator_RowChangingName="DT_clienti_fatturabiliRowChanging" msprop:Generator_RowEvHandlerName="DT_clienti_fatturabiliRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_clienti_fatturabiliRowDeleted" msprop:Generator_RowClassName="DT_clienti_fatturabiliRow" msprop:Generator_UserTableName="DT_clienti_fatturabili" msprop:Generator_RowEvArgName="DT_clienti_fatturabiliRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="67" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="postalcode" msprop:Generator_ColumnVarNameInTable="columnpostalcode" msprop:Generator_ColumnPropNameInRow="postalcode" msprop:Generator_ColumnPropNameInTable="postalcodeColumn" msprop:Generator_UserColumnName="postalcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="city" msprop:Generator_ColumnVarNameInTable="columncity" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_UserColumnName="city" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="39" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="region" msprop:Generator_ColumnVarNameInTable="columnregion" msprop:Generator_ColumnPropNameInRow="_region" msprop:Generator_ColumnPropNameInTable="regionColumn" msprop:Generator_UserColumnName="region" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="state" msprop:Generator_ColumnVarNameInTable="columnstate" msprop:Generator_ColumnPropNameInRow="state" msprop:Generator_ColumnPropNameInTable="stateColumn" msprop:Generator_UserColumnName="state" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email_name" msprop:Generator_ColumnVarNameInTable="columnemail_name" msprop:Generator_ColumnPropNameInRow="email_name" msprop:Generator_ColumnPropNameInTable="email_nameColumn" msprop:Generator_UserColumnName="email_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="55" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="partitaiva" msprop:Generator_ColumnVarNameInTable="columnpartitaiva" msprop:Generator_ColumnPropNameInRow="partitaiva" msprop:Generator_ColumnPropNameInTable="partitaivaColumn" msprop:Generator_UserColumnName="partitaiva" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pagamento" msprop:Generator_ColumnVarNameInTable="columnpagamento" msprop:Generator_ColumnPropNameInRow="pagamento" msprop:Generator_ColumnPropNameInTable="pagamentoColumn" msprop:Generator_UserColumnName="pagamento" type="xs:int" minOccurs="0" />
+              <xs:element name="bancaappog" msprop:Generator_ColumnVarNameInTable="columnbancaappog" msprop:Generator_ColumnPropNameInRow="bancaappog" msprop:Generator_ColumnPropNameInTable="bancaappogColumn" msprop:Generator_UserColumnName="bancaappog" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="103" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contabilita" msprop:Generator_ColumnVarNameInTable="columncontabilita" msprop:Generator_ColumnPropNameInRow="contabilita" msprop:Generator_ColumnPropNameInTable="contabilitaColumn" msprop:Generator_UserColumnName="contabilita" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="attivo" msprop:Generator_ColumnVarNameInTable="columnattivo" msprop:Generator_ColumnPropNameInRow="attivo" msprop:Generator_ColumnPropNameInTable="attivoColumn" msprop:Generator_UserColumnName="attivo" type="xs:int" minOccurs="0" />
+              <xs:element name="budget" msprop:Generator_ColumnVarNameInTable="columnbudget" msprop:Generator_ColumnPropNameInRow="budget" msprop:Generator_ColumnPropNameInTable="budgetColumn" msprop:Generator_UserColumnName="budget" type="xs:int" minOccurs="0" />
+              <xs:element name="condomino" msprop:Generator_ColumnVarNameInTable="columncondomino" msprop:Generator_ColumnPropNameInRow="condomino" msprop:Generator_ColumnPropNameInTable="condominoColumn" msprop:Generator_UserColumnName="condomino" type="xs:int" minOccurs="0" />
+              <xs:element name="des_pagamento" msprop:Generator_ColumnVarNameInTable="columndes_pagamento" msprop:Generator_ColumnPropNameInRow="des_pagamento" msprop:Generator_ColumnPropNameInTable="des_pagamentoColumn" msprop:Generator_UserColumnName="des_pagamento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_generatore_fatture" msprop:Generator_TableClassName="DT_generatore_fattureDataTable" msprop:Generator_TableVarName="tableDT_generatore_fatture" msprop:Generator_TablePropName="DT_generatore_fatture" msprop:Generator_RowDeletingName="DT_generatore_fattureRowDeleting" msprop:Generator_RowChangingName="DT_generatore_fattureRowChanging" msprop:Generator_RowEvHandlerName="DT_generatore_fattureRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_generatore_fattureRowDeleted" msprop:Generator_UserTableName="DT_generatore_fatture" msprop:Generator_RowChangedName="DT_generatore_fattureRowChanged" msprop:Generator_RowEvArgName="DT_generatore_fattureRowChangeEvent" msprop:Generator_RowClassName="DT_generatore_fattureRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_terminale" msprop:Generator_ColumnVarNameInTable="columnid_terminale" msprop:Generator_ColumnPropNameInRow="id_terminale" msprop:Generator_ColumnPropNameInTable="id_terminaleColumn" msprop:Generator_UserColumnName="id_terminale" type="xs:int" />
+              <xs:element name="id_dest" msprop:Generator_ColumnVarNameInTable="columnid_dest" msprop:Generator_ColumnPropNameInRow="id_dest" msprop:Generator_ColumnPropNameInTable="id_destColumn" msprop:Generator_UserColumnName="id_dest" type="xs:int" />
+              <xs:element name="riga_fattura" msprop:Generator_ColumnVarNameInTable="columnriga_fattura" msprop:Generator_ColumnPropNameInRow="riga_fattura" msprop:Generator_ColumnPropNameInTable="riga_fatturaColumn" msprop:Generator_UserColumnName="riga_fattura">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="381" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pagamento" msprop:Generator_ColumnVarNameInTable="columnpagamento" msprop:Generator_ColumnPropNameInRow="pagamento" msprop:Generator_ColumnPropNameInTable="pagamentoColumn" msprop:Generator_UserColumnName="pagamento" type="xs:int" minOccurs="0" />
+              <xs:element name="condomino" msprop:Generator_ColumnVarNameInTable="columncondomino" msprop:Generator_ColumnPropNameInRow="condomino" msprop:Generator_ColumnPropNameInTable="condominoColumn" msprop:Generator_UserColumnName="condomino" type="xs:int" minOccurs="0" />
+              <xs:element name="canone" msprop:Generator_ColumnVarNameInTable="columncanone" msprop:Generator_ColumnPropNameInRow="canone" msprop:Generator_ColumnPropNameInTable="canoneColumn" msprop:Generator_UserColumnName="canone" type="xs:decimal" />
+              <xs:element name="des" msprop:Generator_ColumnVarNameInTable="columndes" msprop:Generator_ColumnPropNameInRow="des" msprop:Generator_ColumnPropNameInTable="desColumn" msprop:Generator_UserColumnName="des">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="num" msprop:Generator_ColumnVarNameInTable="columnnum" msprop:Generator_ColumnPropNameInRow="num" msprop:Generator_ColumnPropNameInTable="numColumn" msprop:Generator_UserColumnName="num" type="xs:int" />
+              <xs:element name="fatturabile" msprop:Generator_ColumnVarNameInTable="columnfatturabile" msprop:Generator_ColumnPropNameInRow="fatturabile" msprop:Generator_ColumnPropNameInTable="fatturabileColumn" msprop:Generator_UserColumnName="fatturabile" type="xs:int" minOccurs="0" />
+              <xs:element name="extra" msprop:Generator_ColumnVarNameInTable="columnextra" msprop:Generator_ColumnPropNameInRow="extra" msprop:Generator_ColumnPropNameInTable="extraColumn" msprop:Generator_UserColumnName="extra" type="xs:int" minOccurs="0" />
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_cli" msprop:Generator_ColumnVarNameInTable="columnid_cli" msprop:Generator_ColumnPropNameInRow="id_cli" msprop:Generator_ColumnPropNameInTable="id_cliColumn" msprop:Generator_UserColumnName="id_cli" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_ordini" msprop:Generator_TableClassName="DT_ordiniDataTable" msprop:Generator_TableVarName="tableDT_ordini" msprop:Generator_TablePropName="DT_ordini" msprop:Generator_RowDeletingName="DT_ordiniRowDeleting" msprop:Generator_RowChangingName="DT_ordiniRowChanging" msprop:Generator_RowEvHandlerName="DT_ordiniRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_ordiniRowDeleted" msprop:Generator_UserTableName="DT_ordini" msprop:Generator_RowChangedName="DT_ordiniRowChanged" msprop:Generator_RowEvArgName="DT_ordiniRowChangeEvent" msprop:Generator_RowClassName="DT_ordiniRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="id_cliente" msprop:Generator_ColumnVarNameInTable="columnid_cliente" msprop:Generator_ColumnPropNameInRow="id_cliente" msprop:Generator_ColumnPropNameInTable="id_clienteColumn" msprop:Generator_UserColumnName="id_cliente" type="xs:int" minOccurs="0" />
+              <xs:element name="id_locazione" msprop:Generator_ColumnVarNameInTable="columnid_locazione" msprop:Generator_ColumnPropNameInRow="id_locazione" msprop:Generator_ColumnPropNameInTable="id_locazioneColumn" msprop:Generator_UserColumnName="id_locazione" type="xs:int" minOccurs="0" />
+              <xs:element name="id_fornitore" msprop:Generator_ColumnVarNameInTable="columnid_fornitore" msprop:Generator_ColumnPropNameInRow="id_fornitore" msprop:Generator_ColumnPropNameInTable="id_fornitoreColumn" msprop:Generator_UserColumnName="id_fornitore" type="xs:int" />
+              <xs:element name="id_utente" msprop:Generator_ColumnVarNameInTable="columnid_utente" msprop:Generator_ColumnPropNameInRow="id_utente" msprop:Generator_ColumnPropNameInTable="id_utenteColumn" msprop:Generator_UserColumnName="id_utente" type="xs:int" minOccurs="0" />
+              <xs:element name="data_ordine" msprop:Generator_ColumnVarNameInTable="columndata_ordine" msprop:Generator_ColumnPropNameInRow="data_ordine" msprop:Generator_ColumnPropNameInTable="data_ordineColumn" msprop:Generator_UserColumnName="data_ordine" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="annotazioni" msprop:Generator_ColumnVarNameInTable="columnannotazioni" msprop:Generator_ColumnPropNameInRow="annotazioni" msprop:Generator_ColumnPropNameInTable="annotazioniColumn" msprop:Generator_UserColumnName="annotazioni" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="totNetto" msprop:Generator_ColumnVarNameInTable="columntotNetto" msprop:Generator_ColumnPropNameInRow="totNetto" msprop:Generator_ColumnPropNameInTable="totNettoColumn" msprop:Generator_UserColumnName="totNetto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totLordo" msprop:Generator_ColumnVarNameInTable="columntotLordo" msprop:Generator_ColumnPropNameInRow="totLordo" msprop:Generator_ColumnPropNameInTable="totLordoColumn" msprop:Generator_UserColumnName="totLordo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locazione" msprop:Generator_ColumnVarNameInTable="columnlocazione" msprop:Generator_ColumnPropNameInRow="locazione" msprop:Generator_ColumnPropNameInTable="locazioneColumn" msprop:Generator_UserColumnName="locazione" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="extra" msprop:Generator_ColumnVarNameInTable="columnextra" msprop:Generator_ColumnPropNameInRow="extra" msprop:Generator_ColumnPropNameInTable="extraColumn" msprop:Generator_UserColumnName="extra" type="xs:int" minOccurs="0" />
+              <xs:element name="fatturabile" msprop:Generator_ColumnVarNameInTable="columnfatturabile" msprop:Generator_ColumnPropNameInRow="fatturabile" msprop:Generator_ColumnPropNameInTable="fatturabileColumn" msprop:Generator_UserColumnName="fatturabile" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:DT_tipo_servizio" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_fatture_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_fatture" />
+      <xs:field xpath="mstns:idfatturaunq" />
+    </xs:unique>
+    <xs:unique name="DT_righe_fatture_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_righe_fatture" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_fatture_righe_tipo_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_fatture_righe_tipo" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_iva_codici_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_iva_codici" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:DT_iva_codici" />
+      <xs:field xpath="mstns:codiceiva" />
+    </xs:unique>
+    <xs:unique name="DT_clienti_fatturabili_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DT_clienti_fatturabili" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="DT_generatore_fatture_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DT_generatore_fatture" />
+      <xs:field xpath="mstns:id_dest" />
+    </xs:unique>
+    <xs:unique name="DT_ordini_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_ordini" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

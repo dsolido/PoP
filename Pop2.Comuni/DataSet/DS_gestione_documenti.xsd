@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_gestione_documenti" targetNamespace="http://tempuri.org/DS_gestione_documenti.xsd" xmlns:mstns="http://tempuri.org/DS_gestione_documenti.xsd" xmlns="http://tempuri.org/DS_gestione_documenti.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="imp_est" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="imp_est (MySettings)" PropertyReference="ApplicationSettings.PoP2.Comuni.My.MySettings.GlobalReference.Default.imp_est" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_file" GeneratorDataComponentClassName="TA_file" Name="DT_file" UserDataComponentName="TA_file">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT file_id, file_titolo, file_alias, descrizione, file_icona, prezzo, rilascio, data_aggiunta, data_file, url_download, md5_valore, sha1_valore, autore, creato_da, creato_id, cantiere_nome, cantiere_id, cantiere_data, downloads, id_categoria, note, visto, ordinato, pubblicato, asset_id ,
+concat(file_alias,note,date_format(data_file,'%d-%m-%Y')) as ricerca
+FROM pop_file_archivio
+ORDER BY data_file DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="file_id" DataSetColumn="file_id" />
+              <Mapping SourceColumn="file_titolo" DataSetColumn="file_titolo" />
+              <Mapping SourceColumn="file_alias" DataSetColumn="file_alias" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="file_icona" DataSetColumn="file_icona" />
+              <Mapping SourceColumn="prezzo" DataSetColumn="prezzo" />
+              <Mapping SourceColumn="rilascio" DataSetColumn="rilascio" />
+              <Mapping SourceColumn="data_aggiunta" DataSetColumn="data_aggiunta" />
+              <Mapping SourceColumn="data_file" DataSetColumn="data_file" />
+              <Mapping SourceColumn="url_download" DataSetColumn="url_download" />
+              <Mapping SourceColumn="md5_valore" DataSetColumn="md5_valore" />
+              <Mapping SourceColumn="sha1_valore" DataSetColumn="sha1_valore" />
+              <Mapping SourceColumn="autore" DataSetColumn="autore" />
+              <Mapping SourceColumn="creato_da" DataSetColumn="creato_da" />
+              <Mapping SourceColumn="creato_id" DataSetColumn="creato_id" />
+              <Mapping SourceColumn="downloads" DataSetColumn="downloads" />
+              <Mapping SourceColumn="id_categoria" DataSetColumn="id_categoria" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="visto" DataSetColumn="visto" />
+              <Mapping SourceColumn="ordinato" DataSetColumn="ordinato" />
+              <Mapping SourceColumn="pubblicato" DataSetColumn="pubblicato" />
+              <Mapping SourceColumn="asset_id" DataSetColumn="asset_id" />
+              <Mapping SourceColumn="cantiere_nome" DataSetColumn="cantiere_nome" />
+              <Mapping SourceColumn="cantiere_id" DataSetColumn="cantiere_id" />
+              <Mapping SourceColumn="cantiere_data" DataSetColumn="cantiere_data" />
+              <Mapping SourceColumn="ricerca" DataSetColumn="ricerca" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Elimina" Modifier="Public" Name="Elimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Elimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM pop_file_archivio
+WHERE        (file_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="file_id" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="file_id" Precision="0" Scale="0" Size="0" SourceColumn="file_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Inserisce" Modifier="Public" Name="Inserisce" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Inserisce">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO pop_file_archivio
+                         (file_titolo, file_alias, descrizione, file_icona, prezzo, rilascio, data_aggiunta, data_file, url_download, md5_valore, sha1_valore, autore, creato_da, creato_id, cantiere_nome, cantiere_id, cantiere_data, downloads, id_categoria, 
+                         note, visto, ordinato, pubblicato, asset_id)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="file_titolo" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="file_titolo" Precision="0" Scale="0" Size="1024" SourceColumn="file_titolo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="file_alias" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="file_alias" Precision="0" Scale="0" Size="1024" SourceColumn="file_alias" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="descrizione" DataSourceName="cesar.pop_file_archivio" DataTypeServer="longtext" DbType="String" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="2147483647" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="file_icona" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="file_icona" Precision="0" Scale="0" Size="1024" SourceColumn="file_icona" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param5" ColumnName="prezzo" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="prezzo" Precision="0" Scale="0" Size="1024" SourceColumn="prezzo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param6" ColumnName="rilascio" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="rilascio" Precision="0" Scale="0" Size="1024" SourceColumn="rilascio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="data_aggiunta" DataSourceName="cesar.pop_file_archivio" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="data_aggiunta" Precision="0" Scale="0" Size="0" SourceColumn="data_aggiunta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param8" ColumnName="data_file" DataSourceName="cesar.pop_file_archivio" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="data_file" Precision="0" Scale="0" Size="0" SourceColumn="data_file" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param9" ColumnName="url_download" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="url_download" Precision="0" Scale="0" Size="1024" SourceColumn="url_download" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param10" ColumnName="md5_valore" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="md5_valore" Precision="0" Scale="0" Size="1024" SourceColumn="md5_valore" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param11" ColumnName="sha1_valore" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="sha1_valore" Precision="0" Scale="0" Size="1024" SourceColumn="sha1_valore" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param12" ColumnName="autore" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="autore" Precision="0" Scale="0" Size="1024" SourceColumn="autore" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param13" ColumnName="creato_da" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="creato_da" Precision="0" Scale="0" Size="1024" SourceColumn="creato_da" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param14" ColumnName="creato_id" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="creato_id" Precision="0" Scale="0" Size="0" SourceColumn="creato_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param15" ColumnName="cantiere_nome" DataSourceName="cesar.pop_file_archivio" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="cantiere_nome" Precision="0" Scale="0" Size="1024" SourceColumn="cantiere_nome" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param16" ColumnName="cantiere_id" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cantiere_id" Precision="0" Scale="0" Size="0" SourceColumn="cantiere_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param17" ColumnName="cantiere_data" DataSourceName="cesar.pop_file_archivio" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="cantiere_data" Precision="0" Scale="0" Size="0" SourceColumn="cantiere_data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param18" ColumnName="downloads" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="downloads" Precision="0" Scale="0" Size="0" SourceColumn="downloads" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param19" ColumnName="id_categoria" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_categoria" Precision="0" Scale="0" Size="0" SourceColumn="id_categoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param20" ColumnName="note" DataSourceName="cesar.pop_file_archivio" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="2147483647" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param21" ColumnName="visto" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="visto" Precision="0" Scale="0" Size="0" SourceColumn="visto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param22" ColumnName="ordinato" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="ordinato" Precision="0" Scale="0" Size="0" SourceColumn="ordinato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param23" ColumnName="pubblicato" DataSourceName="cesar.pop_file_archivio" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="pubblicato" Precision="0" Scale="0" Size="0" SourceColumn="pubblicato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param24" ColumnName="asset_id" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer unsigned" DbType="Int32" Direction="Input" ParameterName="asset_id" Precision="0" Scale="0" Size="0" SourceColumn="asset_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ModificaDescrizione" Modifier="Public" Name="ModificaDescrizione" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ModificaDescrizione">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       pop_file_archivio
+SET                descrizione = ?
+WHERE        (file_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="descrizione" DataSourceName="cesar.pop_file_archivio" DataTypeServer="longtext" DbType="String" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="2147483647" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="file_id" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="Original_file_id" Precision="0" Scale="0" Size="0" SourceColumn="file_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SQ_asset_id" Modifier="Public" Name="SQ_asset_id" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="SQ_asset_id">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MAX(asset_id) as asset_id FROM pop_file_archivio</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SQ_ordine" Modifier="Public" Name="SQ_ordine" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="SQ_ordine">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MAX(ordinato) AS ordine
+FROM            pop_file_archivio
+WHERE        (cantiere_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="cantiere_id" DataSourceName="cesar.pop_file_archivio" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="cantiere_id" Precision="0" Scale="0" Size="0" SourceColumn="cantiere_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_utenti" GeneratorDataComponentClassName="TA_utenti" Name="DT_utenti" UserDataComponentName="TA_utenti">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, pwd, nome, cognome, id_az,concat(cognome,nome) as ricerca
+FROM            utenti</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="pwd" DataSetColumn="pwd" />
+              <Mapping SourceColumn="nome" DataSetColumn="nome" />
+              <Mapping SourceColumn="cognome" DataSetColumn="cognome" />
+              <Mapping SourceColumn="id_az" DataSetColumn="id_az" />
+              <Mapping SourceColumn="ricerca" DataSetColumn="ricerca" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_categorie" GeneratorDataComponentClassName="TA_categorie" Name="DT_categorie" UserDataComponentName="TA_categorie">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pop_file_categorie.*
+FROM            pop_file_categorie</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="dir_categoria" DataSetColumn="dir_categoria" />
+              <Mapping SourceColumn="dir_categoria_parent" DataSetColumn="dir_categoria_parent" />
+              <Mapping SourceColumn="id_parent" DataSetColumn="id_parent" />
+              <Mapping SourceColumn="lft" DataSetColumn="lft" />
+              <Mapping SourceColumn="rgt" DataSetColumn="rgt" />
+              <Mapping SourceColumn="livello" DataSetColumn="livello" />
+              <Mapping SourceColumn="titolo" DataSetColumn="titolo" />
+              <Mapping SourceColumn="alias" DataSetColumn="alias" />
+              <Mapping SourceColumn="descrizione" DataSetColumn="descrizione" />
+              <Mapping SourceColumn="icona" DataSetColumn="icona" />
+              <Mapping SourceColumn="accesso" DataSetColumn="accesso" />
+              <Mapping SourceColumn="creatore_id" DataSetColumn="creatore_id" />
+              <Mapping SourceColumn="creatore_data" DataSetColumn="creatore_data" />
+              <Mapping SourceColumn="editore_id" DataSetColumn="editore_id" />
+              <Mapping SourceColumn="editore_data" DataSetColumn="editore_data" />
+              <Mapping SourceColumn="note" DataSetColumn="note" />
+              <Mapping SourceColumn="viste" DataSetColumn="viste" />
+              <Mapping SourceColumn="ordine" DataSetColumn="ordine" />
+              <Mapping SourceColumn="pubblicato" DataSetColumn="pubblicato" />
+              <Mapping SourceColumn="asset_id" DataSetColumn="asset_id" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Elimina" Modifier="Public" Name="Elimina" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Elimina">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM pop_file_categorie
+WHERE        (id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id" Precision="0" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EliminaBycreatore" Modifier="Public" Name="EliminaBycreatore" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="EliminaBycreatore">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM pop_file_categorie
+WHERE        (creatore_id = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="creatore_id" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="creatore_id" Precision="0" Scale="0" Size="0" SourceColumn="creatore_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAsset" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByAsset" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByAsset">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pop_file_categorie.*
+FROM            pop_file_categorie
+WHERE asset_id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="asset_id" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer unsigned" DbType="Int32" Direction="Input" ParameterName="asset_id" Precision="0" Scale="0" Size="0" SourceColumn="asset_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Inserisce" Modifier="Public" Name="Inserisce" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Inserisce">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO pop_file_categorie
+                         (dir_categoria, dir_categoria_parent, id_parent, lft, rgt, livello, titolo, alias, descrizione, icona, accesso, creatore_id, creatore_data, editore_id, editore_data, note, viste, ordine, pubblicato, asset_id)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="dir_categoria" DataSourceName="cesar.pop_file_categorie" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="dir_categoria" Precision="0" Scale="0" Size="2147483647" SourceColumn="dir_categoria" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="dir_categoria_parent" DataSourceName="cesar.pop_file_categorie" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="dir_categoria_parent" Precision="0" Scale="0" Size="2147483647" SourceColumn="dir_categoria_parent" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="id_parent" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_parent" Precision="0" Scale="0" Size="0" SourceColumn="id_parent" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="lft" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="lft" Precision="0" Scale="0" Size="0" SourceColumn="lft" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param5" ColumnName="rgt" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="rgt" Precision="0" Scale="0" Size="0" SourceColumn="rgt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param6" ColumnName="livello" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="livello" Precision="0" Scale="0" Size="0" SourceColumn="livello" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param7" ColumnName="titolo" DataSourceName="cesar.pop_file_categorie" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="titolo" Precision="0" Scale="0" Size="1024" SourceColumn="titolo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param8" ColumnName="alias" DataSourceName="cesar.pop_file_categorie" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="alias" Precision="0" Scale="0" Size="1024" SourceColumn="alias" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param9" ColumnName="descrizione" DataSourceName="cesar.pop_file_categorie" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="descrizione" Precision="0" Scale="0" Size="2147483647" SourceColumn="descrizione" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param10" ColumnName="icona" DataSourceName="cesar.pop_file_categorie" DataTypeServer="varchar" DbType="String" Direction="Input" ParameterName="icona" Precision="0" Scale="0" Size="1024" SourceColumn="icona" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="accesso" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer unsigned" DbType="Int32" Direction="Input" ParameterName="accesso" Precision="0" Scale="0" Size="0" SourceColumn="accesso" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param12" ColumnName="creatore_id" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="creatore_id" Precision="0" Scale="0" Size="0" SourceColumn="creatore_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param13" ColumnName="creatore_data" DataSourceName="cesar.pop_file_categorie" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="creatore_data" Precision="0" Scale="0" Size="0" SourceColumn="creatore_data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param14" ColumnName="editore_id" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="editore_id" Precision="0" Scale="0" Size="0" SourceColumn="editore_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param15" ColumnName="editore_data" DataSourceName="cesar.pop_file_categorie" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="editore_data" Precision="0" Scale="0" Size="0" SourceColumn="editore_data" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param16" ColumnName="note" DataSourceName="cesar.pop_file_categorie" DataTypeServer="text" DbType="String" Direction="Input" ParameterName="note" Precision="0" Scale="0" Size="2147483647" SourceColumn="note" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param17" ColumnName="viste" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer unsigned" DbType="Int32" Direction="Input" ParameterName="viste" Precision="0" Scale="0" Size="0" SourceColumn="viste" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param18" ColumnName="ordine" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="ordine" Precision="0" Scale="0" Size="0" SourceColumn="ordine" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param19" ColumnName="pubblicato" DataSourceName="cesar.pop_file_categorie" DataTypeServer="tinyint" DbType="Int32" Direction="Input" ParameterName="pubblicato" Precision="0" Scale="0" Size="0" SourceColumn="pubblicato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param20" ColumnName="asset_id" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer unsigned" DbType="Int32" Direction="Input" ParameterName="asset_id" Precision="0" Scale="0" Size="0" SourceColumn="asset_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SQ_esistegia" Modifier="Public" Name="SQ_esistegia" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="SQ_esistegia">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        count(id)
+FROM            pop_file_categorie
+WHERE creatore_id = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="creatore_id" DataSourceName="cesar.pop_file_categorie" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="creatore_id" Precision="0" Scale="0" Size="0" SourceColumn="creatore_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TA_cantieri" GeneratorDataComponentClassName="TA_cantieri" Name="DT_cantieri" UserDataComponentName="TA_cantieri">
+            <MainSource>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, societa, address, postalcode, city, region, state, title, email_name, first_name, partitaiva,attivo,budget, id_az,
+CONCAT(societa,first_name) as ricerca
+FROM            cantieri
+ORDER BY societa</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="societa" DataSetColumn="societa" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="postalcode" DataSetColumn="postalcode" />
+              <Mapping SourceColumn="city" DataSetColumn="city" />
+              <Mapping SourceColumn="region" DataSetColumn="region" />
+              <Mapping SourceColumn="state" DataSetColumn="state" />
+              <Mapping SourceColumn="title" DataSetColumn="title" />
+              <Mapping SourceColumn="email_name" DataSetColumn="email_name" />
+              <Mapping SourceColumn="first_name" DataSetColumn="first_name" />
+              <Mapping SourceColumn="partitaiva" DataSetColumn="partitaiva" />
+              <Mapping SourceColumn="id_az" DataSetColumn="id_az" />
+              <Mapping SourceColumn="attivo" DataSetColumn="attivo" />
+              <Mapping SourceColumn="budget" DataSetColumn="budget" />
+              <Mapping SourceColumn="ricerca" DataSetColumn="ricerca" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="imp_est (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAZ" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByAZ" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByAZ">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id, societa, address, postalcode, city, region, state, title, email_name, first_name, partitaiva,attivo,budget, id_az
+FROM            cantieri
+WHERE id_az = ?
+ORDER BY societa</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_az" DataSourceName="cesar.cantieri" DataTypeServer="integer" DbType="Int32" Direction="Input" ParameterName="id_az" Precision="0" Scale="0" Size="0" SourceColumn="id_az" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_gestione_documenti" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_gestione_documenti" msprop:Generator_UserDSName="DS_gestione_documenti">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_file" msprop:Generator_TableClassName="DT_fileDataTable" msprop:Generator_TableVarName="tableDT_file" msprop:Generator_RowChangedName="DT_fileRowChanged" msprop:Generator_TablePropName="DT_file" msprop:Generator_RowDeletingName="DT_fileRowDeleting" msprop:Generator_RowChangingName="DT_fileRowChanging" msprop:Generator_RowEvHandlerName="DT_fileRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_fileRowDeleted" msprop:Generator_RowClassName="DT_fileRow" msprop:Generator_UserTableName="DT_file" msprop:Generator_RowEvArgName="DT_fileRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="file_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnfile_id" msprop:Generator_ColumnPropNameInRow="file_id" msprop:Generator_ColumnPropNameInTable="file_idColumn" msprop:Generator_UserColumnName="file_id" type="xs:int" minOccurs="0" />
+              <xs:element name="file_titolo" msprop:Generator_ColumnVarNameInTable="columnfile_titolo" msprop:Generator_ColumnPropNameInRow="file_titolo" msprop:Generator_ColumnPropNameInTable="file_titoloColumn" msprop:Generator_UserColumnName="file_titolo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="file_alias" msprop:Generator_ColumnVarNameInTable="columnfile_alias" msprop:Generator_ColumnPropNameInRow="file_alias" msprop:Generator_ColumnPropNameInTable="file_aliasColumn" msprop:Generator_UserColumnName="file_alias">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="file_icona" msprop:Generator_ColumnVarNameInTable="columnfile_icona" msprop:Generator_ColumnPropNameInRow="file_icona" msprop:Generator_ColumnPropNameInTable="file_iconaColumn" msprop:Generator_UserColumnName="file_icona">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="prezzo" msprop:Generator_ColumnVarNameInTable="columnprezzo" msprop:Generator_ColumnPropNameInRow="prezzo" msprop:Generator_ColumnPropNameInTable="prezzoColumn" msprop:Generator_UserColumnName="prezzo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rilascio" msprop:Generator_ColumnVarNameInTable="columnrilascio" msprop:Generator_ColumnPropNameInRow="rilascio" msprop:Generator_ColumnPropNameInTable="rilascioColumn" msprop:Generator_UserColumnName="rilascio">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="data_aggiunta" msprop:Generator_ColumnVarNameInTable="columndata_aggiunta" msprop:Generator_ColumnPropNameInRow="data_aggiunta" msprop:Generator_ColumnPropNameInTable="data_aggiuntaColumn" msprop:Generator_UserColumnName="data_aggiunta" type="xs:dateTime" />
+              <xs:element name="data_file" msprop:Generator_ColumnVarNameInTable="columndata_file" msprop:Generator_ColumnPropNameInRow="data_file" msprop:Generator_ColumnPropNameInTable="data_fileColumn" msprop:Generator_UserColumnName="data_file" type="xs:dateTime" />
+              <xs:element name="url_download" msprop:Generator_ColumnVarNameInTable="columnurl_download" msprop:Generator_ColumnPropNameInRow="url_download" msprop:Generator_ColumnPropNameInTable="url_downloadColumn" msprop:Generator_UserColumnName="url_download">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="md5_valore" msprop:Generator_ColumnVarNameInTable="columnmd5_valore" msprop:Generator_ColumnPropNameInRow="md5_valore" msprop:Generator_ColumnPropNameInTable="md5_valoreColumn" msprop:Generator_UserColumnName="md5_valore">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sha1_valore" msprop:Generator_ColumnVarNameInTable="columnsha1_valore" msprop:Generator_ColumnPropNameInRow="sha1_valore" msprop:Generator_ColumnPropNameInTable="sha1_valoreColumn" msprop:Generator_UserColumnName="sha1_valore">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="autore" msprop:Generator_ColumnVarNameInTable="columnautore" msprop:Generator_ColumnPropNameInRow="autore" msprop:Generator_ColumnPropNameInTable="autoreColumn" msprop:Generator_UserColumnName="autore">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="creato_da" msprop:Generator_ColumnVarNameInTable="columncreato_da" msprop:Generator_ColumnPropNameInRow="creato_da" msprop:Generator_ColumnPropNameInTable="creato_daColumn" msprop:Generator_UserColumnName="creato_da">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="creato_id" msprop:Generator_ColumnVarNameInTable="columncreato_id" msprop:Generator_ColumnPropNameInRow="creato_id" msprop:Generator_ColumnPropNameInTable="creato_idColumn" msprop:Generator_UserColumnName="creato_id" type="xs:int" />
+              <xs:element name="downloads" msprop:Generator_ColumnVarNameInTable="columndownloads" msprop:Generator_ColumnPropNameInRow="downloads" msprop:Generator_ColumnPropNameInTable="downloadsColumn" msprop:Generator_UserColumnName="downloads" type="xs:int" />
+              <xs:element name="id_categoria" msprop:Generator_ColumnVarNameInTable="columnid_categoria" msprop:Generator_ColumnPropNameInRow="id_categoria" msprop:Generator_ColumnPropNameInTable="id_categoriaColumn" msprop:Generator_UserColumnName="id_categoria" type="xs:int" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32767" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="visto" msprop:Generator_ColumnVarNameInTable="columnvisto" msprop:Generator_ColumnPropNameInRow="visto" msprop:Generator_ColumnPropNameInTable="vistoColumn" msprop:Generator_UserColumnName="visto" type="xs:int" />
+              <xs:element name="ordinato" msprop:Generator_ColumnVarNameInTable="columnordinato" msprop:Generator_ColumnPropNameInRow="ordinato" msprop:Generator_ColumnPropNameInTable="ordinatoColumn" msprop:Generator_UserColumnName="ordinato" type="xs:int" />
+              <xs:element name="pubblicato" msprop:Generator_ColumnVarNameInTable="columnpubblicato" msprop:Generator_ColumnPropNameInRow="pubblicato" msprop:Generator_ColumnPropNameInTable="pubblicatoColumn" msprop:Generator_UserColumnName="pubblicato" type="xs:short" />
+              <xs:element name="asset_id" msprop:Generator_ColumnVarNameInTable="columnasset_id" msprop:Generator_ColumnPropNameInRow="asset_id" msprop:Generator_ColumnPropNameInTable="asset_idColumn" msprop:Generator_UserColumnName="asset_id" type="xs:long" />
+              <xs:element name="cantiere_nome" msprop:Generator_ColumnVarNameInTable="columncantiere_nome" msprop:Generator_ColumnPropNameInRow="cantiere_nome" msprop:Generator_ColumnPropNameInTable="cantiere_nomeColumn" msprop:Generator_UserColumnName="cantiere_nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantiere_id" msprop:Generator_ColumnVarNameInTable="columncantiere_id" msprop:Generator_ColumnPropNameInRow="cantiere_id" msprop:Generator_ColumnPropNameInTable="cantiere_idColumn" msprop:Generator_UserColumnName="cantiere_id" type="xs:int" />
+              <xs:element name="cantiere_data" msprop:Generator_ColumnVarNameInTable="columncantiere_data" msprop:Generator_ColumnPropNameInRow="cantiere_data" msprop:Generator_ColumnPropNameInTable="cantiere_dataColumn" msprop:Generator_UserColumnName="cantiere_data" type="xs:dateTime" />
+              <xs:element name="ricerca" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnricerca" msprop:Generator_ColumnPropNameInRow="ricerca" msprop:Generator_ColumnPropNameInTable="ricercaColumn" msprop:Generator_UserColumnName="ricerca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="98700" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_utenti" msprop:Generator_TableClassName="DT_utentiDataTable" msprop:Generator_TableVarName="tableDT_utenti" msprop:Generator_RowChangedName="DT_utentiRowChanged" msprop:Generator_TablePropName="DT_utenti" msprop:Generator_RowDeletingName="DT_utentiRowDeleting" msprop:Generator_RowChangingName="DT_utentiRowChanging" msprop:Generator_RowEvHandlerName="DT_utentiRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_utentiRowDeleted" msprop:Generator_RowClassName="DT_utentiRow" msprop:Generator_UserTableName="DT_utenti" msprop:Generator_RowEvArgName="DT_utentiRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="pwd" msprop:Generator_ColumnVarNameInTable="columnpwd" msprop:Generator_ColumnPropNameInRow="pwd" msprop:Generator_ColumnPropNameInTable="pwdColumn" msprop:Generator_UserColumnName="pwd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nome" msprop:Generator_ColumnVarNameInTable="columnnome" msprop:Generator_ColumnPropNameInRow="nome" msprop:Generator_ColumnPropNameInTable="nomeColumn" msprop:Generator_UserColumnName="nome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cognome" msprop:Generator_ColumnVarNameInTable="columncognome" msprop:Generator_ColumnPropNameInRow="cognome" msprop:Generator_ColumnPropNameInTable="cognomeColumn" msprop:Generator_UserColumnName="cognome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="39" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_az" msprop:Generator_ColumnVarNameInTable="columnid_az" msprop:Generator_ColumnPropNameInRow="id_az" msprop:Generator_ColumnPropNameInTable="id_azColumn" msprop:Generator_UserColumnName="id_az" type="xs:int" minOccurs="0" />
+              <xs:element name="ricerca" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnricerca" msprop:Generator_ColumnPropNameInRow="ricerca" msprop:Generator_ColumnPropNameInTable="ricercaColumn" msprop:Generator_UserColumnName="ricerca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="69" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_categorie" msprop:Generator_TableClassName="DT_categorieDataTable" msprop:Generator_TableVarName="tableDT_categorie" msprop:Generator_RowChangedName="DT_categorieRowChanged" msprop:Generator_TablePropName="DT_categorie" msprop:Generator_RowDeletingName="DT_categorieRowDeleting" msprop:Generator_RowChangingName="DT_categorieRowChanging" msprop:Generator_RowEvHandlerName="DT_categorieRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_categorieRowDeleted" msprop:Generator_RowClassName="DT_categorieRow" msprop:Generator_UserTableName="DT_categorie" msprop:Generator_RowEvArgName="DT_categorieRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="dir_categoria" msprop:Generator_ColumnVarNameInTable="columndir_categoria" msprop:Generator_ColumnPropNameInRow="dir_categoria" msprop:Generator_ColumnPropNameInTable="dir_categoriaColumn" msprop:Generator_UserColumnName="dir_categoria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32767" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dir_categoria_parent" msprop:Generator_ColumnVarNameInTable="columndir_categoria_parent" msprop:Generator_ColumnPropNameInRow="dir_categoria_parent" msprop:Generator_ColumnPropNameInTable="dir_categoria_parentColumn" msprop:Generator_UserColumnName="dir_categoria_parent">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32767" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_parent" msprop:Generator_ColumnVarNameInTable="columnid_parent" msprop:Generator_ColumnPropNameInRow="id_parent" msprop:Generator_ColumnPropNameInTable="id_parentColumn" msprop:Generator_UserColumnName="id_parent" type="xs:int" />
+              <xs:element name="lft" msprop:Generator_ColumnVarNameInTable="columnlft" msprop:Generator_ColumnPropNameInRow="lft" msprop:Generator_ColumnPropNameInTable="lftColumn" msprop:Generator_UserColumnName="lft" type="xs:int" />
+              <xs:element name="rgt" msprop:Generator_ColumnVarNameInTable="columnrgt" msprop:Generator_ColumnPropNameInRow="rgt" msprop:Generator_ColumnPropNameInTable="rgtColumn" msprop:Generator_UserColumnName="rgt" type="xs:int" />
+              <xs:element name="livello" msprop:Generator_ColumnVarNameInTable="columnlivello" msprop:Generator_ColumnPropNameInRow="livello" msprop:Generator_ColumnPropNameInTable="livelloColumn" msprop:Generator_UserColumnName="livello" type="xs:int" />
+              <xs:element name="titolo" msprop:Generator_ColumnVarNameInTable="columntitolo" msprop:Generator_ColumnPropNameInRow="titolo" msprop:Generator_ColumnPropNameInTable="titoloColumn" msprop:Generator_UserColumnName="titolo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="alias" msprop:Generator_ColumnVarNameInTable="columnalias" msprop:Generator_ColumnPropNameInRow="_alias" msprop:Generator_ColumnPropNameInTable="aliasColumn" msprop:Generator_UserColumnName="alias">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="descrizione" msprop:Generator_ColumnVarNameInTable="columndescrizione" msprop:Generator_ColumnPropNameInRow="descrizione" msprop:Generator_ColumnPropNameInTable="descrizioneColumn" msprop:Generator_UserColumnName="descrizione">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32767" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="icona" msprop:Generator_ColumnVarNameInTable="columnicona" msprop:Generator_ColumnPropNameInRow="icona" msprop:Generator_ColumnPropNameInTable="iconaColumn" msprop:Generator_UserColumnName="icona">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="382" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="accesso" msprop:Generator_ColumnVarNameInTable="columnaccesso" msprop:Generator_ColumnPropNameInRow="accesso" msprop:Generator_ColumnPropNameInTable="accessoColumn" msprop:Generator_UserColumnName="accesso" type="xs:long" minOccurs="0" />
+              <xs:element name="creatore_id" msprop:Generator_ColumnVarNameInTable="columncreatore_id" msprop:Generator_ColumnPropNameInRow="creatore_id" msprop:Generator_ColumnPropNameInTable="creatore_idColumn" msprop:Generator_UserColumnName="creatore_id" type="xs:int" />
+              <xs:element name="creatore_data" msprop:Generator_ColumnVarNameInTable="columncreatore_data" msprop:Generator_ColumnPropNameInRow="creatore_data" msprop:Generator_ColumnPropNameInTable="creatore_dataColumn" msprop:Generator_UserColumnName="creatore_data" type="xs:dateTime" />
+              <xs:element name="editore_id" msprop:Generator_ColumnVarNameInTable="columneditore_id" msprop:Generator_ColumnPropNameInRow="editore_id" msprop:Generator_ColumnPropNameInTable="editore_idColumn" msprop:Generator_UserColumnName="editore_id" type="xs:int" />
+              <xs:element name="editore_data" msprop:Generator_ColumnVarNameInTable="columneditore_data" msprop:Generator_ColumnPropNameInRow="editore_data" msprop:Generator_ColumnPropNameInTable="editore_dataColumn" msprop:Generator_UserColumnName="editore_data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="note" msprop:Generator_ColumnVarNameInTable="columnnote" msprop:Generator_ColumnPropNameInRow="note" msprop:Generator_ColumnPropNameInTable="noteColumn" msprop:Generator_UserColumnName="note">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32767" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="viste" msprop:Generator_ColumnVarNameInTable="columnviste" msprop:Generator_ColumnPropNameInRow="viste" msprop:Generator_ColumnPropNameInTable="visteColumn" msprop:Generator_UserColumnName="viste" type="xs:long" />
+              <xs:element name="ordine" msprop:Generator_ColumnVarNameInTable="columnordine" msprop:Generator_ColumnPropNameInRow="ordine" msprop:Generator_ColumnPropNameInTable="ordineColumn" msprop:Generator_UserColumnName="ordine" type="xs:int" />
+              <xs:element name="pubblicato" msprop:Generator_ColumnVarNameInTable="columnpubblicato" msprop:Generator_ColumnPropNameInRow="pubblicato" msprop:Generator_ColumnPropNameInTable="pubblicatoColumn" msprop:Generator_UserColumnName="pubblicato" type="xs:short" />
+              <xs:element name="asset_id" msprop:Generator_ColumnVarNameInTable="columnasset_id" msprop:Generator_ColumnPropNameInRow="asset_id" msprop:Generator_ColumnPropNameInTable="asset_idColumn" msprop:Generator_UserColumnName="asset_id" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_cantieri" msprop:Generator_TableClassName="DT_cantieriDataTable" msprop:Generator_TableVarName="tableDT_cantieri" msprop:Generator_RowChangedName="DT_cantieriRowChanged" msprop:Generator_TablePropName="DT_cantieri" msprop:Generator_RowDeletingName="DT_cantieriRowDeleting" msprop:Generator_RowChangingName="DT_cantieriRowChanging" msprop:Generator_RowEvHandlerName="DT_cantieriRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_cantieriRowDeleted" msprop:Generator_RowClassName="DT_cantieriRow" msprop:Generator_UserTableName="DT_cantieri" msprop:Generator_RowEvArgName="DT_cantieriRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="societa" msprop:Generator_ColumnVarNameInTable="columnsocieta" msprop:Generator_ColumnPropNameInRow="societa" msprop:Generator_ColumnPropNameInTable="societaColumn" msprop:Generator_UserColumnName="societa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="67" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="postalcode" msprop:Generator_ColumnVarNameInTable="columnpostalcode" msprop:Generator_ColumnPropNameInRow="postalcode" msprop:Generator_ColumnPropNameInTable="postalcodeColumn" msprop:Generator_UserColumnName="postalcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="city" msprop:Generator_ColumnVarNameInTable="columncity" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_UserColumnName="city" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="39" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="region" msprop:Generator_ColumnVarNameInTable="columnregion" msprop:Generator_ColumnPropNameInRow="_region" msprop:Generator_ColumnPropNameInTable="regionColumn" msprop:Generator_UserColumnName="region" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="state" msprop:Generator_ColumnVarNameInTable="columnstate" msprop:Generator_ColumnPropNameInRow="state" msprop:Generator_ColumnPropNameInTable="stateColumn" msprop:Generator_UserColumnName="state" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email_name" msprop:Generator_ColumnVarNameInTable="columnemail_name" msprop:Generator_ColumnPropNameInRow="email_name" msprop:Generator_ColumnPropNameInTable="email_nameColumn" msprop:Generator_UserColumnName="email_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="55" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="first_name" msprop:Generator_ColumnVarNameInTable="columnfirst_name" msprop:Generator_ColumnPropNameInRow="first_name" msprop:Generator_ColumnPropNameInTable="first_nameColumn" msprop:Generator_UserColumnName="first_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="46" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="partitaiva" msprop:Generator_ColumnVarNameInTable="columnpartitaiva" msprop:Generator_ColumnPropNameInRow="partitaiva" msprop:Generator_ColumnPropNameInTable="partitaivaColumn" msprop:Generator_UserColumnName="partitaiva" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_az" msprop:Generator_ColumnVarNameInTable="columnid_az" msprop:Generator_ColumnPropNameInRow="id_az" msprop:Generator_ColumnPropNameInTable="id_azColumn" msprop:Generator_UserColumnName="id_az" type="xs:int" minOccurs="0" />
+              <xs:element name="attivo" msprop:Generator_ColumnVarNameInTable="columnattivo" msprop:Generator_ColumnPropNameInRow="attivo" msprop:Generator_ColumnPropNameInTable="attivoColumn" msprop:Generator_UserColumnName="attivo" type="xs:int" minOccurs="0" />
+              <xs:element name="budget" msprop:Generator_ColumnVarNameInTable="columnbudget" msprop:Generator_ColumnPropNameInRow="budget" msprop:Generator_ColumnPropNameInTable="budgetColumn" msprop:Generator_UserColumnName="budget" type="xs:int" minOccurs="0" />
+              <xs:element name="ricerca" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnricerca" msprop:Generator_ColumnPropNameInRow="ricerca" msprop:Generator_ColumnPropNameInTable="ricercaColumn" msprop:Generator_UserColumnName="ricerca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="160" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:DT_file" />
+      <xs:field xpath="mstns:file_id" />
+    </xs:unique>
+    <xs:unique name="DT_categorie_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:DT_categorie" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="REL_cantiere_file" msdata:parent="DT_cantieri" msdata:child="DT_file" msdata:parentkey="id" msdata:childkey="cantiere_id" msprop:Generator_UserChildTable="DT_file" msprop:Generator_ChildPropName="GetDT_fileRows" msprop:Generator_UserRelationName="REL_cantiere_file" msprop:Generator_ParentPropName="DT_cantieriRow" msprop:Generator_RelationVarName="relationREL_cantiere_file" msprop:Generator_UserParentTable="DT_cantieri" />
+      <msdata:Relationship name="REL_file_Categoria" msdata:parent="DT_file" msdata:child="DT_categorie" msdata:parentkey="id_categoria" msdata:childkey="id" msprop:Generator_UserChildTable="DT_categorie" msprop:Generator_ChildPropName="GetDT_categorieRows" msprop:Generator_UserRelationName="REL_file_Categoria" msprop:Generator_RelationVarName="relationREL_file_Categoria" msprop:Generator_UserParentTable="DT_file" msprop:Generator_ParentPropName="DT_fileRow" />
+      <msdata:Relationship name="REL_CantieriCategorie" msdata:parent="DT_cantieri" msdata:child="DT_categorie" msdata:parentkey="id" msdata:childkey="creatore_id" msprop:Generator_UserChildTable="DT_categorie" msprop:Generator_ChildPropName="GetDT_categorieRows" msprop:Generator_UserRelationName="REL_CantieriCategorie" msprop:Generator_ParentPropName="DT_cantieriRow" msprop:Generator_RelationVarName="relationREL_CantieriCategorie" msprop:Generator_UserParentTable="DT_cantieri" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
